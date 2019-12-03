@@ -1,0 +1,3 @@
+target "CareGiverApp" do
+  pod "EstimoteProximitySDK"
+end
