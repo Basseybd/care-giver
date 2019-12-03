@@ -10,7 +10,7 @@
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>We&apos;ll show you cool things near you in the app. With the &quot;always&quot; option, we can also alert you via notifications if you don&apos;t have the app open.</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Location Data</string>
+	<string>Access to Bluetooth Beacons to display relevant information </string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
