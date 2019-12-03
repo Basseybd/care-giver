@@ -1,3 +1,0 @@
-target "Tabbed" do
-  pod "EstimoteProximitySDK"
-end
