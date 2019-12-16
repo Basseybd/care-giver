@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15A6FEEA23A7662D00A1C7CD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A6FEE923A7662D00A1C7CD /* Utils.swift */; };
 		15DE14E72396FBAB0015B701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE14E62396FBAB0015B701 /* AppDelegate.swift */; };
 		15DE14E92396FBAB0015B701 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE14E82396FBAB0015B701 /* SceneDelegate.swift */; };
 		15DE14EB2396FBAB0015B701 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE14EA2396FBAB0015B701 /* FirstViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15A6FEE923A7662D00A1C7CD /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		15DE14E32396FBAB0015B701 /* CareGiverApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareGiverApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15DE14E62396FBAB0015B701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15DE14E82396FBAB0015B701 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				15DE14F62396FBAE0015B701 /* LaunchScreen.storyboard */,
 				15DE14F92396FBAE0015B701 /* Info.plist */,
 				15DE14F12396FBAB0015B701 /* CareGiverApp.xcdatamodeld */,
+				15A6FEE923A7662D00A1C7CD /* Utils.swift */,
 			);
 			path = CareGiverApp;
 			sourceTree = "<group>";
@@ -147,7 +150,6 @@
 				52D2FB1BB65D50F59D757ACF /* Pods-CareGiverApp.debug.xcconfig */,
 				987F439BFA27C2B7C4E9BBC1 /* Pods-CareGiverApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -339,6 +341,7 @@
 				15DE14E72396FBAB0015B701 /* AppDelegate.swift in Sources */,
 				15DE14E92396FBAB0015B701 /* SceneDelegate.swift in Sources */,
 				15DE14F32396FBAB0015B701 /* CareGiverApp.xcdatamodeld in Sources */,
+				15A6FEEA23A7662D00A1C7CD /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

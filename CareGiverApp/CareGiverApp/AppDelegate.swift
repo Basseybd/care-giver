@@ -8,39 +8,58 @@
 import UIKit
 import CoreData
 import EstimoteProximitySDK
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var proximityObserver: ProximityObserver!
-
+    var locationManager: CLLocationManager = CLLocationManager()
+    var fetchResult: UIBackgroundFetchResult!
+    public var counter: Int!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        
+           
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
         //Thread.sleep(forTimeInterval: 2.0)
+        
+        let estimoteCloudCredentials = CloudCredentials(appID: "caregiver-2-0-cr9", appToken: "aabc089761b372d32f2cfffbadda68c9")
+
+        self.proximityObserver = ProximityObserver(credentials: estimoteCloudCredentials, onError: { error in
+            print("ProximityObserver error: \(error)")
+        })
+        
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.delegate = self
         notificationCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
             print("notifications permission granted = \(granted), error = \(error?.localizedDescription ?? "(none)")")
         }
-
         
-        let estimoteCloudCredentials = CloudCredentials(appID: "caregiver-cg8", appToken: "cfc2e5d03b7cce36ba943b2de3037e41")
-
-        proximityObserver = ProximityObserver(credentials: estimoteCloudCredentials, onError: { error in
-            print("ProximityObserver error: \(error)")
-        })
-        
-        
-        let zone = ProximityZone(tag: "caregiver-cg8", range: ProximityRange.near)
-        zone.onEnter = { context in
-            let content = UNMutableNotificationContent()
-            content.title = "Hello, You've Entered the Bathroom"
-            content.body = "Please don't forget to wash your hands"
-            content.sound = UNNotificationSound.default
-            let request = UNNotificationRequest(identifier: "enter", content: content, trigger: nil)
-            notificationCenter.add(request, withCompletionHandler: nil)
+        let bathroom = ProximityZone(tag: "bathroom", range: ProximityRange.near)
+        bathroom.onEnter = { context in
+            self.counter = 1
+            self.showNotification(with: " Hello, You've Entered the Bathroom", body: "Please don't forget to wash your hands")
         }
-        zone.onExit = { context in
+        bathroom.onExit = { context in
+            self.counter = 2
+            self.showNotification(with: "Leaving Bathroom", body: "Flush the Toilet")
+        }
+        
+        let bedroom = ProximityZone(tag: "bedroom", range: ProximityRange.near)
+        bedroom.onEnter = { context in
+            self.counter = 0
+            self.showNotification(with: "Hello, You've Entered the Bedroom", body: "Welcome")
+        }
+        bedroom.onExit = { context in
+            self.showNotification(with: "Leaving Bedroom", body: "GoodBye")
+        }
+        
+        /*
+        bathroom.onExit = { context in
             let content = UNMutableNotificationContent()
             content.title = "Bye bye, You're leaving the bathroom"
             content.body = "We hope you remembered to wash your hands"
@@ -48,12 +67,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let request = UNNotificationRequest(identifier: "exit", content: content, trigger: nil)
             notificationCenter.add(request, withCompletionHandler: nil)
         }
+        
+        
+        zone.onContextChange = { contexts in
+            let content = UNMutableNotificationContent()
+            content.title = "Contexts:"
+            content.body = "\(contexts.count) contexts"
+            content.sound = UNNotificationSound.default
+            let request = UNNotificationRequest(identifier: "exit", content: content, trigger: nil)
+            notificationCenter.add(request, withCompletionHandler: nil)
 
-        proximityObserver.startObserving([zone])
-         
+        }*/
+        
+        
+        proximityObserver.startObserving([bedroom, bathroom])
+        
         return true
     }
 
+    func showNotification(with title: String, body: String){
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.delegate = self
+        notificationCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
+            print("notifications permission granted = \(granted), error = \(error?.localizedDescription ?? "(none)")")
+        }
+        
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = UNNotificationSound.default
+        let request = UNNotificationRequest(identifier: "exit", content: content, trigger: nil)
+        notificationCenter.add(request, withCompletionHandler: nil)
+    }
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
