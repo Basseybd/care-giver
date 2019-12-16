@@ -11,7 +11,6 @@
 #endif
 
 #import "AWSAuthCore.h"
-#import "AWSAuthUIHelper.h"
 #import "AWSIdentityManager.h"
 #import "AWSSignInButtonView.h"
 #import "AWSSignInManager.h"

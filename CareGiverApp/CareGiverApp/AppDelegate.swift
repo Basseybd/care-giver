@@ -9,8 +9,10 @@ import UIKit
 import CoreData
 import EstimoteProximitySDK
 import CoreLocation
-import Amplify
-
+//import Amplify
+import AWSCore
+import AWSMobileClient
+import AWSPinpoint
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +22,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var locationManager: CLLocationManager = CLLocationManager()
     var fetchResult: UIBackgroundFetchResult!
     public var counter: Int!
+    var pinpoint: AWSPinpoint?
+    
+    
+    func application(_ application: UIApplication, open url: URL,
+        sourceApplication: String?, annotation: Any) -> Bool {
+
+        return AWSMobileClient.sharedInstance().interceptApplication(
+            application, open: url,
+            sourceApplication: sourceApplication,
+            annotation: annotation)
+
+    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -74,9 +88,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //let innerZoneB1 = ProximityZone(tag: "kitchen",  range: ProximityRange(desiredMeanTriggerDistance: 1.25)!)
         proximityObserver.startObserving([bedroom, bathroom, closet, kitchen])
         
-        return true
+        
+        //analytics
+        pinpoint = AWSPinpoint(configuration:
+                AWSPinpointConfiguration.defaultPinpointConfiguration(launchOptions: launchOptions))
+
+        
+        let credentialsProvider = AWSMobileClient.sharedInstance().getCredentialsProvider()
+
+        // Get the identity Id from the AWSIdentityManager
+        let identityId = AWSIdentityManager.default().identityId
+        
+        AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
+        AWSDDLog.sharedInstance.logLevel = .info
+        
+        //connect to aws
+        return AWSMobileClient.sharedInstance().interceptApplication(
+            application, didFinishLaunchingWithOptions:
+            launchOptions)
     }
 
+    
     func showNotification(with title: String, body: String){
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.delegate = self

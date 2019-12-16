@@ -7,6 +7,32 @@
 //
 
 import UIKit
+import AWSAuthCore
+import AWSAuthUI
+
+class SecondViewController: UIViewController {
+
+    override func viewDidLoad() {
+
+        super.viewDidLoad()
+        /*
+        if !AWSSignInManager.sharedInstance().isLoggedIn {
+           AWSAuthUIViewController
+             .presentViewController(with: self.navigationController!,
+                  configuration: nil,
+                  completionHandler: { (provider: AWSSignInProvider, error: Error?) in
+                     if error != nil {
+                         print("Error occurred: \(String(describing: error))")
+                     } else {
+                         // Sign in successful.
+                     }
+                  })
+        }*/
+    }
+}
+
+/*
+import UIKit
 import EstimoteProximitySDK
 
 class SecondViewController: UIViewController {
@@ -15,6 +41,8 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         /*
         let estimoteCloudCredentials = CloudCredentials(appID: "caregiver-2-0-cr9", appToken: "aabc089761b372d32f2cfffbadda68c9")
         proximityObserver = ProximityObserver(credentials: estimoteCloudCredentials, onError: { error in
@@ -48,6 +76,6 @@ class SecondViewController: UIViewController {
         let decryptedString = String(data: decryptedData, encoding: .utf8)!
 
         return decryptedString
-    }*/
-}
-
+    }
+}*/
+*/

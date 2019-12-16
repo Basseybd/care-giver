@@ -1,8 +1,18 @@
 //
-// Copyright 2014-2018 Amazon.com,
+// Copyright 2014-2017 Amazon.com,
 // Inc. or its affiliates. All Rights Reserved.
 //
-// SPDX-License-Identifier: Apache-2.0
+// Licensed under the Amazon Software License (the "License").
+// You may not use this file except in compliance with the
+// License. A copy of the License is located at
+//
+//     http://aws.amazon.com/asl/
+//
+// or in the "license" file accompanying this file. This file is
+// distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+// CONDITIONS OF ANY KIND, express or implied. See the License
+// for the specific language governing permissions and
+// limitations under the License.
 //
 
 #import <Foundation/Foundation.h>
@@ -102,11 +112,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityUserSession *> *)getSession:(NSString *)username
                                                 password:(NSString *)password
                                           validationData:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)validationData;
-
-- (AWSTask<AWSCognitoIdentityUserSession *> *)getSession:(NSString *)username
-                                                password:(NSString *)password
-                                          validationData:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)validationData
-                                isInitialCustomChallenge:(BOOL)isInitialCustomChallenge;
 
 /**
  Get details about this user, including user attributes
@@ -266,16 +271,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  A NSDictionary of claims in this token.
-
- @deprecated This property is incorrectly typed as a [String : String], but
- claim values may be of several different type.
  */
-@property (nonatomic, readonly) NSDictionary<NSString *, NSString*> * claims DEPRECATED_MSG_ATTRIBUTE("Use `tokenClaims` instead.");
-
-/**
- A Dictionary of claims in this token
- */
-@property (nonatomic, readonly) NSDictionary<NSString *, id> * tokenClaims;
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString*> * claims;
 
 @end
 

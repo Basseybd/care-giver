@@ -25,14 +25,6 @@ typedef void (^AWSSignInManagerCompletionBlock)(id result, NSError *error);
 
 @property (nonatomic, strong) id<AWSSignInProvider> currentSignInProvider;
 @property (nonatomic, strong) id<AWSSignInProvider> potentialSignInProvider;
-@property (nonatomic) BOOL shouldFederate;
-    
-@property (nonatomic) BOOL pendingSignIn;
-@property (strong, atomic) NSString *pendingUsername;
-@property (strong, atomic) NSString *pendingPassword;
-    
--(void)reSignInWithUsername:(NSString *)username
-                   password:(NSString *)password;
 
 -(id<AWSSignInProvider>)signInProviderForKey:(NSString *)key;
 
@@ -48,22 +40,11 @@ static AWSIdentityManager *identityManager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedSignInManager = [[AWSSignInManager alloc] init];
-        _sharedSignInManager.shouldFederate = YES;
         signInProviderInfo = [[NSMutableDictionary alloc] init];
         identityManager = [AWSIdentityManager defaultIdentityManager];
     });
     
     return _sharedSignInManager;
-}
-
--(void)setDontFederate {
-    AWSSignInManager.sharedInstance.shouldFederate = NO;
-}
-    
--(void)reSignInWithUsername:(NSString *)username
-                   password:(NSString *)password {
-    AWSSignInManager.sharedInstance.pendingUsername = username;
-    AWSSignInManager.sharedInstance.pendingPassword = password;
 }
 
 -(void)registerAWSSignInProvider:(id<AWSSignInProvider>)signInProvider {
@@ -140,30 +121,24 @@ static AWSIdentityManager *identityManager;
 }
 
 - (void)completeLogin {
+    // Force a refresh of credentials to see if we need to merge unauth credentials.
+    [identityManager.credentialsProvider invalidateCachedTemporaryCredentials];
     
     if (self.potentialSignInProvider) {
         self.currentSignInProvider = self.potentialSignInProvider;
         self.potentialSignInProvider = nil;
     }
     
-    if (!self.shouldFederate) {
-        // Use this for new updated implementation of AWSMobileClient where federation is handled by MobileClient directly.
-        self.completionHandler(self.currentSignInProvider, nil);
-    } else {
-        // Force a refresh of credentials to see if we need to merge unauth credentials.
-        [identityManager.credentialsProvider invalidateCachedTemporaryCredentials];
-
-        [[identityManager.credentialsProvider credentials] continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [self.delegate onLoginWithSignInProvider:self.currentSignInProvider
-                                                  result:task.result
-                                                   error:task.error];
-                self.completionHandler(task.result, task.error);
-            });
-            return nil;
-        }];
-    }
+    [[identityManager.credentialsProvider credentials] continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.delegate onLoginWithSignInProvider:self.currentSignInProvider
+                                              result:task.result
+                                               error:task.error];
+            self.completionHandler(task.result, task.error);
+        });
+        return nil;
+    }];
 }
 
 - (BOOL)interceptApplication:(UIApplication *)application

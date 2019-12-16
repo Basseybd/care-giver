@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -34,12 +34,10 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"allowClassicFlow" : @"AllowClassicFlow",
              @"allowUnauthenticatedIdentities" : @"AllowUnauthenticatedIdentities",
              @"cognitoIdentityProviders" : @"CognitoIdentityProviders",
              @"developerProviderName" : @"DeveloperProviderName",
              @"identityPoolName" : @"IdentityPoolName",
-             @"identityPoolTags" : @"IdentityPoolTags",
              @"openIdConnectProviderARNs" : @"OpenIdConnectProviderARNs",
              @"samlProviderARNs" : @"SamlProviderARNs",
              @"supportedLoginProviders" : @"SupportedLoginProviders",
@@ -285,13 +283,11 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"allowClassicFlow" : @"AllowClassicFlow",
              @"allowUnauthenticatedIdentities" : @"AllowUnauthenticatedIdentities",
              @"cognitoIdentityProviders" : @"CognitoIdentityProviders",
              @"developerProviderName" : @"DeveloperProviderName",
              @"identityPoolId" : @"IdentityPoolId",
              @"identityPoolName" : @"IdentityPoolName",
-             @"identityPoolTags" : @"IdentityPoolTags",
              @"openIdConnectProviderARNs" : @"OpenIdConnectProviderARNs",
              @"samlProviderARNs" : @"SamlProviderARNs",
              @"supportedLoginProviders" : @"SupportedLoginProviders",
@@ -366,26 +362,6 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 
 + (NSValueTransformer *)identityPoolsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityIdentityPoolShortDescription class]];
-}
-
-@end
-
-@implementation AWSCognitoIdentityListTagsForResourceInput
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"resourceArn" : @"ResourceArn",
-             };
-}
-
-@end
-
-@implementation AWSCognitoIdentityListTagsForResourceResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"tags" : @"Tags",
-             };
 }
 
 @end
@@ -575,21 +551,6 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 
 @end
 
-@implementation AWSCognitoIdentityTagResourceInput
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"resourceArn" : @"ResourceArn",
-             @"tags" : @"Tags",
-             };
-}
-
-@end
-
-@implementation AWSCognitoIdentityTagResourceResponse
-
-@end
-
 @implementation AWSCognitoIdentityUnlinkDeveloperIdentityInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -644,20 +605,5 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
         }
     }];
 }
-
-@end
-
-@implementation AWSCognitoIdentityUntagResourceInput
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"resourceArn" : @"ResourceArn",
-             @"tagKeys" : @"TagKeys",
-             };
-}
-
-@end
-
-@implementation AWSCognitoIdentityUntagResourceResponse
 
 @end

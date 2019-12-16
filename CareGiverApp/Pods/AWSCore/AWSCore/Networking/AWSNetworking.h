@@ -19,8 +19,7 @@
 FOUNDATION_EXPORT NSString *const AWSNetworkingErrorDomain;
 typedef NS_ENUM(NSInteger, AWSNetworkingErrorType) {
     AWSNetworkingErrorUnknown,
-    AWSNetworkingErrorCancelled,
-    AWSNetworkingErrorSessionInvalid
+    AWSNetworkingErrorCancelled
 };
 
 typedef NS_ENUM(NSInteger, AWSNetworkingRetryType) {

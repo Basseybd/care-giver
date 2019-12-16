@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15A6FEEA23A7662D00A1C7CD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A6FEE923A7662D00A1C7CD /* Utils.swift */; };
+		15A6FEF423A8178B00A1C7CD /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 15A6FEF323A8178B00A1C7CD /* awsconfiguration.json */; };
 		15DE14E72396FBAB0015B701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE14E62396FBAB0015B701 /* AppDelegate.swift */; };
 		15DE14E92396FBAB0015B701 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE14E82396FBAB0015B701 /* SceneDelegate.swift */; };
 		15DE14EB2396FBAB0015B701 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE14EA2396FBAB0015B701 /* FirstViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		15A6FEE923A7662D00A1C7CD /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		15A6FEF323A8178B00A1C7CD /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		15DE14E32396FBAB0015B701 /* CareGiverApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareGiverApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15DE14E62396FBAB0015B701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15DE14E82396FBAB0015B701 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				15DE14E62396FBAB0015B701 /* AppDelegate.swift */,
+				15A6FEF323A8178B00A1C7CD /* awsconfiguration.json */,
 				15DE14E82396FBAB0015B701 /* SceneDelegate.swift */,
 				15DE14EA2396FBAB0015B701 /* FirstViewController.swift */,
 				15DE14EC2396FBAB0015B701 /* SecondViewController.swift */,
@@ -267,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15A6FEF423A8178B00A1C7CD /* awsconfiguration.json in Resources */,
 				15DE14F82396FBAE0015B701 /* LaunchScreen.storyboard in Resources */,
 				15DE14F52396FBAE0015B701 /* Assets.xcassets in Resources */,
 				15DE14F02396FBAB0015B701 /* Main.storyboard in Resources */,

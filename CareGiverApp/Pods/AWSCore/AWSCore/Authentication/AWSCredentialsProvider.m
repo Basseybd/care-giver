@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -46,32 +46,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 
 @end
 
-@interface AWSCredentials()
-
-- (nullable instancetype)initFromKeychain:(nonnull AWSUICKeyChainStore *)keychain;
-
-@end
-
 @implementation AWSCredentials
-
-- (nullable instancetype)initFromKeychain:(nonnull AWSUICKeyChainStore *)keychain {
-    if (self = [super init]) {
-        if (keychain[AWSCredentialsProviderKeychainAccessKeyId]
-            && keychain[AWSCredentialsProviderKeychainSecretAccessKey]) {
-            AWSDDLogVerbose(@"Retrieving credentials from keychain");
-            _accessKey = keychain[AWSCredentialsProviderKeychainAccessKeyId];
-            _secretKey = keychain[AWSCredentialsProviderKeychainSecretAccessKey];
-            _sessionKey = keychain[AWSCredentialsProviderKeychainSessionToken];
-
-            NSString *expirationString = keychain[AWSCredentialsProviderKeychainExpiration];
-            if (expirationString) {
-                _expiration = [NSDate dateWithTimeIntervalSince1970:[expirationString doubleValue]];
-            }
-        }
-    }
-
-    return self;
-}
 
 - (instancetype)initWithAccessKey:(NSString *)accessKey
                         secretKey:(NSString *)secretKey
@@ -196,7 +171,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:regionType
                                                                              credentialsProvider:credentialsProvider];
         _sts = [[AWSSTS alloc] initWithConfiguration:configuration];
-        _internalCredentials = [[AWSCredentials alloc] initFromKeychain:self.keychain];
     }
 
     return self;
@@ -247,10 +221,26 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 #pragma mark -
 
 - (AWSCredentials *)internalCredentials {
-    if (! _internalCredentials) {
-        _internalCredentials = [[AWSCredentials alloc] initFromKeychain:self.keychain];
+    if (_internalCredentials) {
+        return _internalCredentials;
     }
-    return _internalCredentials;
+
+    if (self.keychain[AWSCredentialsProviderKeychainAccessKeyId]
+        && self.keychain[AWSCredentialsProviderKeychainSecretAccessKey]) {
+        NSString *expirationString = self.keychain[AWSCredentialsProviderKeychainExpiration];
+        NSDate *expiration = nil;
+        if (expirationString) {
+            expiration = [NSDate dateWithTimeIntervalSince1970:[expirationString doubleValue]];
+        }
+        AWSCredentials *credentials = [[AWSCredentials alloc] initWithAccessKey:self.keychain[AWSCredentialsProviderKeychainAccessKeyId]
+                                                                      secretKey:self.keychain[AWSCredentialsProviderKeychainSecretAccessKey]
+                                                                     sessionKey:self.keychain[AWSCredentialsProviderKeychainSessionToken]
+                                                                     expiration:expiration];
+
+        return credentials;
+    }
+
+    return nil;
 }
 
 - (void)setInternalCredentials:(AWSCredentials *)internalCredentials {
@@ -281,10 +271,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 @property (nonatomic, strong) AWSCredentials *internalCredentials;
 @property (atomic, assign, getter=isRefreshingCredentials) BOOL refreshingCredentials;
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> *cachedLogins;
-// This is a temporary solution to bypass the requirement of protocol check for `AWSIdentityProviderManager`.
-@property (nonatomic, strong) NSString *customRoleArnOverride;
-
-- (AWSTask<AWSCredentials *> *)credentialsWithCancellationToken:(AWSCancellationTokenSource * _Nullable)cancellationTokenSource;
 
 @end
 
@@ -400,24 +386,14 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                                                                          credentialsProvider:credentialsProvider];
 
     _cognitoIdentity = [[AWSCognitoIdentity alloc] initWithConfiguration:configuration];
-    
-    _customRoleArnOverride = nil;
 
     if (!_useEnhancedFlow) {
         _sts = [[AWSSTS alloc] initWithConfiguration:configuration];
     }
-
-    _internalCredentials = [[AWSCredentials alloc] initFromKeychain:self.keychain];
 }
 
 - (AWSTask<AWSCredentials *> *)getCredentialsWithSTS:(NSDictionary<NSString *,NSString *> *)logins
-                                       authenticated:(BOOL)auth
-                               withCancellationToken:(AWSCancellationTokenSource *)cancellationTokenSource {
-    
-    if (cancellationTokenSource.isCancellationRequested) {
-        return [AWSTask cancelledTask];
-    }
-    
+                                       authenticated:(BOOL)auth {
     NSString *roleArn = self.unAuthRoleArn;
     if (auth) {
         roleArn = self.authRoleArn;
@@ -440,10 +416,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     webIdentityRequest.webIdentityToken = [logins objectForKey:AWSIdentityProviderAmazonCognitoIdentity];
     webIdentityRequest.roleSessionName = @"iOS-Provider";
     return [[self.sts assumeRoleWithWebIdentity:webIdentityRequest] continueWithBlock:^id(AWSTask *task) {
-        
-        if (cancellationTokenSource.isCancellationRequested) {
-            return [AWSTask cancelledTask];
-        }
         if (task.result) {
             AWSSTSAssumeRoleWithWebIdentityResponse *webIdentityResponse = task.result;
             self.internalCredentials = [[AWSCredentials alloc] initWithAccessKey:webIdentityResponse.credentials.accessKeyId
@@ -463,13 +435,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 
 - (AWSTask<AWSCredentials *> *)getCredentialsWithCognito:(NSDictionary<NSString *,NSString *> *)logins
                                            authenticated:(BOOL)isAuthenticated
-                                           customRoleArn:(NSString *)customRoleArn
-                                   withCancellationToken:(AWSCancellationTokenSource *)cancellationTokenSource{
-    
-    if (cancellationTokenSource.isCancellationRequested) {
-        return [AWSTask cancelledTask];
-    }
-    
+                                           customRoleArn:(NSString *)customRoleArn {
     // Grab a reference to our provider in case it changes out from under us
     id<AWSCognitoCredentialsProviderHelper> providerRef = self.identityProvider;
 
@@ -479,11 +445,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     getCredentialsInput.customRoleArn = customRoleArn;
 
     return [[[self.cognitoIdentity getCredentialsForIdentity:getCredentialsInput] continueWithBlock:^id(AWSTask *task) {
-        
-        if (cancellationTokenSource.isCancellationRequested) {
-            return [AWSTask cancelledTask];
-        }
-        
         // When an invalid identityId is cached in the keychain for auth,
         // we will refresh the identityId and try to get credentials token again.
         if (task.error) {
@@ -504,10 +465,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
             return [[providerRef logins] continueWithSuccessBlock:^id _Nullable(AWSTask<NSDictionary<NSString *,NSString *> *> * _Nonnull task) {
                 NSDictionary<NSString *,NSString *> *logins = task.result;
 
-                if (cancellationTokenSource.isCancellationRequested) {
-                    return [AWSTask cancelledTask];
-                }
-                
                 // This should never happen, but just in case
                 if (!providerRef.identityId) {
                     AWSDDLogError(@"In refresh, but identitId is nil.");
@@ -527,11 +484,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                 getCredentialsRetry.customRoleArn = customRoleArn;
                 
                 return [[self.cognitoIdentity getCredentialsForIdentity:getCredentialsRetry] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityGetCredentialsForIdentityResponse *> * _Nonnull task) {
-                    
-                    if (cancellationTokenSource.isCancellationRequested) {
-                        return [AWSTask cancelledTask];
-                    }
-                    
                     if (task.error) {
                         return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
                                                                           code:AWSCognitoCredentialsProviderInvalidConfiguration
@@ -560,11 +512,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                     ];
         }
 
-        if (cancellationTokenSource.isCancellationRequested) {
-            return [AWSTask cancelledTask];
-        }
-        
-        // Identity Id can change based on whether the user has signed in on a different device
         if (![self.identityId isEqualToString:identityIdFromResponse]) {
             self.identityId = identityIdFromResponse;
             providerRef.identityId = identityIdFromResponse;
@@ -574,11 +521,9 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     }];
 }
 
-- (AWSTask<AWSCredentials *> *)credentialsWithCancellationToken:(AWSCancellationTokenSource *) cancellationTokenSource {
-    
-    if (cancellationTokenSource.isCancellationRequested) {
-        return [AWSTask cancelledTask];
-    }
+#pragma mark - AWSCredentialsProvider methods
+
+- (AWSTask<AWSCredentials *> *)credentials {
     // Returns cached credentials when all of the following conditions are true:
     // 1. The cached credentials are not nil.
     // 2. The credentials do not expire within 10 minutes.
@@ -589,11 +534,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     
     id<AWSCognitoCredentialsProviderHelper> providerRef = self.identityProvider;
     return [[[providerRef logins] continueWithExecutor:self.refreshExecutor withSuccessBlock:^id _Nullable(AWSTask<NSDictionary<NSString *,NSString *> *> * _Nonnull task) {
-        
-        if (cancellationTokenSource.isCancellationRequested) {
-            return [AWSTask cancelledTask];
-        }
-        
         NSDictionary<NSString *,NSString *> *logins = task.result;
         
         AWSTask * getIdentityIdTask = nil;
@@ -606,11 +546,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         }
         
         return [getIdentityIdTask continueWithSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
-            
-            if (cancellationTokenSource.isCancellationRequested) {
-                return [AWSTask cancelledTask];
-            }
-            
             // Refreshes the credentials if any of the following is true:
             // 1. The cached logins are different from the one the identity provider provided.
             // 2. The cached credentials is nil.
@@ -631,10 +566,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                 }
             }
             
-            if (cancellationTokenSource.isCancellationRequested) {
-                return [AWSTask cancelledTask];
-            }
-            
             if ((!self.cachedLogins || [self.cachedLogins isEqualToDictionary:logins])
                 && self.internalCredentials
                 && [self.internalCredentials.expiration compare:[NSDate dateWithTimeIntervalSinceNow:10 * 60]] == NSOrderedDescending) {
@@ -649,17 +580,12 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                 if([providerRef.identityProviderManager respondsToSelector:@selector(customRoleArn)]){
                     customRoleArn = providerRef.identityProviderManager.customRoleArn;
                 }
-                if(self.customRoleArnOverride){
-                    customRoleArn = self.customRoleArnOverride;
-                }
                 return [self getCredentialsWithCognito:logins
                                          authenticated:[providerRef isAuthenticated]
-                                         customRoleArn:customRoleArn
-                                 withCancellationToken:cancellationTokenSource];
+                                         customRoleArn:customRoleArn];
             } else {
                 return [self getCredentialsWithSTS:logins
-                                     authenticated:[providerRef isAuthenticated]
-                             withCancellationToken:cancellationTokenSource];
+                                     authenticated:[providerRef isAuthenticated]];
             }
             
         }];
@@ -673,12 +599,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         
         return task;
     }];
-}
-
-#pragma mark - AWSCredentialsProvider methods
-
-- (AWSTask<AWSCredentials *> *)credentials {
-    return [self credentialsWithCancellationToken:nil];
 }
 
 - (void)invalidateCachedTemporaryCredentials {
@@ -770,10 +690,25 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 }
 
 - (AWSCredentials *)internalCredentials {
-    if (! _internalCredentials) {
-        _internalCredentials = [[AWSCredentials alloc] initFromKeychain:self.keychain];
+    if (_internalCredentials) {
+        return _internalCredentials;
     }
-    return _internalCredentials;
+
+    if (self.keychain[AWSCredentialsProviderKeychainAccessKeyId]
+        && self.keychain[AWSCredentialsProviderKeychainSecretAccessKey]) {
+        NSString *expirationString = self.keychain[AWSCredentialsProviderKeychainExpiration];
+        NSDate *expiration = nil;
+        if (expirationString) {
+            expiration = [NSDate dateWithTimeIntervalSince1970:[expirationString doubleValue]];
+        }
+        AWSCredentials *credentials = [[AWSCredentials alloc] initWithAccessKey:self.keychain[AWSCredentialsProviderKeychainAccessKeyId]
+                                                                      secretKey:self.keychain[AWSCredentialsProviderKeychainSecretAccessKey]
+                                                                     sessionKey:self.keychain[AWSCredentialsProviderKeychainSessionToken]
+                                                                     expiration:expiration];
+        return credentials;
+    }
+
+    return nil;
 }
 
 - (void)setInternalCredentials:(AWSCredentials *)internalCredentials {
