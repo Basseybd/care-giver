@@ -11,8 +11,8 @@ import UIKit
 
 class Utils {
     
-    class func color(forColorName colorName: String) -> UIColor {
-        switch colorName {
+    class func color(forColorName themeName: String) -> UIColor {
+        switch themeName {
         case "ice":
             return UIColor(red: 109/255.0, green: 170/255.0, blue: 199/255.0, alpha: 1.0)
             

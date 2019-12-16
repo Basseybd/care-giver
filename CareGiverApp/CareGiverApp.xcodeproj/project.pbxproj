@@ -18,7 +18,7 @@
 		15DE14F82396FBAE0015B701 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15DE14F62396FBAE0015B701 /* LaunchScreen.storyboard */; };
 		15DE15032396FBAE0015B701 /* CareGiverAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE15022396FBAE0015B701 /* CareGiverAppTests.swift */; };
 		15DE150E2396FBAE0015B701 /* CareGiverAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE150D2396FBAE0015B701 /* CareGiverAppUITests.swift */; };
-		88B05111601423E504F14AD9 /* libPods-CareGiverApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A60FB1D20E42E76DA2604975 /* libPods-CareGiverApp.a */; };
+		DBA7D984F65CC42D5878F60B /* Pods_CareGiverApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD71E7E02E094078422677B /* Pods_CareGiverApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,8 @@
 		15DE150D2396FBAE0015B701 /* CareGiverAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareGiverAppUITests.swift; sourceTree = "<group>"; };
 		15DE150F2396FBAE0015B701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52D2FB1BB65D50F59D757ACF /* Pods-CareGiverApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareGiverApp.debug.xcconfig"; path = "Target Support Files/Pods-CareGiverApp/Pods-CareGiverApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7CD71E7E02E094078422677B /* Pods_CareGiverApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareGiverApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		987F439BFA27C2B7C4E9BBC1 /* Pods-CareGiverApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareGiverApp.release.xcconfig"; path = "Target Support Files/Pods-CareGiverApp/Pods-CareGiverApp.release.xcconfig"; sourceTree = "<group>"; };
-		A60FB1D20E42E76DA2604975 /* libPods-CareGiverApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CareGiverApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88B05111601423E504F14AD9 /* libPods-CareGiverApp.a in Frameworks */,
+				DBA7D984F65CC42D5878F60B /* Pods_CareGiverApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +156,7 @@
 		F9F4915949F6B28CA89BEC56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A60FB1D20E42E76DA2604975 /* libPods-CareGiverApp.a */,
+				7CD71E7E02E094078422677B /* Pods_CareGiverApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

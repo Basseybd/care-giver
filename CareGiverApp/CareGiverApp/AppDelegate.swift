@@ -9,6 +9,8 @@ import UIKit
 import CoreData
 import EstimoteProximitySDK
 import CoreLocation
+import Amplify
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,11 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        
-           
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
-        //Thread.sleep(forTimeInterval: 2.0)
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.pausesLocationUpdatesAutomatically = false
         
         let estimoteCloudCredentials = CloudCredentials(appID: "caregiver-2-0-cr9", appToken: "aabc089761b372d32f2cfffbadda68c9")
 
@@ -41,46 +42,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let bathroom = ProximityZone(tag: "bathroom", range: ProximityRange.near)
         bathroom.onEnter = { context in
-            self.counter = 1
             self.showNotification(with: " Hello, You've Entered the Bathroom", body: "Please don't forget to wash your hands")
         }
         bathroom.onExit = { context in
-            self.counter = 2
             self.showNotification(with: "Leaving Bathroom", body: "Flush the Toilet")
         }
         
         let bedroom = ProximityZone(tag: "bedroom", range: ProximityRange.near)
         bedroom.onEnter = { context in
-            self.counter = 0
             self.showNotification(with: "Hello, You've Entered the Bedroom", body: "Welcome")
         }
         bedroom.onExit = { context in
             self.showNotification(with: "Leaving Bedroom", body: "GoodBye")
         }
         
-        /*
-        bathroom.onExit = { context in
-            let content = UNMutableNotificationContent()
-            content.title = "Bye bye, You're leaving the bathroom"
-            content.body = "We hope you remembered to wash your hands"
-            content.sound = UNNotificationSound.default
-            let request = UNNotificationRequest(identifier: "exit", content: content, trigger: nil)
-            notificationCenter.add(request, withCompletionHandler: nil)
+        let closet = ProximityZone(tag: "closet", range: ProximityRange.near)
+        closet.onEnter = { context in
+            self.showNotification(with: "Hello, You've Entered the Closet", body: "Welcome")
+        }
+        closet.onExit = { context in
+            self.showNotification(with: "Leaving Closet", body: "GoodBye")
         }
         
-        
-        zone.onContextChange = { contexts in
-            let content = UNMutableNotificationContent()
-            content.title = "Contexts:"
-            content.body = "\(contexts.count) contexts"
-            content.sound = UNNotificationSound.default
-            let request = UNNotificationRequest(identifier: "exit", content: content, trigger: nil)
-            notificationCenter.add(request, withCompletionHandler: nil)
-
-        }*/
-        
-        
-        proximityObserver.startObserving([bedroom, bathroom])
+        let kitchen = ProximityZone(tag: "kitchen", range: ProximityRange.near)
+        kitchen.onEnter = { context in
+            self.showNotification(with: "Hello, You've Entered the Kitchen", body: "Welcome")
+        }
+        kitchen.onExit = { context in
+            self.showNotification(with: "Leaving Kitchen", body: "Clean all your dishes")
+        }
+        //let innerZoneB1 = ProximityZone(tag: "kitchen",  range: ProximityRange(desiredMeanTriggerDistance: 1.25)!)
+        proximityObserver.startObserving([bedroom, bathroom, closet, kitchen])
         
         return true
     }

@@ -1,20 +1,50 @@
 PODS:
+  - Amplify (0.9.0)
+  - AWSAuthCore (2.12.3):
+    - AWSCore (= 2.12.3)
+  - AWSCognitoIdentityProvider (2.12.3):
+    - AWSCognitoIdentityProviderASF (= 1.0.1)
+    - AWSCore (= 2.12.3)
+  - AWSCognitoIdentityProviderASF (1.0.1)
+  - AWSCore (2.12.3)
+  - AWSMobileClient (2.12.3):
+    - AWSAuthCore (= 2.12.3)
+    - AWSCognitoIdentityProvider (= 2.12.3)
+  - AWSPluginsCore (0.9.0):
+    - Amplify (= 0.9.0)
+    - AWSMobileClient (~> 2.12.2)
   - EstimoteBluetoothScanning (1.0.7)
   - EstimoteProximitySDK (1.5.0):
     - EstimoteBluetoothScanning (~> 1.0.6)
 
 DEPENDENCIES:
+  - Amplify
+  - AWSPluginsCore
   - EstimoteProximitySDK
 
 SPEC REPOS:
   trunk:
+    - Amplify
+    - AWSAuthCore
+    - AWSCognitoIdentityProvider
+    - AWSCognitoIdentityProviderASF
+    - AWSCore
+    - AWSMobileClient
+    - AWSPluginsCore
     - EstimoteBluetoothScanning
     - EstimoteProximitySDK
 
 SPEC CHECKSUMS:
+  Amplify: 36503e3b38c7596658d9229b0bc8a780b3af69a8
+  AWSAuthCore: 1a23c09b678484ba69ae4f5c24e6fdec5bb530a4
+  AWSCognitoIdentityProvider: 3561d7cdbe7343a808bd7b2ce61da5b0c27b98e5
+  AWSCognitoIdentityProviderASF: f94f1a502e72ef3d0a1de93e10bf7a79c8698118
+  AWSCore: a4b4aeb414bdfd55a5e8879adb4985c46da157d6
+  AWSMobileClient: e3f9e8bcd4084c94612e409359a7371380d4dcf6
+  AWSPluginsCore: b4c6545ba21af572fe369f0065cdfb4817e1fa49
   EstimoteBluetoothScanning: 02ac879b204a1c7aadf5090cde137cc7e74f86bc
   EstimoteProximitySDK: b8b4d96ed872431e7941863d009bb99d28ceaf99
 
-PODFILE CHECKSUM: 355b9385f879592856036e66555285a30a2721c7
+PODFILE CHECKSUM: 67dd5ec1ab8285ff1e68a629c36e8f58ba7cd4a4
 
 COCOAPODS: 1.8.4

@@ -15,6 +15,7 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
         let estimoteCloudCredentials = CloudCredentials(appID: "caregiver-2-0-cr9", appToken: "aabc089761b372d32f2cfffbadda68c9")
         proximityObserver = ProximityObserver(credentials: estimoteCloudCredentials, onError: { error in
             print("ProximityObserver error: \(error)")
@@ -30,8 +31,23 @@ class SecondViewController: UIViewController {
         }
         zone.onExit = { contexts in
             self.view.backgroundColor = .cyan
-        }
+        }*/
 
     }
+    /*
+    func encryptMessage(message: String, encryptionKey: String) throws -> String {
+        let messageData = message.data(using: .utf8)!
+        let cipherData = RNCryptor.encrypt(data: messageData, withPassword: encryptionKey)
+        return cipherData.base64EncodedString()
+    }
+
+    func decryptMessage(encryptedMessage: String, encryptionKey: String) throws -> String {
+
+        let encryptedData = Data.init(base64Encoded: encryptedMessage)!
+        let decryptedData = try RNCryptor.decrypt(data: encryptedData, withPassword: encryptionKey)
+        let decryptedString = String(data: decryptedData, encoding: .utf8)!
+
+        return decryptedString
+    }*/
 }
 

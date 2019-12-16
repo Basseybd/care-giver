@@ -2,7 +2,6 @@
 //  SceneDelegate.swift
 //  CareGiverApp
 //
-//  Created by David William Nartey on 12/3/19.
 //  Copyright © 2019 CareGiver. All rights reserved.
 //
 
