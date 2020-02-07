@@ -1,11 +1,16 @@
 target "CareGiverApp" do
   use_frameworks!
 
-  #pod 'AWSCore', '~> 2.12.0'
-  #pod 'AWSAppSync', '~> 2.14.2'
-  pod 'AWSUserPoolsSignIn', '~> 2.6.13'
-  pod 'AWSAuthUI', '~> 2.6.13'
-  pod 'AWSMobileClient', '~> 2.6.13'
-  pod 'AWSPinpoint', '~> 2.6.13'
+  #pod 'amplify-tools'
+
+  #pod 'Amplify'
+  #pod 'AWSPluginsCore'
+  #pod 'AmplifyPlugins/AWSAPIPlugin'
+  
+  pod 'AWSCore'
+  pod 'AWSMobileClient'
+  pod 'AWSUserPoolsSignIn'
+  pod 'AWSAuthUI'
+  
   pod "EstimoteProximitySDK"
 end

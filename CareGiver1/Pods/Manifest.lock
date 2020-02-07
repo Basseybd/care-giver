@@ -1,0 +1,77 @@
+PODS:
+  - AWSAppSync (3.0.0):
+    - AWSCore (~> 2.12.0)
+    - ReachabilitySwift (~> 5.0.0)
+    - SQLite.swift (~> 0.12.2)
+    - Starscream (~> 3.0.2)
+  - AWSAuthCore (2.12.3):
+    - AWSCore (= 2.12.3)
+  - AWSAuthUI (2.12.3):
+    - AWSAuthCore (= 2.12.3)
+    - AWSCore (= 2.12.3)
+  - AWSCognitoIdentityProvider (2.12.3):
+    - AWSCognitoIdentityProviderASF (= 1.0.1)
+    - AWSCore (= 2.12.3)
+  - AWSCognitoIdentityProviderASF (1.0.1)
+  - AWSCore (2.12.3)
+  - AWSMobileClient (2.12.3):
+    - AWSAuthCore (= 2.12.3)
+    - AWSCognitoIdentityProvider (= 2.12.3)
+  - AWSPinpoint (2.12.3):
+    - AWSCore (= 2.12.3)
+  - AWSUserPoolsSignIn (2.12.3):
+    - AWSAuthCore (= 2.12.3)
+    - AWSCognitoIdentityProvider (= 2.12.3)
+  - EstimoteBluetoothScanning (1.0.7)
+  - EstimoteProximitySDK (1.5.0):
+    - EstimoteBluetoothScanning (~> 1.0.6)
+  - ReachabilitySwift (5.0.0)
+  - SQLite.swift (0.12.2):
+    - SQLite.swift/standard (= 0.12.2)
+  - SQLite.swift/standard (0.12.2)
+  - Starscream (3.0.6)
+
+DEPENDENCIES:
+  - AWSAppSync
+  - AWSAuthUI (~> 2.12.0)
+  - AWSMobileClient (~> 2.12.0)
+  - AWSPinpoint
+  - AWSUserPoolsSignIn (~> 2.12.0)
+  - EstimoteProximitySDK
+
+SPEC REPOS:
+  trunk:
+    - AWSAppSync
+    - AWSAuthCore
+    - AWSAuthUI
+    - AWSCognitoIdentityProvider
+    - AWSCognitoIdentityProviderASF
+    - AWSCore
+    - AWSMobileClient
+    - AWSPinpoint
+    - AWSUserPoolsSignIn
+    - EstimoteBluetoothScanning
+    - EstimoteProximitySDK
+    - ReachabilitySwift
+    - SQLite.swift
+    - Starscream
+
+SPEC CHECKSUMS:
+  AWSAppSync: 04f615ce0c3a0c815b7bf1ca3d47362a22ed12ca
+  AWSAuthCore: 1a23c09b678484ba69ae4f5c24e6fdec5bb530a4
+  AWSAuthUI: e241b3b2e23b2546a2f2a8f23a4a74e1ae0c831e
+  AWSCognitoIdentityProvider: 3561d7cdbe7343a808bd7b2ce61da5b0c27b98e5
+  AWSCognitoIdentityProviderASF: f94f1a502e72ef3d0a1de93e10bf7a79c8698118
+  AWSCore: a4b4aeb414bdfd55a5e8879adb4985c46da157d6
+  AWSMobileClient: e3f9e8bcd4084c94612e409359a7371380d4dcf6
+  AWSPinpoint: 2922a25814aaaba3a460f06fdb0a722f73fc48a7
+  AWSUserPoolsSignIn: 46b5d1f06f513edb7f62bc44f5ba2f2c8563c4fa
+  EstimoteBluetoothScanning: 02ac879b204a1c7aadf5090cde137cc7e74f86bc
+  EstimoteProximitySDK: b8b4d96ed872431e7941863d009bb99d28ceaf99
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
+  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
+
+PODFILE CHECKSUM: ef10fff55db96ff9ac176c63f3866a70179c1b64
+
+COCOAPODS: 1.8.4

@@ -10,9 +10,10 @@ import CoreData
 import EstimoteProximitySDK
 import CoreLocation
 //import Amplify
+//import AmplifyPlugins
 import AWSCore
 import AWSMobileClient
-import AWSPinpoint
+//import AWSPinpoint
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,13 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var locationManager: CLLocationManager = CLLocationManager()
     var fetchResult: UIBackgroundFetchResult!
     public var counter: Int!
-    var pinpoint: AWSPinpoint?
+    //var pinpoint: AWSPinpoint?
     
     
     func application(_ application: UIApplication, open url: URL,
         sourceApplication: String?, annotation: Any) -> Bool {
 
-        return AWSMobileClient.sharedInstance().interceptApplication(
+        return AWSMobileClient.default().interceptApplication(
             application, open: url,
             sourceApplication: sourceApplication,
             annotation: annotation)
@@ -62,12 +63,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.showNotification(with: "Leaving Bathroom", body: "Flush the Toilet")
         }
         
-        let bedroom = ProximityZone(tag: "bedroom", range: ProximityRange.near)
+        let bedroom = ProximityZone(tag: "bedroom", range: ProximityRange.far)
         bedroom.onEnter = { context in
             self.showNotification(with: "Hello, You've Entered the Bedroom", body: "Welcome")
         }
         bedroom.onExit = { context in
             self.showNotification(with: "Leaving Bedroom", body: "GoodBye")
+        }
+        
+        let desk = ProximityZone(tag: "bedroom", range: ProximityRange.near)
+        desk.onEnter = { context in
+            self.showNotification(with: "Hello, You've Entered the Desk Space", body: "Welcome")
+        }
+        desk.onExit = { context in
+            self.showNotification(with: "Leaving Desk", body: "GoodBye, Don'r forget to put your things away")
         }
         
         let closet = ProximityZone(tag: "closet", range: ProximityRange.near)
@@ -86,26 +95,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.showNotification(with: "Leaving Kitchen", body: "Clean all your dishes")
         }
         //let innerZoneB1 = ProximityZone(tag: "kitchen",  range: ProximityRange(desiredMeanTriggerDistance: 1.25)!)
-        proximityObserver.startObserving([bedroom, bathroom, closet, kitchen])
+        proximityObserver.startObserving([bedroom, bathroom, desk, closet, kitchen])
         
-        
+        /*
         //analytics
+        
         pinpoint = AWSPinpoint(configuration:
                 AWSPinpointConfiguration.defaultPinpointConfiguration(launchOptions: launchOptions))
-
+        */
         
-        let credentialsProvider = AWSMobileClient.sharedInstance().getCredentialsProvider()
+        //let credentialsProvider = AWSMobileClient.sharedInstance().getCredentialsProvider()
 
         // Get the identity Id from the AWSIdentityManager
-        let identityId = AWSIdentityManager.default().identityId
+        //let identityId = AWSIdentityManager.default().identityId
         
         AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
         AWSDDLog.sharedInstance.logLevel = .info
         
         //connect to aws
-        return AWSMobileClient.sharedInstance().interceptApplication(
+        return AWSMobileClient.default().interceptApplication(
             application, didFinishLaunchingWithOptions:
             launchOptions)
+        
+        //return true
     }
 
     

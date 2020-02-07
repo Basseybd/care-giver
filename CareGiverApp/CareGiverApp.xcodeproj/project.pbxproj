@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03CA904A75E24A6F86E81596 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = C1323B5AFBA144579EA7863A /* amplifyconfiguration.json */; };
 		15A6FEEA23A7662D00A1C7CD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A6FEE923A7662D00A1C7CD /* Utils.swift */; };
 		15A6FEF423A8178B00A1C7CD /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 15A6FEF323A8178B00A1C7CD /* awsconfiguration.json */; };
+		15A6FEF823A83A3600A1C7CD /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A6FEF723A83A3600A1C7CD /* SampleViewController.swift */; };
 		15DE14E72396FBAB0015B701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE14E62396FBAB0015B701 /* AppDelegate.swift */; };
 		15DE14E92396FBAB0015B701 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE14E82396FBAB0015B701 /* SceneDelegate.swift */; };
 		15DE14EB2396FBAB0015B701 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE14EA2396FBAB0015B701 /* FirstViewController.swift */; };
@@ -19,7 +21,7 @@
 		15DE14F82396FBAE0015B701 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15DE14F62396FBAE0015B701 /* LaunchScreen.storyboard */; };
 		15DE15032396FBAE0015B701 /* CareGiverAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE15022396FBAE0015B701 /* CareGiverAppTests.swift */; };
 		15DE150E2396FBAE0015B701 /* CareGiverAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE150D2396FBAE0015B701 /* CareGiverAppUITests.swift */; };
-		DBA7D984F65CC42D5878F60B /* Pods_CareGiverApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD71E7E02E094078422677B /* Pods_CareGiverApp.framework */; };
+		5CD297455C55F64240946DED /* Pods_CareGiverApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC3A0C43ED55766D61747EE /* Pods_CareGiverApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 /* Begin PBXFileReference section */
 		15A6FEE923A7662D00A1C7CD /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		15A6FEF323A8178B00A1C7CD /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		15A6FEF723A83A3600A1C7CD /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
 		15DE14E32396FBAB0015B701 /* CareGiverApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareGiverApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15DE14E62396FBAB0015B701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15DE14E82396FBAB0015B701 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,9 +61,13 @@
 		15DE15092396FBAE0015B701 /* CareGiverAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CareGiverAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15DE150D2396FBAE0015B701 /* CareGiverAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareGiverAppUITests.swift; sourceTree = "<group>"; };
 		15DE150F2396FBAE0015B701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D1B1D1F638C4A7E852DE5AA /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = awsconfiguration.json; path = /Users/DNartey/KanD/CareGiver/CareGiverApp/awsconfiguration.json; sourceTree = "<group>"; };
 		52D2FB1BB65D50F59D757ACF /* Pods-CareGiverApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareGiverApp.debug.xcconfig"; path = "Target Support Files/Pods-CareGiverApp/Pods-CareGiverApp.debug.xcconfig"; sourceTree = "<group>"; };
-		7CD71E7E02E094078422677B /* Pods_CareGiverApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareGiverApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BC3A0C43ED55766D61747EE /* Pods_CareGiverApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareGiverApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		987F439BFA27C2B7C4E9BBC1 /* Pods-CareGiverApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareGiverApp.release.xcconfig"; path = "Target Support Files/Pods-CareGiverApp/Pods-CareGiverApp.release.xcconfig"; sourceTree = "<group>"; };
+		C1323B5AFBA144579EA7863A /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = amplifyconfiguration.json; path = /Users/DNartey/KanD/CareGiver/CareGiverApp/amplifyconfiguration.json; sourceTree = "<group>"; };
+		C467E1034FC94055A2CB99FD /* amplifyxc.config */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = amplifyxc.config; path = /Users/DNartey/KanD/CareGiver/CareGiverApp/amplifyxc.config; sourceTree = "<group>"; };
+		E9B2A6D54C4C4DA38117ACCF /* amplify */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = amplify; path = /Users/DNartey/KanD/CareGiver/CareGiverApp/amplify; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBA7D984F65CC42D5878F60B /* Pods_CareGiverApp.framework in Frameworks */,
+				5CD297455C55F64240946DED /* Pods_CareGiverApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +105,10 @@
 				15DE14E42396FBAB0015B701 /* Products */,
 				B597A51F3C650F09E860A22D /* Pods */,
 				F9F4915949F6B28CA89BEC56 /* Frameworks */,
+				C467E1034FC94055A2CB99FD /* amplifyxc.config */,
+				1D1B1D1F638C4A7E852DE5AA /* awsconfiguration.json */,
+				C1323B5AFBA144579EA7863A /* amplifyconfiguration.json */,
+				E9B2A6D54C4C4DA38117ACCF /* amplify */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +136,7 @@
 				15DE14F92396FBAE0015B701 /* Info.plist */,
 				15DE14F12396FBAB0015B701 /* CareGiverApp.xcdatamodeld */,
 				15A6FEE923A7662D00A1C7CD /* Utils.swift */,
+				15A6FEF723A83A3600A1C7CD /* SampleViewController.swift */,
 			);
 			path = CareGiverApp;
 			sourceTree = "<group>";
@@ -159,7 +171,7 @@
 		F9F4915949F6B28CA89BEC56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7CD71E7E02E094078422677B /* Pods_CareGiverApp.framework */,
+				7BC3A0C43ED55766D61747EE /* Pods_CareGiverApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -274,6 +286,7 @@
 				15DE14F82396FBAE0015B701 /* LaunchScreen.storyboard in Resources */,
 				15DE14F52396FBAE0015B701 /* Assets.xcassets in Resources */,
 				15DE14F02396FBAB0015B701 /* Main.storyboard in Resources */,
+				03CA904A75E24A6F86E81596 /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +359,7 @@
 				15DE14E92396FBAB0015B701 /* SceneDelegate.swift in Sources */,
 				15DE14F32396FBAB0015B701 /* CareGiverApp.xcdatamodeld in Sources */,
 				15A6FEEA23A7662D00A1C7CD /* Utils.swift in Sources */,
+				15A6FEF823A83A3600A1C7CD /* SampleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

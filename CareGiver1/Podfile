@@ -1,0 +1,12 @@
+target "CareGiver" do
+  use_frameworks!
+
+  pod 'AWSAppSync'
+  pod 'AWSPinpoint'
+  pod 'AWSMobileClient', '~> 2.12.0'      # Required dependency
+  
+  pod 'EstimoteProximitySDK'
+ 
+ pod 'AWSAuthUI', '~> 2.12.0'            # Optional dependency required to use drop-in UI
+  pod 'AWSUserPoolsSignIn', '~> 2.12.0'   # Optional dependency required to use drop-in UI
+end
