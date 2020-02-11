@@ -1,8 +1,6 @@
-//
 //  AppDelegate.swift
 //  CareGiver
 //
-//  Created by David William Nartey on 2/10/20.
 //  Copyright © 2020 CareGiver. All rights reserved.
 //
 
@@ -78,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         proximityObserver.startObserving([bedroom, bathroom, desk, closet, kitchen])
-        // Override point for customization after application launch.
+
         return true
     }
     
