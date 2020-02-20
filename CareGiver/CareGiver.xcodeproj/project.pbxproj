@@ -16,6 +16,10 @@
 		1509130723F2010400D62BA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1509130523F2010400D62BA7 /* LaunchScreen.storyboard */; };
 		1509131223F2010400D62BA7 /* CareGiverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509131123F2010400D62BA7 /* CareGiverTests.swift */; };
 		1509131D23F2010400D62BA7 /* CareGiverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509131C23F2010400D62BA7 /* CareGiverUITests.swift */; };
+		1577C65D23FDDE97004E3C29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1577C65C23FDDE97004E3C29 /* LoginViewController.swift */; };
+		1577C65F23FDDF53004E3C29 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1577C65E23FDDF53004E3C29 /* SignUpViewController.swift */; };
+		1577C66123FDDFA1004E3C29 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1577C66023FDDFA1004E3C29 /* ProfileViewController.swift */; };
+		1577C66323FF1337004E3C29 /* EsstimoteBeaconMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1577C66223FF1337004E3C29 /* EsstimoteBeaconMonitor.swift */; };
 		BF1DA7470F6A83D77CFF01D1 /* libPods-CareGiver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC279AAB8C4908CE4C400A9 /* libPods-CareGiver.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +56,10 @@
 		1509131823F2010400D62BA7 /* CareGiverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CareGiverUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1509131C23F2010400D62BA7 /* CareGiverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareGiverUITests.swift; sourceTree = "<group>"; };
 		1509131E23F2010400D62BA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1577C65C23FDDE97004E3C29 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1577C65E23FDDF53004E3C29 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1577C66023FDDFA1004E3C29 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1577C66223FF1337004E3C29 /* EsstimoteBeaconMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsstimoteBeaconMonitor.swift; sourceTree = "<group>"; };
 		2E0D3EDB7E46F103B857E486 /* Pods-CareGiver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareGiver.release.xcconfig"; path = "Target Support Files/Pods-CareGiver/Pods-CareGiver.release.xcconfig"; sourceTree = "<group>"; };
 		48624013115046047D42F2E6 /* Pods-CareGiver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareGiver.debug.xcconfig"; path = "Target Support Files/Pods-CareGiver/Pods-CareGiver.debug.xcconfig"; sourceTree = "<group>"; };
 		EFC279AAB8C4908CE4C400A9 /* libPods-CareGiver.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CareGiver.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +124,10 @@
 				1509130523F2010400D62BA7 /* LaunchScreen.storyboard */,
 				1509130823F2010400D62BA7 /* Info.plist */,
 				1509130023F2010100D62BA7 /* CareGiver.xcdatamodeld */,
+				1577C65C23FDDE97004E3C29 /* LoginViewController.swift */,
+				1577C65E23FDDF53004E3C29 /* SignUpViewController.swift */,
+				1577C66023FDDFA1004E3C29 /* ProfileViewController.swift */,
+				1577C66223FF1337004E3C29 /* EsstimoteBeaconMonitor.swift */,
 			);
 			path = CareGiver;
 			sourceTree = "<group>";
@@ -330,9 +342,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1577C65F23FDDF53004E3C29 /* SignUpViewController.swift in Sources */,
 				150912FC23F2010100D62BA7 /* ViewController.swift in Sources */,
 				150912F823F2010100D62BA7 /* AppDelegate.swift in Sources */,
 				1509130223F2010100D62BA7 /* CareGiver.xcdatamodeld in Sources */,
+				1577C66323FF1337004E3C29 /* EsstimoteBeaconMonitor.swift in Sources */,
+				1577C66123FDDFA1004E3C29 /* ProfileViewController.swift in Sources */,
+				1577C65D23FDDE97004E3C29 /* LoginViewController.swift in Sources */,
 				150912FA23F2010100D62BA7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
