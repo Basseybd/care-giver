@@ -1,3 +1,9 @@
 target "CareGiver" do
+  use_frameworks!
+  
+  pod 'AWSAppSync'
+  pod 'Amplify'
+  pod 'AmplifyPlugins/AWSAPIPlugin'
+  pod 'amplify-tools'
   pod "EstimoteProximitySDK"
 end

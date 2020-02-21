@@ -12,7 +12,7 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        //view.backgroundColor = .red
     }
     
 }

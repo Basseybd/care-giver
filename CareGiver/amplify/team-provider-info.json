@@ -1,0 +1,15 @@
+{
+    "prod": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-caregiver-prod-132134-authRole",
+            "UnauthRoleArn": "arn:aws:iam::297883459455:role/amplify-caregiver-prod-132134-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::297883459455:role/amplify-caregiver-prod-132134-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-caregiver-prod-132134-deployment",
+            "UnauthRoleName": "amplify-caregiver-prod-132134-unauthRole",
+            "StackName": "amplify-caregiver-prod-132134",
+            "StackId": "arn:aws:cloudformation:us-east-1:297883459455:stack/amplify-caregiver-prod-132134/fede7db0-54d6-11ea-9d78-12f4ed1177e6",
+            "AmplifyAppId": "d2yrv649q0img9"
+        }
+    }
+}

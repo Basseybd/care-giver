@@ -1,0 +1,331 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateCareGivees(
+  $careGiveeId: ID
+  $careGiveeEmail: String
+  $firstName: String
+  $lastName: String
+  $password: String
+) {
+  onCreateCareGivees(
+    careGiveeId: $careGiveeId
+    careGiveeEmail: $careGiveeEmail
+    firstName: $firstName
+    lastName: $lastName
+    password: $password
+  ) {
+    careGiveeId
+    careGiveeEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiveeTasks
+    caregiveeEvents
+  }
+}
+subscription OnUpdateCareGivees(
+  $careGiveeId: ID
+  $careGiveeEmail: String
+  $firstName: String
+  $lastName: String
+  $password: String
+) {
+  onUpdateCareGivees(
+    careGiveeId: $careGiveeId
+    careGiveeEmail: $careGiveeEmail
+    firstName: $firstName
+    lastName: $lastName
+    password: $password
+  ) {
+    careGiveeId
+    careGiveeEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiveeTasks
+    caregiveeEvents
+  }
+}
+subscription OnDeleteCareGivees(
+  $careGiveeId: ID
+  $careGiveeEmail: String
+  $firstName: String
+  $lastName: String
+  $password: String
+) {
+  onDeleteCareGivees(
+    careGiveeId: $careGiveeId
+    careGiveeEmail: $careGiveeEmail
+    firstName: $firstName
+    lastName: $lastName
+    password: $password
+  ) {
+    careGiveeId
+    careGiveeEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiveeTasks
+    caregiveeEvents
+  }
+}
+subscription OnCreateEvents(
+  $eventId: String
+  $eventText: String
+  $eventCaregivee_id: String
+  $eventCaregivee: String
+  $eventTimestamp: AWSDateTime
+) {
+  onCreateEvents(
+    eventId: $eventId
+    eventText: $eventText
+    eventCaregivee_id: $eventCaregivee_id
+    eventCaregivee: $eventCaregivee
+    eventTimestamp: $eventTimestamp
+  ) {
+    eventId
+    eventText
+    eventCaregivee_id
+    eventCaregivee
+    eventTimestamp
+  }
+}
+subscription OnUpdateEvents(
+  $eventId: String
+  $eventText: String
+  $eventCaregivee_id: String
+  $eventCaregivee: String
+  $eventTimestamp: AWSDateTime
+) {
+  onUpdateEvents(
+    eventId: $eventId
+    eventText: $eventText
+    eventCaregivee_id: $eventCaregivee_id
+    eventCaregivee: $eventCaregivee
+    eventTimestamp: $eventTimestamp
+  ) {
+    eventId
+    eventText
+    eventCaregivee_id
+    eventCaregivee
+    eventTimestamp
+  }
+}
+subscription OnDeleteEvents(
+  $eventId: String
+  $eventText: String
+  $eventCaregivee_id: String
+  $eventCaregivee: String
+  $eventTimestamp: AWSDateTime
+) {
+  onDeleteEvents(
+    eventId: $eventId
+    eventText: $eventText
+    eventCaregivee_id: $eventCaregivee_id
+    eventCaregivee: $eventCaregivee
+    eventTimestamp: $eventTimestamp
+  ) {
+    eventId
+    eventText
+    eventCaregivee_id
+    eventCaregivee
+    eventTimestamp
+  }
+}
+subscription OnCreateTasks(
+  $taskId: ID
+  $taskName: String
+  $taskDesc: String
+  $eventCaregivee: String
+  $beaconId: String
+) {
+  onCreateTasks(
+    taskId: $taskId
+    taskName: $taskName
+    taskDesc: $taskDesc
+    eventCaregivee: $eventCaregivee
+    beaconId: $beaconId
+  ) {
+    taskId
+    taskName
+    taskDesc
+    eventCaregivee
+    beaconId
+  }
+}
+subscription OnUpdateTasks(
+  $taskId: ID
+  $taskName: String
+  $taskDesc: String
+  $eventCaregivee: String
+  $beaconId: String
+) {
+  onUpdateTasks(
+    taskId: $taskId
+    taskName: $taskName
+    taskDesc: $taskDesc
+    eventCaregivee: $eventCaregivee
+    beaconId: $beaconId
+  ) {
+    taskId
+    taskName
+    taskDesc
+    eventCaregivee
+    beaconId
+  }
+}
+subscription OnDeleteTasks(
+  $taskId: ID
+  $taskName: String
+  $taskDesc: String
+  $eventCaregivee: String
+  $beaconId: String
+) {
+  onDeleteTasks(
+    taskId: $taskId
+    taskName: $taskName
+    taskDesc: $taskDesc
+    eventCaregivee: $eventCaregivee
+    beaconId: $beaconId
+  ) {
+    taskId
+    taskName
+    taskDesc
+    eventCaregivee
+    beaconId
+  }
+}
+subscription OnCreateBeacons(
+  $beaconId: ID
+  $beaconName: String
+  $beaconRange: Int
+  $beaconTasks: String
+) {
+  onCreateBeacons(
+    beaconId: $beaconId
+    beaconName: $beaconName
+    beaconRange: $beaconRange
+    beaconTasks: $beaconTasks
+  ) {
+    beaconId
+    beaconName
+    beaconRange
+    beaconTasks
+  }
+}
+subscription OnUpdateBeacons(
+  $beaconId: ID
+  $beaconName: String
+  $beaconRange: Int
+  $beaconTasks: String
+) {
+  onUpdateBeacons(
+    beaconId: $beaconId
+    beaconName: $beaconName
+    beaconRange: $beaconRange
+    beaconTasks: $beaconTasks
+  ) {
+    beaconId
+    beaconName
+    beaconRange
+    beaconTasks
+  }
+}
+subscription OnDeleteBeacons(
+  $beaconId: ID
+  $beaconName: String
+  $beaconRange: Int
+  $beaconTasks: String
+) {
+  onDeleteBeacons(
+    beaconId: $beaconId
+    beaconName: $beaconName
+    beaconRange: $beaconRange
+    beaconTasks: $beaconTasks
+  ) {
+    beaconId
+    beaconName
+    beaconRange
+    beaconTasks
+  }
+}
+subscription OnCreateCareGivers(
+  $careGiverId: ID
+  $careGiverEmail: String
+  $firstName: String
+  $lastName: String
+  $password: String
+) {
+  onCreateCareGivers(
+    careGiverId: $careGiverId
+    careGiverEmail: $careGiverEmail
+    firstName: $firstName
+    lastName: $lastName
+    password: $password
+  ) {
+    careGiverId
+    careGiverEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiverBeacons
+    caregiverTasks
+  }
+}
+subscription OnUpdateCareGivers(
+  $careGiverId: ID
+  $careGiverEmail: String
+  $firstName: String
+  $lastName: String
+  $password: String
+) {
+  onUpdateCareGivers(
+    careGiverId: $careGiverId
+    careGiverEmail: $careGiverEmail
+    firstName: $firstName
+    lastName: $lastName
+    password: $password
+  ) {
+    careGiverId
+    careGiverEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiverBeacons
+    caregiverTasks
+  }
+}
+subscription OnDeleteCareGivers(
+  $careGiverId: ID
+  $careGiverEmail: String
+  $firstName: String
+  $lastName: String
+  $password: String
+) {
+  onDeleteCareGivers(
+    careGiverId: $careGiverId
+    careGiverEmail: $careGiverEmail
+    firstName: $firstName
+    lastName: $lastName
+    password: $password
+  ) {
+    careGiverId
+    careGiverEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiverBeacons
+    caregiverTasks
+  }
+}

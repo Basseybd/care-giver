@@ -1,0 +1,140 @@
+# this is an auto generated file. This will be overwritten
+query GetCareGivees($careGiveeId: ID!) {
+  getCareGivees(careGiveeId: $careGiveeId) {
+    careGiveeId
+    careGiveeEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiveeTasks
+    caregiveeEvents
+  }
+}
+query ListCareGivees(
+  $filter: TableCareGiveesFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listCareGivees(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      careGiveeId
+      careGiveeEmail
+      firstName
+      lastName
+      password
+      avatarId
+      description
+      caregiveeTasks
+      caregiveeEvents
+    }
+    nextToken
+  }
+}
+query GetEvents($eventId: String!) {
+  getEvents(eventId: $eventId) {
+    eventId
+    eventText
+    eventCaregivee_id
+    eventCaregivee
+    eventTimestamp
+  }
+}
+query ListEvents(
+  $filter: TableEventsFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listEvents(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      eventId
+      eventText
+      eventCaregivee_id
+      eventCaregivee
+      eventTimestamp
+    }
+    nextToken
+  }
+}
+query GetTasks($taskId: ID!) {
+  getTasks(taskId: $taskId) {
+    taskId
+    taskName
+    taskDesc
+    eventCaregivee
+    beaconId
+  }
+}
+query ListTasks(
+  $filter: TableTasksFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listTasks(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      taskId
+      taskName
+      taskDesc
+      eventCaregivee
+      beaconId
+    }
+    nextToken
+  }
+}
+query GetBeacons($beaconId: ID!) {
+  getBeacons(beaconId: $beaconId) {
+    beaconId
+    beaconName
+    beaconRange
+    beaconTasks
+  }
+}
+query ListBeacons(
+  $filter: TableBeaconsFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listBeacons(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      beaconId
+      beaconName
+      beaconRange
+      beaconTasks
+    }
+    nextToken
+  }
+}
+query GetCareGivers($careGiverId: ID!) {
+  getCareGivers(careGiverId: $careGiverId) {
+    careGiverId
+    careGiverEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiverBeacons
+    caregiverTasks
+  }
+}
+query ListCareGivers(
+  $filter: TableCareGiversFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listCareGivers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      careGiverId
+      careGiverEmail
+      firstName
+      lastName
+      password
+      avatarId
+      description
+      caregiverBeacons
+      caregiverTasks
+    }
+    nextToken
+  }
+}

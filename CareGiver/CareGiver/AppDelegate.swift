@@ -8,6 +8,9 @@ import UIKit
 import CoreData
 import EstimoteProximitySDK
 import CoreLocation
+import Amplify
+import AmplifyPlugins
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
