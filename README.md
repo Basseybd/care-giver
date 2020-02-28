@@ -1,3 +1,4 @@
-CareGiver
-Project description  
+# CareGiver
+
+## Project description  
 This is an iPhone application running on iOS13.1 and later versions. It requires the device to be connected to the internet when creating accounts and setting up users. In addition, any customization of beacons and  assignment of tasks to users also requires internet connectivity. Users are required to have bluetooth turned on to connect to the beacons. From a CareGivee's perspective, all they will be seeing is a default background screen that will change based on whichever beacon they are close to or whatever task they currently have to complete. All other complexity of the app resides on the caregiver side of it. The accounts that qualify as caregivers have access to all the customization screens, which include individual screens for all of the beacons, users, caregivers and tasks. All this information will be stored and retrieved from the MySQL database which lives on AWS by Middleware. Once a user boots up the application, all the non-changing data will be pulled on open and be locally stored to improve performance and stability.
