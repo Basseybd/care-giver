@@ -1,7 +1,7 @@
 //  This file was automatically generated and should not be edited.
-
+/*
 import AWSAppSync
-
+public class API{
 public struct CreateCareGiveesInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
@@ -7086,3 +7086,5 @@ public final class OnDeleteCareGiversSubscription: GraphQLSubscription {
     }
   }
 }
+}
+*/

@@ -10,8 +10,20 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    //MARK: Properties
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextFiled: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
+        //showPull()
     }
     
+    /*@IBAction func showPull(){
+        API.GetBeaconsQuery(beaconId: "1")
+    }*/
 }

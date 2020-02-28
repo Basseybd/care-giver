@@ -6,20 +6,27 @@
 
 import UIKit
 import CoreData
+/*
 import EstimoteProximitySDK
 import CoreLocation
 import Amplify
+import AWSCore
+import AWSAppSync
 import AmplifyPlugins
-
+*/
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    /*
     var proximityObserver: ProximityObserver!
     var locationManager: CLLocationManager = CLLocationManager()
     var fetchResult: UIBackgroundFetchResult!
+    */
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        /*
+        //let apiPlugin = AWSAPIPlugin(modelRegistration: AmplifyModels())
         
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
@@ -79,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         proximityObserver.startObserving([bedroom, bathroom, desk, closet, kitchen])
-
+        */
         return true
     }
     

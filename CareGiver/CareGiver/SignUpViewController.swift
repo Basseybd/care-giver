@@ -9,9 +9,17 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    @IBOutlet var emailTextField: UIView!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         //view.backgroundColor = .red
     }
     
