@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//import AWSLambda
 class LoginViewController: UIViewController {
     
     //MARK: Properties
@@ -20,7 +20,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .light
-        //showPull()
     }
     
     /*@IBAction func showPull(){

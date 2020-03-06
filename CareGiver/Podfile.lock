@@ -1,3 +1,28 @@
-PODFILE CHECKSUM: 459c8724744abb1b8f23f41583e9a2930ea9a165
+PODS:
+  - AWSCore (2.13.0)
+  - AWSLambda (2.13.0):
+    - AWSCore (= 2.13.0)
+  - EstimoteBluetoothScanning (1.0.8)
+  - EstimoteProximitySDK (1.6.0):
+    - EstimoteBluetoothScanning (~> 1.0.6)
+
+DEPENDENCIES:
+  - AWSLambda
+  - EstimoteProximitySDK
+
+SPEC REPOS:
+  trunk:
+    - AWSCore
+    - AWSLambda
+    - EstimoteBluetoothScanning
+    - EstimoteProximitySDK
+
+SPEC CHECKSUMS:
+  AWSCore: 167aba8cdaff6873193a66f062f41749c6c6a3d3
+  AWSLambda: 07699bd39de0761d5cf5c9be839d71300f45e263
+  EstimoteBluetoothScanning: aef117c8584951609403dc73cb07f6501911a365
+  EstimoteProximitySDK: 50c648423820b1ad44a69adffec83f60825894fc
+
+PODFILE CHECKSUM: 4ef15c5267e4c29ad7bc0c3909cfc8bc40e9e681
 
 COCOAPODS: 1.9.0

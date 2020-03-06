@@ -1,3 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-CareGiver/Pods-CareGiver-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework
+${BUILT_PRODUCTS_DIR}/AWSLambda/AWSLambda.framework
 ${PODS_ROOT}/EstimoteBluetoothScanning/EstimoteBluetoothScanning/EstimoteBluetoothScanning.framework
 ${PODS_ROOT}/EstimoteProximitySDK/EstimoteProximitySDK/EstimoteProximitySDK.framework

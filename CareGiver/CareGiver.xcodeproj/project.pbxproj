@@ -16,6 +16,9 @@
 		1509130723F2010400D62BA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1509130523F2010400D62BA7 /* LaunchScreen.storyboard */; };
 		1509131223F2010400D62BA7 /* CareGiverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509131123F2010400D62BA7 /* CareGiverTests.swift */; };
 		1509131D23F2010400D62BA7 /* CareGiverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509131C23F2010400D62BA7 /* CareGiverUITests.swift */; };
+		1555DAFF24105241004D4B44 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1555DAFB24105241004D4B44 /* LICENSE */; };
+		1555DB0024105242004D4B44 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1555DAFC24105241004D4B44 /* README.md */; };
+		1555DC1C2412AAB7004D4B44 /* EstimoteBluetoothScanning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1555DAFE24105241004D4B44 /* EstimoteBluetoothScanning.framework */; };
 		1577C65D23FDDE97004E3C29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1577C65C23FDDE97004E3C29 /* LoginViewController.swift */; };
 		1577C65F23FDDF53004E3C29 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1577C65E23FDDF53004E3C29 /* SignUpViewController.swift */; };
 		1577C66123FDDFA1004E3C29 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1577C66023FDDFA1004E3C29 /* ProfileViewController.swift */; };
@@ -93,6 +96,9 @@
 		153F67DB24098F1000BB7036 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		153F67DC24098F1000BB7036 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		153F67DE24098F1000BB7036 /* EstimoteBluetoothScanning.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EstimoteBluetoothScanning.framework; sourceTree = "<group>"; };
+		1555DAFB24105241004D4B44 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		1555DAFC24105241004D4B44 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1555DAFE24105241004D4B44 /* EstimoteBluetoothScanning.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EstimoteBluetoothScanning.framework; sourceTree = "<group>"; };
 		1577C65C23FDDE97004E3C29 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1577C65E23FDDF53004E3C29 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1577C66023FDDFA1004E3C29 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1555DC1C2412AAB7004D4B44 /* EstimoteBluetoothScanning.framework in Frameworks */,
 				15E5826924062C88008A388D /* Pods_CareGiver.framework in Frameworks */,
 				15E5822524062611008A388D /* Pods_CareGiver.framework in Frameworks */,
 				15E5826724062A33008A388D /* Pods_CareGiver.framework in Frameworks */,
@@ -138,6 +145,7 @@
 		150912EB23F2010100D62BA7 = {
 			isa = PBXGroup;
 			children = (
+				1555DAFA24105241004D4B44 /* EstimoteBluetoothScanning */,
 				150912F623F2010100D62BA7 /* CareGiver */,
 				1509131023F2010400D62BA7 /* CareGiverTests */,
 				1509131B23F2010400D62BA7 /* CareGiverUITests */,
@@ -238,6 +246,25 @@
 			path = EstimoteBluetoothScanning;
 			sourceTree = "<group>";
 		};
+		1555DAFA24105241004D4B44 /* EstimoteBluetoothScanning */ = {
+			isa = PBXGroup;
+			children = (
+				1555DAFB24105241004D4B44 /* LICENSE */,
+				1555DAFC24105241004D4B44 /* README.md */,
+				1555DAFD24105241004D4B44 /* EstimoteBluetoothScanning */,
+			);
+			name = EstimoteBluetoothScanning;
+			path = Pods/EstimoteBluetoothScanning;
+			sourceTree = "<group>";
+		};
+		1555DAFD24105241004D4B44 /* EstimoteBluetoothScanning */ = {
+			isa = PBXGroup;
+			children = (
+				1555DAFE24105241004D4B44 /* EstimoteBluetoothScanning.framework */,
+			);
+			path = EstimoteBluetoothScanning;
+			sourceTree = "<group>";
+		};
 		82947EAE5A5049A3C5101AB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +298,7 @@
 				15E5822724062611008A388D /* Embed Frameworks */,
 				15E5826824062C04008A388D /* CopyFiles */,
 				153F67CD24098E0B00BB7036 /* ShellScript */,
+				50B723D6B696FCB96954EC9A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -366,8 +394,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1555DAFF24105241004D4B44 /* LICENSE in Resources */,
 				1509130723F2010400D62BA7 /* LaunchScreen.storyboard in Resources */,
 				1509130423F2010400D62BA7 /* Assets.xcassets in Resources */,
+				1555DB0024105242004D4B44 /* README.md in Resources */,
 				150912FF23F2010100D62BA7 /* Main.storyboard in Resources */,
 				E1ED936E6CD24E37B8A99AE2 /* awsconfiguration.json in Resources */,
 				543D8A594079495685509709 /* amplifyconfiguration.json in Resources */,
@@ -425,6 +455,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n../tools/copy_dylibs.py\n";
+		};
+		50B723D6B696FCB96954EC9A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CareGiver/Pods-CareGiver-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CareGiver/Pods-CareGiver-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CareGiver/Pods-CareGiver-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		E59496D65D0C73A9BE9D0990 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -641,6 +688,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WLU6X7V783;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/EstimoteBluetoothScanning/EstimoteBluetoothScanning",
+				);
 				INFOPLIST_FILE = CareGiver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -660,6 +711,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WLU6X7V783;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/EstimoteBluetoothScanning/EstimoteBluetoothScanning",
+				);
 				INFOPLIST_FILE = CareGiver/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

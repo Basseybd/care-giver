@@ -1,15 +1,14 @@
 target 'CareGiver' do
   use_frameworks!
   
- # pod 'AWSLambda'
+  pod 'AWSLambda'
   #pod 'AWSAppSync'
   #pod 'amplify-tools'
   #pod 'Amplify'
   #pod 'AWSPluginsCore'
   #pod 'AmplifyPlugins/AWSAPIPlugin'
-  #pod 'AWSCore'
   #pod 'AWSS3'
-  #pod 'EstimoteProximitySDK'
+  pod 'EstimoteProximitySDK'
 end
 
 

@@ -6,8 +6,10 @@
 
 import UIKit
 import CoreData
-/*
+
 import EstimoteProximitySDK
+import AWSLambda
+/*
 import CoreLocation
 import Amplify
 import AWSCore
@@ -25,6 +27,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     */
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        let invocationRequest = AWSLambdaInvokerInvocationRequest()
+        
+        /*let jsonObject: [String: Any] = ["key1" : "value1",
+        "key2" : 2 ,
+        "key3" : [1, 2],
+        "isError" : false]
+        
+
+        lambdaInvoker.invokeFunction("myFunction", jsonObject: jsonObject)
+            .continueWith(block: {(task:AWSTask<AnyObject>) -> Any? in
+            if( task.error != nil) {
+                print("Error: \(task.error!)")
+                return nil
+            }
+
+            // Handle response in task.result
+            return nil
+        })
+        */
         /*
         //let apiPlugin = AWSAPIPlugin(modelRegistration: AmplifyModels())
         
