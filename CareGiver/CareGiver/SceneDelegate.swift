@@ -1,6 +1,8 @@
+//
 //  SceneDelegate.swift
 //  CareGiver
 //
+//  Created by David William Nartey on 3/8/20.
 //  Copyright © 2020 CareGiver. All rights reserved.
 //
 

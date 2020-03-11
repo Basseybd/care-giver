@@ -1,130 +1,35 @@
+//
 //  AppDelegate.swift
 //  CareGiver
 //
+//  Created by David William Nartey on 3/8/20.
 //  Copyright © 2020 CareGiver. All rights reserved.
 //
 
 import UIKit
 import CoreData
-
-import EstimoteProximitySDK
-import AWSLambda
-/*
-import CoreLocation
-import Amplify
-import AWSCore
 import AWSAppSync
-import AmplifyPlugins
-*/
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var appSyncClient: AWSAppSyncClient?
 
-    /*
-    var proximityObserver: ProximityObserver!
-    var locationManager: CLLocationManager = CLLocationManager()
-    var fetchResult: UIBackgroundFetchResult!
-    */
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        let invocationRequest = AWSLambdaInvokerInvocationRequest()
-        
-        /*let jsonObject: [String: Any] = ["key1" : "value1",
-        "key2" : 2 ,
-        "key3" : [1, 2],
-        "isError" : false]
-        
+        // Override point for customization after application launch.
+        do{
+            let cacheConfiguration = try AWSAppSyncCacheConfiguration()
+            
 
-        lambdaInvoker.invokeFunction("myFunction", jsonObject: jsonObject)
-            .continueWith(block: {(task:AWSTask<AnyObject>) -> Any? in
-            if( task.error != nil) {
-                print("Error: \(task.error!)")
-                return nil
-            }
-
-            // Handle response in task.result
-            return nil
-        })
-        */
-        /*
-        //let apiPlugin = AWSAPIPlugin(modelRegistration: AmplifyModels())
-        
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
-        locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.pausesLocationUpdatesAutomatically = false
-        
-        let estimoteCloudCredentials = CloudCredentials(appID: "caregiver-2-0-cr9", appToken: "aabc089761b372d32f2cfffbadda68c9")
-
-        self.proximityObserver = ProximityObserver(credentials: estimoteCloudCredentials, onError: { error in
-            print("ProximityObserver error: \(error)")
-        })
-        
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.delegate = self
-        notificationCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
-            print("notifications permission granted = \(granted), error = \(error?.localizedDescription ?? "(none)")")
+            let appSyncServiceConfig = try AWSAppSyncServiceConfig()
+            let appSyncConfig = try AWSAppSyncClientConfiguration(appSyncServiceConfig: appSyncServiceConfig,cacheConfiguration: cacheConfiguration)
+            appSyncClient = try AWSAppSyncClient(appSyncConfig: appSyncConfig)
+                // Set id as the cache key for objects. See architecture section for details
+                appSyncClient?.apolloClient?.cacheKeyForObject = { $0["id"] }
+        }   catch{
+            print("\(error)")
         }
-        
-        let bathroom = ProximityZone(tag: "bathroom", range: ProximityRange.near)
-        bathroom.onEnter = { context in
-            self.showNotification(with: " Hello, You've Entered the Bathroom", body: "Please don't forget to wash your hands")
-        }
-        bathroom.onExit = { context in
-            self.showNotification(with: "Leaving Bathroom", body: "Flush the Toilet")
-        }
-        
-        let bedroom = ProximityZone(tag: "bedroom", range: ProximityRange.far)
-        bedroom.onEnter = { context in
-            self.showNotification(with: "Hello, You've Entered the Bedroom", body: "Welcome")
-        }
-        bedroom.onExit = { context in
-            self.showNotification(with: "Leaving Bedroom", body: "GoodBye")
-        }
-        
-        let desk = ProximityZone(tag: "bedroom", range: ProximityRange.near)
-        desk.onEnter = { context in
-            self.showNotification(with: "Hello, You've Entered the Desk Space", body: "Welcome")
-        }
-        desk.onExit = { context in
-            self.showNotification(with: "Leaving Desk", body: "GoodBye, Don't forget to put your things away")
-        }
-        
-        let closet = ProximityZone(tag: "closet", range: ProximityRange.near)
-        closet.onEnter = { context in
-            self.showNotification(with: "Hello, You've Entered the Closet", body: "Welcome")
-        }
-        closet.onExit = { context in
-            self.showNotification(with: "Leaving Closet", body: "GoodBye")
-        }
-        
-        let kitchen = ProximityZone(tag: "kitchen", range: ProximityRange.near)
-        kitchen.onEnter = { context in
-            self.showNotification(with: "Hello, You've Entered the Kitchen", body: "Welcome")
-        }
-        kitchen.onExit = { context in
-            self.showNotification(with: "Leaving Kitchen", body: "Clean all your dishes")
-        }
-
-        proximityObserver.startObserving([bedroom, bathroom, desk, closet, kitchen])
-        */
         return true
-    }
-    
-    func showNotification(with title: String, body: String){
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.delegate = self
-        notificationCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
-            print("notifications permission granted = \(granted), error = \(error?.localizedDescription ?? "(none)")")
-        }
-        
-        let content = UNMutableNotificationContent()
-        content.title = title
-        content.body = body
-        content.sound = UNNotificationSound.default
-        let request = UNNotificationRequest(identifier: "exit", content: content, trigger: nil)
-        notificationCenter.add(request, withCompletionHandler: nil)
     }
 
     // MARK: UISceneSession Lifecycle
@@ -187,12 +92,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-extension AppDelegate: UNUserNotificationCenterDelegate {
-
-    // Needs to be implemented to receive notifications both in foreground and background
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([UNNotificationPresentationOptions.alert, UNNotificationPresentationOptions.sound])
-    }
-}
-
 

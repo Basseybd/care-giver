@@ -1,160 +1,31 @@
 # this is an auto generated file. This will be overwritten
-mutation ExampleAddData($example: String) {
-  exampleAddData(example: $example)
-}
-mutation CreateCareGivees($input: CreateCareGiveesInput!) {
-  createCareGivees(input: $input) {
-    careGiveeId
-    careGiveeEmail
-    firstName
-    lastName
-    password
-    avatarId
+mutation CreateTodo(
+  $input: CreateTodoInput!
+  $condition: ModelTodoConditionInput
+) {
+  createTodo(input: $input, condition: $condition) {
+    id
+    name
     description
-    caregiveeTasks
-    caregiveeEvents
   }
 }
-mutation UpdateCareGivees($input: UpdateCareGiveesInput!) {
-  updateCareGivees(input: $input) {
-    careGiveeId
-    careGiveeEmail
-    firstName
-    lastName
-    password
-    avatarId
+mutation UpdateTodo(
+  $input: UpdateTodoInput!
+  $condition: ModelTodoConditionInput
+) {
+  updateTodo(input: $input, condition: $condition) {
+    id
+    name
     description
-    caregiveeTasks
-    caregiveeEvents
   }
 }
-mutation DeleteCareGivees($input: DeleteCareGiveesInput!) {
-  deleteCareGivees(input: $input) {
-    careGiveeId
-    careGiveeEmail
-    firstName
-    lastName
-    password
-    avatarId
+mutation DeleteTodo(
+  $input: DeleteTodoInput!
+  $condition: ModelTodoConditionInput
+) {
+  deleteTodo(input: $input, condition: $condition) {
+    id
+    name
     description
-    caregiveeTasks
-    caregiveeEvents
-  }
-}
-mutation CreateEvents($input: CreateEventsInput!) {
-  createEvents(input: $input) {
-    eventId
-    eventText
-    eventCaregivee_id
-    eventCaregivee
-    eventTimestamp
-  }
-}
-mutation UpdateEvents($input: UpdateEventsInput!) {
-  updateEvents(input: $input) {
-    eventId
-    eventText
-    eventCaregivee_id
-    eventCaregivee
-    eventTimestamp
-  }
-}
-mutation DeleteEvents($input: DeleteEventsInput!) {
-  deleteEvents(input: $input) {
-    eventId
-    eventText
-    eventCaregivee_id
-    eventCaregivee
-    eventTimestamp
-  }
-}
-mutation CreateTasks($input: CreateTasksInput!) {
-  createTasks(input: $input) {
-    taskId
-    taskName
-    taskDesc
-    eventCaregivee
-    beaconId
-  }
-}
-mutation UpdateTasks($input: UpdateTasksInput!) {
-  updateTasks(input: $input) {
-    taskId
-    taskName
-    taskDesc
-    eventCaregivee
-    beaconId
-  }
-}
-mutation DeleteTasks($input: DeleteTasksInput!) {
-  deleteTasks(input: $input) {
-    taskId
-    taskName
-    taskDesc
-    eventCaregivee
-    beaconId
-  }
-}
-mutation CreateBeacons($input: CreateBeaconsInput!) {
-  createBeacons(input: $input) {
-    beaconId
-    beaconName
-    beaconRange
-    beaconTasks
-  }
-}
-mutation UpdateBeacons($input: UpdateBeaconsInput!) {
-  updateBeacons(input: $input) {
-    beaconId
-    beaconName
-    beaconRange
-    beaconTasks
-  }
-}
-mutation DeleteBeacons($input: DeleteBeaconsInput!) {
-  deleteBeacons(input: $input) {
-    beaconId
-    beaconName
-    beaconRange
-    beaconTasks
-  }
-}
-mutation CreateCareGivers($input: CreateCareGiversInput!) {
-  createCareGivers(input: $input) {
-    careGiverId
-    careGiverEmail
-    firstName
-    lastName
-    password
-    avatarId
-    description
-    caregiverBeacons
-    caregiverTasks
-  }
-}
-mutation UpdateCareGivers($input: UpdateCareGiversInput!) {
-  updateCareGivers(input: $input) {
-    careGiverId
-    careGiverEmail
-    firstName
-    lastName
-    password
-    avatarId
-    description
-    caregiverBeacons
-    caregiverTasks
-  }
-}
-mutation DeleteCareGivers($input: DeleteCareGiversInput!) {
-  deleteCareGivers(input: $input) {
-    careGiverId
-    careGiverEmail
-    firstName
-    lastName
-    password
-    avatarId
-    description
-    caregiverBeacons
-    caregiverTasks
   }
 }

@@ -1,28 +1,38 @@
 PODS:
-  - AWSCore (2.13.0)
-  - AWSLambda (2.13.0):
-    - AWSCore (= 2.13.0)
-  - EstimoteBluetoothScanning (1.0.8)
-  - EstimoteProximitySDK (1.6.0):
-    - EstimoteBluetoothScanning (~> 1.0.6)
+  - AppSyncRealTimeClient (1.0.1):
+    - Starscream (~> 3.0.2)
+  - AWSAppSync (3.0.2):
+    - AppSyncRealTimeClient (~> 1.0.0)
+    - AWSCore (~> 2.12.0)
+    - ReachabilitySwift (~> 5.0.0)
+    - SQLite.swift (~> 0.12.2)
+  - AWSCore (2.12.7)
+  - ReachabilitySwift (5.0.0)
+  - SQLite.swift (0.12.2):
+    - SQLite.swift/standard (= 0.12.2)
+  - SQLite.swift/standard (0.12.2)
+  - Starscream (3.0.6)
 
 DEPENDENCIES:
-  - AWSLambda
-  - EstimoteProximitySDK
+  - AWSAppSync (~> 3.0.2)
 
 SPEC REPOS:
   trunk:
+    - AppSyncRealTimeClient
+    - AWSAppSync
     - AWSCore
-    - AWSLambda
-    - EstimoteBluetoothScanning
-    - EstimoteProximitySDK
+    - ReachabilitySwift
+    - SQLite.swift
+    - Starscream
 
 SPEC CHECKSUMS:
-  AWSCore: 167aba8cdaff6873193a66f062f41749c6c6a3d3
-  AWSLambda: 07699bd39de0761d5cf5c9be839d71300f45e263
-  EstimoteBluetoothScanning: aef117c8584951609403dc73cb07f6501911a365
-  EstimoteProximitySDK: 50c648423820b1ad44a69adffec83f60825894fc
+  AppSyncRealTimeClient: 63c44a04e7ce32e14f79836cc184cf800f71ac7a
+  AWSAppSync: 8fba81ebe3ec9423e35d4efd035cc01322cf3ebd
+  AWSCore: 2f0f88ae94a63a198274d683c7d0e18709d7090b
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
+  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
 
-PODFILE CHECKSUM: 4ef15c5267e4c29ad7bc0c3909cfc8bc40e9e681
+PODFILE CHECKSUM: 070c832c5f556bb41e637fc3fa3e31ba1eae4491
 
 COCOAPODS: 1.9.0
