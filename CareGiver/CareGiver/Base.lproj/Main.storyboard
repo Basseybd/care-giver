@@ -226,6 +226,14 @@
                                     <action selector="doItNow" destination="BYZ-38-t0r" eventType="touchUpInside" id="Irx-i2-8ys"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeI-R6-I9y">
+                                <rect key="frame" x="92" y="466" width="191" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create"/>
+                                <connections>
+                                    <action selector="insertBeacons" destination="BYZ-38-t0r" eventType="touchUpInside" id="3cc-G9-rsu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -251,6 +259,7 @@
                     <connections>
                         <outlet property="addDataView" destination="zRp-jQ-8se" id="T8B-86-Ypz"/>
                         <outlet property="choiceButton" destination="rBx-ze-Jdg" id="Gj1-X2-OcP"/>
+                        <outlet property="createBeacon" destination="EeI-R6-I9y" id="N47-mg-2LU"/>
                         <outlet property="descriptionTextField" destination="fmT-l5-hHO" id="pzO-5j-1c2"/>
                         <outlet property="desctiptionLabel" destination="Gvn-OO-av4" id="uTI-YK-ggV"/>
                         <outlet property="idLabel" destination="Hkr-8a-7mP" id="N4O-rr-q78"/>

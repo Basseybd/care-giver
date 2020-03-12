@@ -20,3 +20,26 @@ query ListTodos(
     nextToken
   }
 }
+query GetBeaconsAws($beaconID: ID!) {
+  getBeaconsAWS(beaconID: $beaconID) {
+    beaconID
+    beaconName
+    beaconRange
+    beaconTasks
+  }
+}
+query ListBeaconsAws(
+  $filter: TableBeaconsAWSFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listBeaconsAWS(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      beaconID
+      beaconName
+      beaconRange
+      beaconTasks
+    }
+    nextToken
+  }
+}

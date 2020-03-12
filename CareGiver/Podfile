@@ -4,8 +4,10 @@
 target 'CareGiver' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  
   # Pods for CareGiver
+  
+  pod 'AWSCore', '~> 2.12.0'
   pod 'AWSAppSync', '~> 3.0.2'
 
 end

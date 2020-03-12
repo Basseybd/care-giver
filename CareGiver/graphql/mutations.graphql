@@ -29,3 +29,27 @@ mutation DeleteTodo(
     description
   }
 }
+mutation CreateBeaconsAws($input: CreateBeaconsAWSInput!) {
+  createBeaconsAWS(input: $input) {
+    beaconID
+    beaconName
+    beaconRange
+    beaconTasks
+  }
+}
+mutation UpdateBeaconsAws($input: UpdateBeaconsAWSInput!) {
+  updateBeaconsAWS(input: $input) {
+    beaconID
+    beaconName
+    beaconRange
+    beaconTasks
+  }
+}
+mutation DeleteBeaconsAws($input: DeleteBeaconsAWSInput!) {
+  deleteBeaconsAWS(input: $input) {
+    beaconID
+    beaconName
+    beaconRange
+    beaconTasks
+  }
+}

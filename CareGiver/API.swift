@@ -403,6 +403,111 @@ public struct DeleteTodoInput: GraphQLMapConvertible {
   }
 }
 
+public struct CreateBeaconsAWSInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  public init(beaconId: GraphQLID? = nil, beaconName: String, beaconRange: String? = nil, beaconTasks: String? = nil) {
+    graphQLMap = ["beaconID": beaconId, "beaconName": beaconName, "beaconRange": beaconRange, "beaconTasks": beaconTasks]
+  }
+
+  public var beaconId: GraphQLID? {
+    get {
+      return graphQLMap["beaconID"] as! GraphQLID?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "beaconID")
+    }
+  }
+
+  public var beaconName: String {
+    get {
+      return graphQLMap["beaconName"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "beaconName")
+    }
+  }
+
+  public var beaconRange: String? {
+    get {
+      return graphQLMap["beaconRange"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "beaconRange")
+    }
+  }
+
+  public var beaconTasks: String? {
+    get {
+      return graphQLMap["beaconTasks"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "beaconTasks")
+    }
+  }
+}
+
+public struct UpdateBeaconsAWSInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  public init(beaconId: GraphQLID, beaconName: String? = nil, beaconRange: String? = nil, beaconTasks: String? = nil) {
+    graphQLMap = ["beaconID": beaconId, "beaconName": beaconName, "beaconRange": beaconRange, "beaconTasks": beaconTasks]
+  }
+
+  public var beaconId: GraphQLID {
+    get {
+      return graphQLMap["beaconID"] as! GraphQLID
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "beaconID")
+    }
+  }
+
+  public var beaconName: String? {
+    get {
+      return graphQLMap["beaconName"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "beaconName")
+    }
+  }
+
+  public var beaconRange: String? {
+    get {
+      return graphQLMap["beaconRange"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "beaconRange")
+    }
+  }
+
+  public var beaconTasks: String? {
+    get {
+      return graphQLMap["beaconTasks"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "beaconTasks")
+    }
+  }
+}
+
+public struct DeleteBeaconsAWSInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  public init(beaconId: GraphQLID) {
+    graphQLMap = ["beaconID": beaconId]
+  }
+
+  public var beaconId: GraphQLID {
+    get {
+      return graphQLMap["beaconID"] as! GraphQLID
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "beaconID")
+    }
+  }
+}
+
 public struct ModelTodoFilterInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
@@ -586,6 +691,246 @@ public struct ModelIDInput: GraphQLMapConvertible {
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "size")
+    }
+  }
+}
+
+public struct TableBeaconsAWSFilterInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  public init(beaconId: TableIDFilterInput? = nil, beaconName: TableStringFilterInput? = nil, beaconRange: TableStringFilterInput? = nil, beaconTasks: TableStringFilterInput? = nil) {
+    graphQLMap = ["beaconID": beaconId, "beaconName": beaconName, "beaconRange": beaconRange, "beaconTasks": beaconTasks]
+  }
+
+  public var beaconId: TableIDFilterInput? {
+    get {
+      return graphQLMap["beaconID"] as! TableIDFilterInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "beaconID")
+    }
+  }
+
+  public var beaconName: TableStringFilterInput? {
+    get {
+      return graphQLMap["beaconName"] as! TableStringFilterInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "beaconName")
+    }
+  }
+
+  public var beaconRange: TableStringFilterInput? {
+    get {
+      return graphQLMap["beaconRange"] as! TableStringFilterInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "beaconRange")
+    }
+  }
+
+  public var beaconTasks: TableStringFilterInput? {
+    get {
+      return graphQLMap["beaconTasks"] as! TableStringFilterInput?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "beaconTasks")
+    }
+  }
+}
+
+public struct TableIDFilterInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  public init(ne: GraphQLID? = nil, eq: GraphQLID? = nil, le: GraphQLID? = nil, lt: GraphQLID? = nil, ge: GraphQLID? = nil, gt: GraphQLID? = nil, contains: GraphQLID? = nil, notContains: GraphQLID? = nil, between: [GraphQLID?]? = nil, beginsWith: GraphQLID? = nil) {
+    graphQLMap = ["ne": ne, "eq": eq, "le": le, "lt": lt, "ge": ge, "gt": gt, "contains": contains, "notContains": notContains, "between": between, "beginsWith": beginsWith]
+  }
+
+  public var ne: GraphQLID? {
+    get {
+      return graphQLMap["ne"] as! GraphQLID?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "ne")
+    }
+  }
+
+  public var eq: GraphQLID? {
+    get {
+      return graphQLMap["eq"] as! GraphQLID?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "eq")
+    }
+  }
+
+  public var le: GraphQLID? {
+    get {
+      return graphQLMap["le"] as! GraphQLID?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "le")
+    }
+  }
+
+  public var lt: GraphQLID? {
+    get {
+      return graphQLMap["lt"] as! GraphQLID?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "lt")
+    }
+  }
+
+  public var ge: GraphQLID? {
+    get {
+      return graphQLMap["ge"] as! GraphQLID?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "ge")
+    }
+  }
+
+  public var gt: GraphQLID? {
+    get {
+      return graphQLMap["gt"] as! GraphQLID?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "gt")
+    }
+  }
+
+  public var contains: GraphQLID? {
+    get {
+      return graphQLMap["contains"] as! GraphQLID?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "contains")
+    }
+  }
+
+  public var notContains: GraphQLID? {
+    get {
+      return graphQLMap["notContains"] as! GraphQLID?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "notContains")
+    }
+  }
+
+  public var between: [GraphQLID?]? {
+    get {
+      return graphQLMap["between"] as! [GraphQLID?]?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "between")
+    }
+  }
+
+  public var beginsWith: GraphQLID? {
+    get {
+      return graphQLMap["beginsWith"] as! GraphQLID?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "beginsWith")
+    }
+  }
+}
+
+public struct TableStringFilterInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  public init(ne: String? = nil, eq: String? = nil, le: String? = nil, lt: String? = nil, ge: String? = nil, gt: String? = nil, contains: String? = nil, notContains: String? = nil, between: [String?]? = nil, beginsWith: String? = nil) {
+    graphQLMap = ["ne": ne, "eq": eq, "le": le, "lt": lt, "ge": ge, "gt": gt, "contains": contains, "notContains": notContains, "between": between, "beginsWith": beginsWith]
+  }
+
+  public var ne: String? {
+    get {
+      return graphQLMap["ne"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "ne")
+    }
+  }
+
+  public var eq: String? {
+    get {
+      return graphQLMap["eq"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "eq")
+    }
+  }
+
+  public var le: String? {
+    get {
+      return graphQLMap["le"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "le")
+    }
+  }
+
+  public var lt: String? {
+    get {
+      return graphQLMap["lt"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "lt")
+    }
+  }
+
+  public var ge: String? {
+    get {
+      return graphQLMap["ge"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "ge")
+    }
+  }
+
+  public var gt: String? {
+    get {
+      return graphQLMap["gt"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "gt")
+    }
+  }
+
+  public var contains: String? {
+    get {
+      return graphQLMap["contains"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "contains")
+    }
+  }
+
+  public var notContains: String? {
+    get {
+      return graphQLMap["notContains"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "notContains")
+    }
+  }
+
+  public var between: [String?]? {
+    get {
+      return graphQLMap["between"] as! [String?]?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "between")
+    }
+  }
+
+  public var beginsWith: String? {
+    get {
+      return graphQLMap["beginsWith"] as! String?
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "beginsWith")
     }
   }
 }
@@ -893,6 +1238,333 @@ public final class DeleteTodoMutation: GraphQLMutation {
   }
 }
 
+public final class CreateBeaconsAwsMutation: GraphQLMutation {
+  public static let operationString =
+    "mutation CreateBeaconsAws($input: CreateBeaconsAWSInput!) {\n  createBeaconsAWS(input: $input) {\n    __typename\n    beaconID\n    beaconName\n    beaconRange\n    beaconTasks\n  }\n}"
+
+  public var input: CreateBeaconsAWSInput
+
+  public init(input: CreateBeaconsAWSInput) {
+    self.input = input
+  }
+
+  public var variables: GraphQLMap? {
+    return ["input": input]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Mutation"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("createBeaconsAWS", arguments: ["input": GraphQLVariable("input")], type: .object(CreateBeaconsAw.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(createBeaconsAws: CreateBeaconsAw? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "createBeaconsAWS": createBeaconsAws.flatMap { $0.snapshot }])
+    }
+
+    public var createBeaconsAws: CreateBeaconsAw? {
+      get {
+        return (snapshot["createBeaconsAWS"] as? Snapshot).flatMap { CreateBeaconsAw(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "createBeaconsAWS")
+      }
+    }
+
+    public struct CreateBeaconsAw: GraphQLSelectionSet {
+      public static let possibleTypes = ["BeaconsAWS"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("beaconID", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("beaconName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("beaconRange", type: .scalar(String.self)),
+        GraphQLField("beaconTasks", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(beaconId: GraphQLID, beaconName: String, beaconRange: String? = nil, beaconTasks: String? = nil) {
+        self.init(snapshot: ["__typename": "BeaconsAWS", "beaconID": beaconId, "beaconName": beaconName, "beaconRange": beaconRange, "beaconTasks": beaconTasks])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var beaconId: GraphQLID {
+        get {
+          return snapshot["beaconID"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconID")
+        }
+      }
+
+      public var beaconName: String {
+        get {
+          return snapshot["beaconName"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconName")
+        }
+      }
+
+      public var beaconRange: String? {
+        get {
+          return snapshot["beaconRange"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconRange")
+        }
+      }
+
+      public var beaconTasks: String? {
+        get {
+          return snapshot["beaconTasks"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconTasks")
+        }
+      }
+    }
+  }
+}
+
+public final class UpdateBeaconsAwsMutation: GraphQLMutation {
+  public static let operationString =
+    "mutation UpdateBeaconsAws($input: UpdateBeaconsAWSInput!) {\n  updateBeaconsAWS(input: $input) {\n    __typename\n    beaconID\n    beaconName\n    beaconRange\n    beaconTasks\n  }\n}"
+
+  public var input: UpdateBeaconsAWSInput
+
+  public init(input: UpdateBeaconsAWSInput) {
+    self.input = input
+  }
+
+  public var variables: GraphQLMap? {
+    return ["input": input]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Mutation"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("updateBeaconsAWS", arguments: ["input": GraphQLVariable("input")], type: .object(UpdateBeaconsAw.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(updateBeaconsAws: UpdateBeaconsAw? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "updateBeaconsAWS": updateBeaconsAws.flatMap { $0.snapshot }])
+    }
+
+    public var updateBeaconsAws: UpdateBeaconsAw? {
+      get {
+        return (snapshot["updateBeaconsAWS"] as? Snapshot).flatMap { UpdateBeaconsAw(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "updateBeaconsAWS")
+      }
+    }
+
+    public struct UpdateBeaconsAw: GraphQLSelectionSet {
+      public static let possibleTypes = ["BeaconsAWS"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("beaconID", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("beaconName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("beaconRange", type: .scalar(String.self)),
+        GraphQLField("beaconTasks", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(beaconId: GraphQLID, beaconName: String, beaconRange: String? = nil, beaconTasks: String? = nil) {
+        self.init(snapshot: ["__typename": "BeaconsAWS", "beaconID": beaconId, "beaconName": beaconName, "beaconRange": beaconRange, "beaconTasks": beaconTasks])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var beaconId: GraphQLID {
+        get {
+          return snapshot["beaconID"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconID")
+        }
+      }
+
+      public var beaconName: String {
+        get {
+          return snapshot["beaconName"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconName")
+        }
+      }
+
+      public var beaconRange: String? {
+        get {
+          return snapshot["beaconRange"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconRange")
+        }
+      }
+
+      public var beaconTasks: String? {
+        get {
+          return snapshot["beaconTasks"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconTasks")
+        }
+      }
+    }
+  }
+}
+
+public final class DeleteBeaconsAwsMutation: GraphQLMutation {
+  public static let operationString =
+    "mutation DeleteBeaconsAws($input: DeleteBeaconsAWSInput!) {\n  deleteBeaconsAWS(input: $input) {\n    __typename\n    beaconID\n    beaconName\n    beaconRange\n    beaconTasks\n  }\n}"
+
+  public var input: DeleteBeaconsAWSInput
+
+  public init(input: DeleteBeaconsAWSInput) {
+    self.input = input
+  }
+
+  public var variables: GraphQLMap? {
+    return ["input": input]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Mutation"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("deleteBeaconsAWS", arguments: ["input": GraphQLVariable("input")], type: .object(DeleteBeaconsAw.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(deleteBeaconsAws: DeleteBeaconsAw? = nil) {
+      self.init(snapshot: ["__typename": "Mutation", "deleteBeaconsAWS": deleteBeaconsAws.flatMap { $0.snapshot }])
+    }
+
+    public var deleteBeaconsAws: DeleteBeaconsAw? {
+      get {
+        return (snapshot["deleteBeaconsAWS"] as? Snapshot).flatMap { DeleteBeaconsAw(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "deleteBeaconsAWS")
+      }
+    }
+
+    public struct DeleteBeaconsAw: GraphQLSelectionSet {
+      public static let possibleTypes = ["BeaconsAWS"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("beaconID", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("beaconName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("beaconRange", type: .scalar(String.self)),
+        GraphQLField("beaconTasks", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(beaconId: GraphQLID, beaconName: String, beaconRange: String? = nil, beaconTasks: String? = nil) {
+        self.init(snapshot: ["__typename": "BeaconsAWS", "beaconID": beaconId, "beaconName": beaconName, "beaconRange": beaconRange, "beaconTasks": beaconTasks])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var beaconId: GraphQLID {
+        get {
+          return snapshot["beaconID"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconID")
+        }
+      }
+
+      public var beaconName: String {
+        get {
+          return snapshot["beaconName"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconName")
+        }
+      }
+
+      public var beaconRange: String? {
+        get {
+          return snapshot["beaconRange"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconRange")
+        }
+      }
+
+      public var beaconTasks: String? {
+        get {
+          return snapshot["beaconTasks"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconTasks")
+        }
+      }
+    }
+  }
+}
+
 public final class GetTodoQuery: GraphQLQuery {
   public static let operationString =
     "query GetTodo($id: ID!) {\n  getTodo(id: $id) {\n    __typename\n    id\n    name\n    description\n  }\n}"
@@ -1135,6 +1807,275 @@ public final class ListTodosQuery: GraphQLQuery {
           }
           set {
             snapshot.updateValue(newValue, forKey: "description")
+          }
+        }
+      }
+    }
+  }
+}
+
+public final class GetBeaconsAwsQuery: GraphQLQuery {
+  public static let operationString =
+    "query GetBeaconsAws($beaconID: ID!) {\n  getBeaconsAWS(beaconID: $beaconID) {\n    __typename\n    beaconID\n    beaconName\n    beaconRange\n    beaconTasks\n  }\n}"
+
+  public var beaconID: GraphQLID
+
+  public init(beaconID: GraphQLID) {
+    self.beaconID = beaconID
+  }
+
+  public var variables: GraphQLMap? {
+    return ["beaconID": beaconID]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Query"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("getBeaconsAWS", arguments: ["beaconID": GraphQLVariable("beaconID")], type: .object(GetBeaconsAw.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(getBeaconsAws: GetBeaconsAw? = nil) {
+      self.init(snapshot: ["__typename": "Query", "getBeaconsAWS": getBeaconsAws.flatMap { $0.snapshot }])
+    }
+
+    public var getBeaconsAws: GetBeaconsAw? {
+      get {
+        return (snapshot["getBeaconsAWS"] as? Snapshot).flatMap { GetBeaconsAw(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "getBeaconsAWS")
+      }
+    }
+
+    public struct GetBeaconsAw: GraphQLSelectionSet {
+      public static let possibleTypes = ["BeaconsAWS"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("beaconID", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("beaconName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("beaconRange", type: .scalar(String.self)),
+        GraphQLField("beaconTasks", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(beaconId: GraphQLID, beaconName: String, beaconRange: String? = nil, beaconTasks: String? = nil) {
+        self.init(snapshot: ["__typename": "BeaconsAWS", "beaconID": beaconId, "beaconName": beaconName, "beaconRange": beaconRange, "beaconTasks": beaconTasks])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var beaconId: GraphQLID {
+        get {
+          return snapshot["beaconID"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconID")
+        }
+      }
+
+      public var beaconName: String {
+        get {
+          return snapshot["beaconName"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconName")
+        }
+      }
+
+      public var beaconRange: String? {
+        get {
+          return snapshot["beaconRange"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconRange")
+        }
+      }
+
+      public var beaconTasks: String? {
+        get {
+          return snapshot["beaconTasks"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconTasks")
+        }
+      }
+    }
+  }
+}
+
+public final class ListBeaconsAwsQuery: GraphQLQuery {
+  public static let operationString =
+    "query ListBeaconsAws($filter: TableBeaconsAWSFilterInput, $limit: Int, $nextToken: String) {\n  listBeaconsAWS(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    __typename\n    items {\n      __typename\n      beaconID\n      beaconName\n      beaconRange\n      beaconTasks\n    }\n    nextToken\n  }\n}"
+
+  public var filter: TableBeaconsAWSFilterInput?
+  public var limit: Int?
+  public var nextToken: String?
+
+  public init(filter: TableBeaconsAWSFilterInput? = nil, limit: Int? = nil, nextToken: String? = nil) {
+    self.filter = filter
+    self.limit = limit
+    self.nextToken = nextToken
+  }
+
+  public var variables: GraphQLMap? {
+    return ["filter": filter, "limit": limit, "nextToken": nextToken]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Query"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("listBeaconsAWS", arguments: ["filter": GraphQLVariable("filter"), "limit": GraphQLVariable("limit"), "nextToken": GraphQLVariable("nextToken")], type: .object(ListBeaconsAw.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(listBeaconsAws: ListBeaconsAw? = nil) {
+      self.init(snapshot: ["__typename": "Query", "listBeaconsAWS": listBeaconsAws.flatMap { $0.snapshot }])
+    }
+
+    public var listBeaconsAws: ListBeaconsAw? {
+      get {
+        return (snapshot["listBeaconsAWS"] as? Snapshot).flatMap { ListBeaconsAw(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "listBeaconsAWS")
+      }
+    }
+
+    public struct ListBeaconsAw: GraphQLSelectionSet {
+      public static let possibleTypes = ["BeaconsAWSConnection"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("items", type: .list(.object(Item.selections))),
+        GraphQLField("nextToken", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(items: [Item?]? = nil, nextToken: String? = nil) {
+        self.init(snapshot: ["__typename": "BeaconsAWSConnection", "items": items.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, "nextToken": nextToken])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var items: [Item?]? {
+        get {
+          return (snapshot["items"] as? [Snapshot?]).flatMap { $0.map { $0.flatMap { Item(snapshot: $0) } } }
+        }
+        set {
+          snapshot.updateValue(newValue.flatMap { $0.map { $0.flatMap { $0.snapshot } } }, forKey: "items")
+        }
+      }
+
+      public var nextToken: String? {
+        get {
+          return snapshot["nextToken"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "nextToken")
+        }
+      }
+
+      public struct Item: GraphQLSelectionSet {
+        public static let possibleTypes = ["BeaconsAWS"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("beaconID", type: .nonNull(.scalar(GraphQLID.self))),
+          GraphQLField("beaconName", type: .nonNull(.scalar(String.self))),
+          GraphQLField("beaconRange", type: .scalar(String.self)),
+          GraphQLField("beaconTasks", type: .scalar(String.self)),
+        ]
+
+        public var snapshot: Snapshot
+
+        public init(snapshot: Snapshot) {
+          self.snapshot = snapshot
+        }
+
+        public init(beaconId: GraphQLID, beaconName: String, beaconRange: String? = nil, beaconTasks: String? = nil) {
+          self.init(snapshot: ["__typename": "BeaconsAWS", "beaconID": beaconId, "beaconName": beaconName, "beaconRange": beaconRange, "beaconTasks": beaconTasks])
+        }
+
+        public var __typename: String {
+          get {
+            return snapshot["__typename"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var beaconId: GraphQLID {
+          get {
+            return snapshot["beaconID"]! as! GraphQLID
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "beaconID")
+          }
+        }
+
+        public var beaconName: String {
+          get {
+            return snapshot["beaconName"]! as! String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "beaconName")
+          }
+        }
+
+        public var beaconRange: String? {
+          get {
+            return snapshot["beaconRange"] as? String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "beaconRange")
+          }
+        }
+
+        public var beaconTasks: String? {
+          get {
+            return snapshot["beaconTasks"] as? String
+          }
+          set {
+            snapshot.updateValue(newValue, forKey: "beaconTasks")
           }
         }
       }
@@ -1412,6 +2353,351 @@ public final class OnDeleteTodoSubscription: GraphQLSubscription {
         }
         set {
           snapshot.updateValue(newValue, forKey: "description")
+        }
+      }
+    }
+  }
+}
+
+public final class OnCreateBeaconsAwsSubscription: GraphQLSubscription {
+  public static let operationString =
+    "subscription OnCreateBeaconsAws($beaconID: ID, $beaconName: String, $beaconRange: String, $beaconTasks: String) {\n  onCreateBeaconsAWS(beaconID: $beaconID, beaconName: $beaconName, beaconRange: $beaconRange, beaconTasks: $beaconTasks) {\n    __typename\n    beaconID\n    beaconName\n    beaconRange\n    beaconTasks\n  }\n}"
+
+  public var beaconID: GraphQLID?
+  public var beaconName: String?
+  public var beaconRange: String?
+  public var beaconTasks: String?
+
+  public init(beaconID: GraphQLID? = nil, beaconName: String? = nil, beaconRange: String? = nil, beaconTasks: String? = nil) {
+    self.beaconID = beaconID
+    self.beaconName = beaconName
+    self.beaconRange = beaconRange
+    self.beaconTasks = beaconTasks
+  }
+
+  public var variables: GraphQLMap? {
+    return ["beaconID": beaconID, "beaconName": beaconName, "beaconRange": beaconRange, "beaconTasks": beaconTasks]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Subscription"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("onCreateBeaconsAWS", arguments: ["beaconID": GraphQLVariable("beaconID"), "beaconName": GraphQLVariable("beaconName"), "beaconRange": GraphQLVariable("beaconRange"), "beaconTasks": GraphQLVariable("beaconTasks")], type: .object(OnCreateBeaconsAw.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(onCreateBeaconsAws: OnCreateBeaconsAw? = nil) {
+      self.init(snapshot: ["__typename": "Subscription", "onCreateBeaconsAWS": onCreateBeaconsAws.flatMap { $0.snapshot }])
+    }
+
+    public var onCreateBeaconsAws: OnCreateBeaconsAw? {
+      get {
+        return (snapshot["onCreateBeaconsAWS"] as? Snapshot).flatMap { OnCreateBeaconsAw(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "onCreateBeaconsAWS")
+      }
+    }
+
+    public struct OnCreateBeaconsAw: GraphQLSelectionSet {
+      public static let possibleTypes = ["BeaconsAWS"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("beaconID", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("beaconName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("beaconRange", type: .scalar(String.self)),
+        GraphQLField("beaconTasks", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(beaconId: GraphQLID, beaconName: String, beaconRange: String? = nil, beaconTasks: String? = nil) {
+        self.init(snapshot: ["__typename": "BeaconsAWS", "beaconID": beaconId, "beaconName": beaconName, "beaconRange": beaconRange, "beaconTasks": beaconTasks])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var beaconId: GraphQLID {
+        get {
+          return snapshot["beaconID"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconID")
+        }
+      }
+
+      public var beaconName: String {
+        get {
+          return snapshot["beaconName"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconName")
+        }
+      }
+
+      public var beaconRange: String? {
+        get {
+          return snapshot["beaconRange"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconRange")
+        }
+      }
+
+      public var beaconTasks: String? {
+        get {
+          return snapshot["beaconTasks"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconTasks")
+        }
+      }
+    }
+  }
+}
+
+public final class OnUpdateBeaconsAwsSubscription: GraphQLSubscription {
+  public static let operationString =
+    "subscription OnUpdateBeaconsAws($beaconID: ID, $beaconName: String, $beaconRange: String, $beaconTasks: String) {\n  onUpdateBeaconsAWS(beaconID: $beaconID, beaconName: $beaconName, beaconRange: $beaconRange, beaconTasks: $beaconTasks) {\n    __typename\n    beaconID\n    beaconName\n    beaconRange\n    beaconTasks\n  }\n}"
+
+  public var beaconID: GraphQLID?
+  public var beaconName: String?
+  public var beaconRange: String?
+  public var beaconTasks: String?
+
+  public init(beaconID: GraphQLID? = nil, beaconName: String? = nil, beaconRange: String? = nil, beaconTasks: String? = nil) {
+    self.beaconID = beaconID
+    self.beaconName = beaconName
+    self.beaconRange = beaconRange
+    self.beaconTasks = beaconTasks
+  }
+
+  public var variables: GraphQLMap? {
+    return ["beaconID": beaconID, "beaconName": beaconName, "beaconRange": beaconRange, "beaconTasks": beaconTasks]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Subscription"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("onUpdateBeaconsAWS", arguments: ["beaconID": GraphQLVariable("beaconID"), "beaconName": GraphQLVariable("beaconName"), "beaconRange": GraphQLVariable("beaconRange"), "beaconTasks": GraphQLVariable("beaconTasks")], type: .object(OnUpdateBeaconsAw.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(onUpdateBeaconsAws: OnUpdateBeaconsAw? = nil) {
+      self.init(snapshot: ["__typename": "Subscription", "onUpdateBeaconsAWS": onUpdateBeaconsAws.flatMap { $0.snapshot }])
+    }
+
+    public var onUpdateBeaconsAws: OnUpdateBeaconsAw? {
+      get {
+        return (snapshot["onUpdateBeaconsAWS"] as? Snapshot).flatMap { OnUpdateBeaconsAw(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "onUpdateBeaconsAWS")
+      }
+    }
+
+    public struct OnUpdateBeaconsAw: GraphQLSelectionSet {
+      public static let possibleTypes = ["BeaconsAWS"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("beaconID", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("beaconName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("beaconRange", type: .scalar(String.self)),
+        GraphQLField("beaconTasks", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(beaconId: GraphQLID, beaconName: String, beaconRange: String? = nil, beaconTasks: String? = nil) {
+        self.init(snapshot: ["__typename": "BeaconsAWS", "beaconID": beaconId, "beaconName": beaconName, "beaconRange": beaconRange, "beaconTasks": beaconTasks])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var beaconId: GraphQLID {
+        get {
+          return snapshot["beaconID"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconID")
+        }
+      }
+
+      public var beaconName: String {
+        get {
+          return snapshot["beaconName"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconName")
+        }
+      }
+
+      public var beaconRange: String? {
+        get {
+          return snapshot["beaconRange"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconRange")
+        }
+      }
+
+      public var beaconTasks: String? {
+        get {
+          return snapshot["beaconTasks"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconTasks")
+        }
+      }
+    }
+  }
+}
+
+public final class OnDeleteBeaconsAwsSubscription: GraphQLSubscription {
+  public static let operationString =
+    "subscription OnDeleteBeaconsAws($beaconID: ID, $beaconName: String, $beaconRange: String, $beaconTasks: String) {\n  onDeleteBeaconsAWS(beaconID: $beaconID, beaconName: $beaconName, beaconRange: $beaconRange, beaconTasks: $beaconTasks) {\n    __typename\n    beaconID\n    beaconName\n    beaconRange\n    beaconTasks\n  }\n}"
+
+  public var beaconID: GraphQLID?
+  public var beaconName: String?
+  public var beaconRange: String?
+  public var beaconTasks: String?
+
+  public init(beaconID: GraphQLID? = nil, beaconName: String? = nil, beaconRange: String? = nil, beaconTasks: String? = nil) {
+    self.beaconID = beaconID
+    self.beaconName = beaconName
+    self.beaconRange = beaconRange
+    self.beaconTasks = beaconTasks
+  }
+
+  public var variables: GraphQLMap? {
+    return ["beaconID": beaconID, "beaconName": beaconName, "beaconRange": beaconRange, "beaconTasks": beaconTasks]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Subscription"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("onDeleteBeaconsAWS", arguments: ["beaconID": GraphQLVariable("beaconID"), "beaconName": GraphQLVariable("beaconName"), "beaconRange": GraphQLVariable("beaconRange"), "beaconTasks": GraphQLVariable("beaconTasks")], type: .object(OnDeleteBeaconsAw.selections)),
+    ]
+
+    public var snapshot: Snapshot
+
+    public init(snapshot: Snapshot) {
+      self.snapshot = snapshot
+    }
+
+    public init(onDeleteBeaconsAws: OnDeleteBeaconsAw? = nil) {
+      self.init(snapshot: ["__typename": "Subscription", "onDeleteBeaconsAWS": onDeleteBeaconsAws.flatMap { $0.snapshot }])
+    }
+
+    public var onDeleteBeaconsAws: OnDeleteBeaconsAw? {
+      get {
+        return (snapshot["onDeleteBeaconsAWS"] as? Snapshot).flatMap { OnDeleteBeaconsAw(snapshot: $0) }
+      }
+      set {
+        snapshot.updateValue(newValue?.snapshot, forKey: "onDeleteBeaconsAWS")
+      }
+    }
+
+    public struct OnDeleteBeaconsAw: GraphQLSelectionSet {
+      public static let possibleTypes = ["BeaconsAWS"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("beaconID", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("beaconName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("beaconRange", type: .scalar(String.self)),
+        GraphQLField("beaconTasks", type: .scalar(String.self)),
+      ]
+
+      public var snapshot: Snapshot
+
+      public init(snapshot: Snapshot) {
+        self.snapshot = snapshot
+      }
+
+      public init(beaconId: GraphQLID, beaconName: String, beaconRange: String? = nil, beaconTasks: String? = nil) {
+        self.init(snapshot: ["__typename": "BeaconsAWS", "beaconID": beaconId, "beaconName": beaconName, "beaconRange": beaconRange, "beaconTasks": beaconTasks])
+      }
+
+      public var __typename: String {
+        get {
+          return snapshot["__typename"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var beaconId: GraphQLID {
+        get {
+          return snapshot["beaconID"]! as! GraphQLID
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconID")
+        }
+      }
+
+      public var beaconName: String {
+        get {
+          return snapshot["beaconName"]! as! String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconName")
+        }
+      }
+
+      public var beaconRange: String? {
+        get {
+          return snapshot["beaconRange"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconRange")
+        }
+      }
+
+      public var beaconTasks: String? {
+        get {
+          return snapshot["beaconTasks"] as? String
+        }
+        set {
+          snapshot.updateValue(newValue, forKey: "beaconTasks")
         }
       }
     }

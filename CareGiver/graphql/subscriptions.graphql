@@ -20,3 +20,57 @@ subscription OnDeleteTodo {
     description
   }
 }
+subscription OnCreateBeaconsAws(
+  $beaconID: ID
+  $beaconName: String
+  $beaconRange: String
+  $beaconTasks: String
+) {
+  onCreateBeaconsAWS(
+    beaconID: $beaconID
+    beaconName: $beaconName
+    beaconRange: $beaconRange
+    beaconTasks: $beaconTasks
+  ) {
+    beaconID
+    beaconName
+    beaconRange
+    beaconTasks
+  }
+}
+subscription OnUpdateBeaconsAws(
+  $beaconID: ID
+  $beaconName: String
+  $beaconRange: String
+  $beaconTasks: String
+) {
+  onUpdateBeaconsAWS(
+    beaconID: $beaconID
+    beaconName: $beaconName
+    beaconRange: $beaconRange
+    beaconTasks: $beaconTasks
+  ) {
+    beaconID
+    beaconName
+    beaconRange
+    beaconTasks
+  }
+}
+subscription OnDeleteBeaconsAws(
+  $beaconID: ID
+  $beaconName: String
+  $beaconRange: String
+  $beaconTasks: String
+) {
+  onDeleteBeaconsAWS(
+    beaconID: $beaconID
+    beaconName: $beaconName
+    beaconRange: $beaconRange
+    beaconTasks: $beaconTasks
+  ) {
+    beaconID
+    beaconName
+    beaconRange
+    beaconTasks
+  }
+}

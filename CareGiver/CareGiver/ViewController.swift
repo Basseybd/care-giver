@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var desctiptionLabel: UILabel!
     
+    @IBOutlet weak var createBeacon: UIButton!
     @IBOutlet weak var choiceButton: UILabel!
     @IBOutlet weak var selectedTable: UITableView! {
         didSet {
@@ -43,6 +44,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appSyncClient = appDelegate.appSyncClient
+        //insertBeacons()
     }
     
     // MARK: StoryBoard Actions
@@ -133,8 +135,23 @@ class ViewController: UIViewController {
     
     func insertData(){
         let insertQuery = CreateTodoInput(name: nameTextField.text!, description:descriptionTextField.text!)
-        appSyncClient?.perform(mutation: CreateTodoMutation(input: insertQuery)) { (result, error) in
+        appSyncClient?.perform(mutation: CreateTodoMutation(input: insertQuery)){ (result, error) in
             self.selectData()
+            if let error = error as? AWSAppSyncClientError {
+                print("Error occurred: \(error.localizedDescription )")
+            }else if let resultError = result?.errors {
+                print("Error saving the item on server: \(resultError)")
+                return
+            }else {
+                self.showAlert(messageString: "Success Insert Data!! \n Check data in server !")
+                print("Success Insert Data")
+            }
+        }
+    }
+    
+    @IBAction func insertBeacons(){
+        let insertQuery = CreateBeaconsAWSInput(beaconId: "1", beaconName: "bathroom", beaconRange: "near", beaconTasks: "Wash your hands")
+        appSyncClient?.perform(mutation: CreateBeaconsAwsMutation(input: insertQuery)){ (result, error) in
             if let error = error as? AWSAppSyncClientError {
                 print("Error occurred: \(error.localizedDescription )")
             }else if let resultError = result?.errors {

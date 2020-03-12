@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,8 +16,23 @@
 		1555DC612415A204004D4B44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1555DC5F2415A204004D4B44 /* LaunchScreen.storyboard */; };
 		1555DC692415A7CA004D4B44 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555DC682415A7CA004D4B44 /* API.swift */; };
 		1555DC6B2415A7E9004D4B44 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 1555DC6A2415A7E9004D4B44 /* awsconfiguration.json */; };
-		FB993AE10FF4FD85F2B88314 /* Pods_CareGiver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C359D44F16BC80C2A35DBD3 /* Pods_CareGiver.framework */; };
+		1555DC81241864A3004D4B44 /* Pods_CareGiver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C359D44F16BC80C2A35DBD3 /* Pods_CareGiver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		97A43D9B2E49CFC95A38DC43 /* Pods_CareGiver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA72E64163E03D68A398696 /* Pods_CareGiver.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1555DC82241864A3004D4B44 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1555DC81241864A3004D4B44 /* Pods_CareGiver.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1555DC4E2415A202004D4B44 /* CareGiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareGiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,9 +46,16 @@
 		1555DC622415A204004D4B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1555DC682415A7CA004D4B44 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		1555DC6A2415A7E9004D4B44 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		1555DC6C24186238004D4B44 /* AppSyncRealTimeClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppSyncRealTimeClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1555DC6D24186238004D4B44 /* AWSAppSync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSAppSync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1555DC6E24186238004D4B44 /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1555DC6F24186238004D4B44 /* Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1555DC7024186238004D4B44 /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1555DC7124186238004D4B44 /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41C093DBBBF59A63CCFDDC40 /* Pods-CareGiver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareGiver.debug.xcconfig"; path = "Target Support Files/Pods-CareGiver/Pods-CareGiver.debug.xcconfig"; sourceTree = "<group>"; };
 		8C359D44F16BC80C2A35DBD3 /* Pods_CareGiver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareGiver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DA5FA953652EE41D7C6E3D /* Pods-CareGiver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareGiver.release.xcconfig"; path = "Target Support Files/Pods-CareGiver/Pods-CareGiver.release.xcconfig"; sourceTree = "<group>"; };
+		FFA72E64163E03D68A398696 /* Pods_CareGiver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareGiver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB993AE10FF4FD85F2B88314 /* Pods_CareGiver.framework in Frameworks */,
+				97A43D9B2E49CFC95A38DC43 /* Pods_CareGiver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +87,7 @@
 				1555DC4F2415A202004D4B44 /* Products */,
 				08CFB8ECEB13D28F9A5467A3 /* Pods */,
 				4BDE3AFC5544EB4B26E1E6DE /* Frameworks */,
+				1555DC8A2418CA9D004D4B44 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,10 +115,24 @@
 			path = CareGiver;
 			sourceTree = "<group>";
 		};
-		4BDE3AFC5544EB4B26E1E6DE /* Frameworks */ = {
+		1555DC8A2418CA9D004D4B44 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 				8C359D44F16BC80C2A35DBD3 /* Pods_CareGiver.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		4BDE3AFC5544EB4B26E1E6DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1555DC6C24186238004D4B44 /* AppSyncRealTimeClient.framework */,
+				1555DC6D24186238004D4B44 /* AWSAppSync.framework */,
+				1555DC6E24186238004D4B44 /* AWSCore.framework */,
+				1555DC6F24186238004D4B44 /* Reachability.framework */,
+				1555DC7024186238004D4B44 /* SQLite.framework */,
+				1555DC7124186238004D4B44 /* Starscream.framework */,
+				FFA72E64163E03D68A398696 /* Pods_CareGiver.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -111,7 +148,8 @@
 				1555DC4A2415A202004D4B44 /* Sources */,
 				1555DC4B2415A202004D4B44 /* Frameworks */,
 				1555DC4C2415A202004D4B44 /* Resources */,
-				F995C799667B0E695F064E32 /* [CP] Embed Pods Frameworks */,
+				1555DC82241864A3004D4B44 /* Embed Frameworks */,
+				557B6ACD6D1C4DFF3BEAA0A4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,6 +208,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		557B6ACD6D1C4DFF3BEAA0A4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CareGiver/Pods-CareGiver-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CareGiver/Pods-CareGiver-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CareGiver/Pods-CareGiver-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BAD20B8F24C6234F1E97DA71 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -190,23 +245,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F995C799667B0E695F064E32 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CareGiver/Pods-CareGiver-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CareGiver/Pods-CareGiver-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CareGiver/Pods-CareGiver-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
