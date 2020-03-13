@@ -97,7 +97,8 @@ class ViewController: UIViewController {
             if idTextField.text!.count < 1{
                 showAlert(messageString: "You have to insert data")
             }else {
-                deleteData()
+                deleteBeacon()
+                //deleteData()
             }
             break
         case .SELECT?:
@@ -150,7 +151,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func insertBeacons(){
-        let insertQuery = CreateBeaconsAWSInput(beaconId: "1", beaconName: "bathroom", beaconRange: "near", beaconTasks: "Wash your hands")
+        let uuid = UUID().uuidString
+        print(uuid)
+        let insertQuery = CreateBeaconsAWSInput(beaconId: uuid, beaconName: "bathroom", beaconRange: "near", beaconTasks: "Wash your hands")
         appSyncClient?.perform(mutation: CreateBeaconsAwsMutation(input: insertQuery)){ (result, error) in
             if let error = error as? AWSAppSyncClientError {
                 print("Error occurred: \(error.localizedDescription )")
@@ -171,7 +174,7 @@ class ViewController: UIViewController {
 //        nameString.eq = "Name2"
 //        filter.name = nameString
 //        selectQuery.filter = filter
-        appSyncClient?.fetch(query: selectQuery, cachePolicy: .fetchIgnoringCacheData) {(result, error) in
+        appSyncClient?.fetch(query: selectQuery, cachePolicy: .returnCacheDataAndFetch) {(result, error) in
             if error != nil {
                 print(error?.localizedDescription ?? "")
                 return
@@ -202,6 +205,39 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    func updateBeaconName(nameString: String){
+        var updateQuery = UpdateBeaconsAWSInput(beaconId: idTextField.text!)
+        updateQuery.beaconName = nameString
+        appSyncClient?.perform(mutation: UpdateBeaconsAwsMutation(input: updateQuery)) { (result, error) in
+            if let error = error as? AWSAppSyncClientError {
+                print( "ERror occurred: \(error.localizedDescription)")
+            } else if let resultError = result?.errors {
+                print("error saving the item on server: \(resultError)")
+                return
+            } else {
+                self.showAlert(messageString: "Successfully Updated Data!! \n Check data in server!")
+                print("Update Success")
+            }
+            
+        }
+    }
+    
+    func deleteBeacon(){
+        let deleteQuery = DeleteBeaconsAWSInput(beaconId: idTextField.text!)
+        appSyncClient?.perform(mutation: DeleteBeaconsAwsMutation(input: deleteQuery)){ (result, error) in
+            if let error = error as? AWSAppSyncClientError {
+                print ("Error occurred: \(error.localizedDescription)")
+            } else if let resultError = result?.errors {
+                print ("error saving the item on server: \(resultError)")
+                return
+            } else{
+                self.showAlert(messageString: "Successfully Deleted data! \n Check data in server")
+                print("Success Delete Data")
+            }
+        }
+    }
+    
     
     func deleteData() {
         let deleteQuery = DeleteTodoInput(id: idTextField.text!)
