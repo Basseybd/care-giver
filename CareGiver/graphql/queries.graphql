@@ -43,3 +43,119 @@ query ListBeaconsAws(
     nextToken
   }
 }
+query GetEventsAws($eventId: ID!) {
+  getEventsAWS(eventId: $eventId) {
+    eventId
+    eventText
+    eventCaregivee_id
+    eventCaregivee
+    eventTimestamp
+  }
+}
+query ListEventsAws(
+  $filter: TableEventsAWSFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listEventsAWS(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      eventId
+      eventText
+      eventCaregivee_id
+      eventCaregivee
+      eventTimestamp
+    }
+    nextToken
+  }
+}
+query GetTasksAws($taskId: ID!) {
+  getTasksAWS(taskId: $taskId) {
+    taskId
+    taskName
+    taskDesc
+    eventCaregivee
+    beaconId
+  }
+}
+query ListTasksAws(
+  $filter: TableTasksAWSFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listTasksAWS(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      taskId
+      taskName
+      taskDesc
+      eventCaregivee
+      beaconId
+    }
+    nextToken
+  }
+}
+query GetCareGiveesAws($careGiveeId: ID!) {
+  getCareGiveesAWS(careGiveeId: $careGiveeId) {
+    careGiveeId
+    careGiveeEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiveeTasks
+    caregiveeEvents
+  }
+}
+query ListCareGiveesAws(
+  $filter: TableCareGiveesAWSFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listCareGiveesAWS(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      careGiveeId
+      careGiveeEmail
+      firstName
+      lastName
+      password
+      avatarId
+      description
+      caregiveeTasks
+      caregiveeEvents
+    }
+    nextToken
+  }
+}
+query GetCareGiversAws($careGiverId: ID!) {
+  getCareGiversAWS(careGiverId: $careGiverId) {
+    careGiverId
+    careGiverEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiverBeacons
+    caregiverTasks
+  }
+}
+query ListCareGiversAws(
+  $filter: TableCareGiversAWSFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listCareGiversAWS(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      careGiverId
+      careGiverEmail
+      firstName
+      lastName
+      password
+      avatarId
+      description
+      caregiverBeacons
+      caregiverTasks
+    }
+    nextToken
+  }
+}

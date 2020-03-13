@@ -9,5 +9,5 @@ target 'CareGiver' do
   
   pod 'AWSCore', '~> 2.12.0'
   pod 'AWSAppSync', '~> 3.0.2'
-
+  pod 'EstimoteProximitySDK'
 end

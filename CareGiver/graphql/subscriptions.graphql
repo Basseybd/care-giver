@@ -74,3 +74,279 @@ subscription OnDeleteBeaconsAws(
     beaconTasks
   }
 }
+subscription OnCreateEventsAws(
+  $eventId: ID
+  $eventText: String
+  $eventCaregivee_id: String
+  $eventCaregivee: String
+  $eventTimestamp: String
+) {
+  onCreateEventsAWS(
+    eventId: $eventId
+    eventText: $eventText
+    eventCaregivee_id: $eventCaregivee_id
+    eventCaregivee: $eventCaregivee
+    eventTimestamp: $eventTimestamp
+  ) {
+    eventId
+    eventText
+    eventCaregivee_id
+    eventCaregivee
+    eventTimestamp
+  }
+}
+subscription OnUpdateEventsAws(
+  $eventId: ID
+  $eventText: String
+  $eventCaregivee_id: String
+  $eventCaregivee: String
+  $eventTimestamp: String
+) {
+  onUpdateEventsAWS(
+    eventId: $eventId
+    eventText: $eventText
+    eventCaregivee_id: $eventCaregivee_id
+    eventCaregivee: $eventCaregivee
+    eventTimestamp: $eventTimestamp
+  ) {
+    eventId
+    eventText
+    eventCaregivee_id
+    eventCaregivee
+    eventTimestamp
+  }
+}
+subscription OnDeleteEventsAws(
+  $eventId: ID
+  $eventText: String
+  $eventCaregivee_id: String
+  $eventCaregivee: String
+  $eventTimestamp: String
+) {
+  onDeleteEventsAWS(
+    eventId: $eventId
+    eventText: $eventText
+    eventCaregivee_id: $eventCaregivee_id
+    eventCaregivee: $eventCaregivee
+    eventTimestamp: $eventTimestamp
+  ) {
+    eventId
+    eventText
+    eventCaregivee_id
+    eventCaregivee
+    eventTimestamp
+  }
+}
+subscription OnCreateTasksAws(
+  $taskId: ID
+  $taskName: String
+  $taskDesc: String
+  $eventCaregivee: String
+  $beaconId: String
+) {
+  onCreateTasksAWS(
+    taskId: $taskId
+    taskName: $taskName
+    taskDesc: $taskDesc
+    eventCaregivee: $eventCaregivee
+    beaconId: $beaconId
+  ) {
+    taskId
+    taskName
+    taskDesc
+    eventCaregivee
+    beaconId
+  }
+}
+subscription OnUpdateTasksAws(
+  $taskId: ID
+  $taskName: String
+  $taskDesc: String
+  $eventCaregivee: String
+  $beaconId: String
+) {
+  onUpdateTasksAWS(
+    taskId: $taskId
+    taskName: $taskName
+    taskDesc: $taskDesc
+    eventCaregivee: $eventCaregivee
+    beaconId: $beaconId
+  ) {
+    taskId
+    taskName
+    taskDesc
+    eventCaregivee
+    beaconId
+  }
+}
+subscription OnDeleteTasksAws(
+  $taskId: ID
+  $taskName: String
+  $taskDesc: String
+  $eventCaregivee: String
+  $beaconId: String
+) {
+  onDeleteTasksAWS(
+    taskId: $taskId
+    taskName: $taskName
+    taskDesc: $taskDesc
+    eventCaregivee: $eventCaregivee
+    beaconId: $beaconId
+  ) {
+    taskId
+    taskName
+    taskDesc
+    eventCaregivee
+    beaconId
+  }
+}
+subscription OnCreateCareGiveesAws(
+  $careGiveeId: ID
+  $careGiveeEmail: String
+  $firstName: String
+  $lastName: String
+  $password: String
+) {
+  onCreateCareGiveesAWS(
+    careGiveeId: $careGiveeId
+    careGiveeEmail: $careGiveeEmail
+    firstName: $firstName
+    lastName: $lastName
+    password: $password
+  ) {
+    careGiveeId
+    careGiveeEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiveeTasks
+    caregiveeEvents
+  }
+}
+subscription OnUpdateCareGiveesAws(
+  $careGiveeId: ID
+  $careGiveeEmail: String
+  $firstName: String
+  $lastName: String
+  $password: String
+) {
+  onUpdateCareGiveesAWS(
+    careGiveeId: $careGiveeId
+    careGiveeEmail: $careGiveeEmail
+    firstName: $firstName
+    lastName: $lastName
+    password: $password
+  ) {
+    careGiveeId
+    careGiveeEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiveeTasks
+    caregiveeEvents
+  }
+}
+subscription OnDeleteCareGiveesAws(
+  $careGiveeId: ID
+  $careGiveeEmail: String
+  $firstName: String
+  $lastName: String
+  $password: String
+) {
+  onDeleteCareGiveesAWS(
+    careGiveeId: $careGiveeId
+    careGiveeEmail: $careGiveeEmail
+    firstName: $firstName
+    lastName: $lastName
+    password: $password
+  ) {
+    careGiveeId
+    careGiveeEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiveeTasks
+    caregiveeEvents
+  }
+}
+subscription OnCreateCareGiversAws(
+  $careGiverId: ID
+  $careGiverEmail: String
+  $firstName: String
+  $lastName: String
+  $password: String
+) {
+  onCreateCareGiversAWS(
+    careGiverId: $careGiverId
+    careGiverEmail: $careGiverEmail
+    firstName: $firstName
+    lastName: $lastName
+    password: $password
+  ) {
+    careGiverId
+    careGiverEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiverBeacons
+    caregiverTasks
+  }
+}
+subscription OnUpdateCareGiversAws(
+  $careGiverId: ID
+  $careGiverEmail: String
+  $firstName: String
+  $lastName: String
+  $password: String
+) {
+  onUpdateCareGiversAWS(
+    careGiverId: $careGiverId
+    careGiverEmail: $careGiverEmail
+    firstName: $firstName
+    lastName: $lastName
+    password: $password
+  ) {
+    careGiverId
+    careGiverEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiverBeacons
+    caregiverTasks
+  }
+}
+subscription OnDeleteCareGiversAws(
+  $careGiverId: ID
+  $careGiverEmail: String
+  $firstName: String
+  $lastName: String
+  $password: String
+) {
+  onDeleteCareGiversAWS(
+    careGiverId: $careGiverId
+    careGiverEmail: $careGiverEmail
+    firstName: $firstName
+    lastName: $lastName
+    password: $password
+  ) {
+    careGiverId
+    careGiverEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiverBeacons
+    caregiverTasks
+  }
+}
