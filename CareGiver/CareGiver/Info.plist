@@ -20,18 +20,18 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-    <key>NSException</key>
-    <string>value</string>
-    <key>NSInternalInconsistencyException</key>
-    <string>allow internal inconistency exception</string>
-    <key>NSBluetoothAlwaysUsageDescription</key>
-    <string>bluetooth always</string>
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>Always in the backgroud usage</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>Just always usage</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>when in use</string>
+	<key>NSException</key>
+	<string>value</string>
+	<key>NSInternalInconsistencyException</key>
+	<string>allow internal inconistency exception</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>bluetooth always</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Always in the backgroud usage</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Just always usage</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>when in use</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -51,16 +51,15 @@
 			</array>
 		</dict>
 	</dict>
-    <key>UIBackgroundModes</key>
-    <array>
-        <string></string>
-        <string>bluetooth-central</string>
-        <string>external-accessory</string>
-        <string>fetch</string>
-        <string>location</string>
-        <string>processing</string>
-        <string>remote-notification</string>
-    </array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
+		<string>external-accessory</string>
+		<string>fetch</string>
+		<string>location</string>
+		<string>processing</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

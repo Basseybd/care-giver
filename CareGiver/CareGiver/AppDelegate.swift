@@ -10,14 +10,19 @@ import UIKit
 import CoreData
 import AWSAppSync
 import EstimoteProximitySDK
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var appSyncClient: AWSAppSyncClient?
-
+    var proximityObserver: ProximityObserver!
+    var locationManager: CLLocationManager = CLLocationManager()
+    var fetchResult: UIBackgroundFetchResult!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //MARK: AppSync Config
         do{
             let cacheConfiguration = try AWSAppSyncCacheConfiguration()
             
@@ -30,7 +35,73 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }   catch{
             print("\(error)")
         }
+        
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.pausesLocationUpdatesAutomatically = false
+        
+        //MARK: Estimote Config
+        // TODO : ENABLE OBSERVING FROM EXTERNAL SWIFT
+        
+        let estimoteCloudCredentials = CloudCredentials(appID: "caregiver-2-0-cr9", appToken: "aabc089761b372d32f2cfffbadda68c9")
+
+         self.proximityObserver = ProximityObserver(credentials: estimoteCloudCredentials, onError: { error in
+             print("ProximityObserver error: \(error)")
+         })
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.delegate = self
+        notificationCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
+            print("notifications permission granted = \(granted), error = \(error?.localizedDescription ?? "(none)")")
+        }
+        let bathroom = ProximityZone(tag: "bathroom", range: ProximityRange.near)
+        bathroom.onEnter = { context in
+            self.showNotification(title: " Hello, You've Entered the Bathroom", body: "Please don't forget to wash your hands")
+        }
+        bathroom.onExit = { context in
+            self.showNotification(title: "Leaving Bathroom", body: "Flush the Toilet")
+        }
+        
+        let desk = ProximityZone(tag: "bedroom", range: ProximityRange.near)
+        desk.onEnter = { context in
+            self.showNotification(title: "Hello, You've Entered the Desk Space", body: "Welcome")
+        }
+        desk.onExit = { context in
+            self.showNotification(title: "Leaving Desk", body: "GoodBye, Don't forget to put your things away")
+        }
+
+        self.proximityObserver.startObserving([bathroom,desk])
+        
+
+
         return true
+    }
+    
+    /*func monitor(customTag:String,tagName: String, rangeInput :ProximityRange, onEnterTitle: String, onEnterMessage: String, onExitTitle: String, onExitMessage: String){
+        let customTag = ProximityZone(tag: tagName, range: rangeInput)
+        customTag.onEnter = { context in
+            self.showNotification(title: onEnterTitle, body: onEnterMessage)
+        }
+        customTag.onExit = { context in
+            self.showNotification(title: onExitTitle, body: onExitMessage)
+        }
+        proximityObserver!.startObserving([customTag])
+    }*/
+    
+    func showNotification(title: String, body: String){
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.delegate = self
+        notificationCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
+            print("notifications permission granted = \(granted), error = \(error?.localizedDescription ?? "(none)")")
+        }
+        
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = UNNotificationSound.default
+        let request = UNNotificationRequest(identifier: "exit", content: content, trigger: nil)
+        notificationCenter.add(request, withCompletionHandler: nil)
     }
 
     // MARK: UISceneSession Lifecycle
@@ -94,3 +165,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+
+    // Needs to be implemented to receive notifications both in foreground and background
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([UNNotificationPresentationOptions.alert, UNNotificationPresentationOptions.sound])
+    }
+}

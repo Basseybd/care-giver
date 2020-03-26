@@ -9,7 +9,6 @@ import UIKit
 import AWSAppSync
 import CoreLocation
 import EstimoteProximitySDK
-
 enum SelectedQuery{
     case INSERT
     case UPDATE
@@ -18,11 +17,8 @@ enum SelectedQuery{
 }
 
 class ViewController: UIViewController {
-    
-    var proximityObserver: ProximityObserver!
-    var locationManager: CLLocationManager = CLLocationManager()
-    var fetchResult: UIBackgroundFetchResult!
-    
+    let aws = AWSAppSyncHelper()
+    let estimote = EstimoteSDKHelper()
     @IBOutlet weak var addDataView: UIView! {
         didSet {
             addDataView.isHidden = true
@@ -50,11 +46,6 @@ class ViewController: UIViewController {
     var appSyncClient: AWSAppSyncClient?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
-        locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.pausesLocationUpdatesAutomatically = false
         
         // Do any additional setup after loading the view, typically from a nib.
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -105,15 +96,15 @@ class ViewController: UIViewController {
             if idTextField.text!.count < 1 || nameTextField.text!.count < 1 || descriptionTextField.text!.count < 1 {
                 showAlert(messageString: "You have to insert data")
             }else {
-                //updateBeaconName
                 updateData()
+                aws.updateBeaconName(idString: "", nameString: "")
             }
             break
         case .DELETE?:
             if idTextField.text!.count < 1{
                 showAlert(messageString: "You have to insert data")
             }else {
-                deleteBeacon()
+                aws.deleteBeacon(idString: idTextField.text!)
                 //deleteData()
             }
             break
@@ -166,22 +157,17 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func insertBeacons(){
+    @IBAction func testInstert(_ sender: Any) {
         let uuid = UUID().uuidString
-        print(uuid)
-        let insertQuery = CreateBeaconsAWSInput(beaconId: uuid, beaconName: "bathroom", beaconRange: "near", beaconTasks: "Wash your hands")
-        appSyncClient?.perform(mutation: CreateBeaconsAwsMutation(input: insertQuery)){ (result, error) in
-            if let error = error as? AWSAppSyncClientError {
-                print("Error occurred: \(error.localizedDescription )")
-            }else if let resultError = result?.errors {
-                print("Error saving the item on server: \(resultError)")
-                return
-            }else {
-                self.showAlert(messageString: "Success Insert Data!! \n Check data in server !")
-                print("Success Insert Data")
-            }
-        }
+        //aws.insertBeacons()
+        //aws.insertCareGivees(emailString: "test@gmail.com", firstNameString: "First", lastNameString: "Last", passwordString: "shouldbeEncrypted", avatarIDString: "unknown", descriptionString: "test insert of CareGivee",  careGiveeEventsString: "CareGiveeEvents", careGiveeTasksString: "CareGivee Tasks")
+        //aws.insertCareGiver(emailString: "test@gmail.com", firstNameString: "First", lastNameString: "Last", passwordString: "shouldbeEncrypted", avatarIDString: "unknown", descriptionString: "test insert of caregiver", caregiverBeaconsString: "beacon ids", careGiverTasksString: "some task")
+        //aws.insertTasks(taskNameString: "Wash", taskDescString: "Don't forget to always wash your hands", eventCareGiveeString: "Attached Caregivees", beaconIDString: uuid)
+        //aws.insertEvents(eventTextString: "random Event", eventCaregiveeIDString: uuid, eventCareGiveeString: "random caregivee" , eventTimeStampString: "some time")
+        //estimote.monitor(tagName: "bathroom", rangeInput: ProximityRange.near, onEnterTitle: "You've entered the bathroom!", onEnterMessage: "Please dont forget to wash your hands", onExitTitle: "You've Exited the bathrrom", onExitMessage: "Please confirm you wahed your hands")
+        //estimote.load()
     }
+    
     
     func selectData(){
         let selectQuery = ListTodosQuery()
@@ -221,72 +207,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    func updateBeaconName(nameString: String){
-        var updateQuery = UpdateBeaconsAWSInput(beaconId: idTextField.text!)
-        updateQuery.beaconName = nameString
-        appSyncClient?.perform(mutation: UpdateBeaconsAwsMutation(input: updateQuery)) { (result, error) in
-            if let error = error as? AWSAppSyncClientError {
-                print( "Error occurred: \(error.localizedDescription)")
-            } else if let resultError = result?.errors {
-                print("Error updating Beacon Name on the server: \(resultError)")
-                return
-            } else {
-                self.showAlert(messageString: "Successfully Updated Name!! \n Check data in server!")
-                print("Name Update Success")
-            }
-            
-        }
-    }
-    
-    func updateBeaconRange(rangeString: String){
-        var updateQuery = UpdateBeaconsAWSInput(beaconId:  idTextField.text!)
-        updateQuery.beaconRange = rangeString
-        appSyncClient?.perform(mutation: UpdateBeaconsAwsMutation(input: updateQuery)){ (result, error) in
-            if let error = error as? AWSAppSyncClientError{
-                print("Error ocurred: \(error.localizedDescription)")
-            } else if let resultError = result?.errors{
-                print("Error updating Beacon Range on the server \(resultError)")
-                return
-            } else{
-                self.showAlert(messageString: "Successfully Updated Range!! \n Check data in server!")
-                print("Range Update Success")
-            }
-        }
-    }
-    
-    func updateBeaconTask(taskString: String){
-        var updateQuery = UpdateBeaconsAWSInput(beaconId: idTextField.text!)
-        updateQuery.beaconTasks = taskString
-        appSyncClient?.perform(mutation: UpdateBeaconsAwsMutation(input: updateQuery)){ (result,error) in
-            if let error = error as? AWSAppSyncClientError{
-                print("Error occurred \(error.localizedDescription)")
-            } else if let resultError = result?.errors{
-                print("Error updating Beacon Tasks\(resultError)")
-                return
-            }else {
-                self.showAlert(messageString: "Successfully Updated Tasks!! \n Check data in server!")
-                print("Task Upadte Success")
-            }
-            
-        }
-    }
-    
-    func deleteBeacon(){
-        let deleteQuery = DeleteBeaconsAWSInput(beaconId: idTextField.text!)
-        appSyncClient?.perform(mutation: DeleteBeaconsAwsMutation(input: deleteQuery)){ (result, error) in
-            if let error = error as? AWSAppSyncClientError {
-                print ("Error occurred: \(error.localizedDescription)")
-            } else if let resultError = result?.errors {
-                print ("error saving the item on server: \(resultError)")
-                return
-            } else{
-                self.showAlert(messageString: "Successfully Deleted data! \n Check data in server")
-                print("Success Delete Data")
-            }
-        }
-    }
-    
     
     func deleteData() {
         let deleteQuery = DeleteTodoInput(id: idTextField.text!)
