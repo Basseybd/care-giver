@@ -14,13 +14,20 @@ import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var appSyncClient: AWSAppSyncClient?
     var proximityObserver: ProximityObserver!
     var locationManager: CLLocationManager = CLLocationManager()
     var fetchResult: UIBackgroundFetchResult!
+    var appSyncClient: AWSAppSyncClient?
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        locationManager.requestAlwaysAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.pausesLocationUpdatesAutomatically = false
         
         //MARK: AppSync Config
         do{
@@ -36,14 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("\(error)")
         }
         
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
-        locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.pausesLocationUpdatesAutomatically = false
-        
         //MARK: Estimote Config
         // TODO : ENABLE OBSERVING FROM EXTERNAL SWIFT
-        
+        /*
         let estimoteCloudCredentials = CloudCredentials(appID: "caregiver-2-0-cr9", appToken: "aabc089761b372d32f2cfffbadda68c9")
 
          self.proximityObserver = ProximityObserver(credentials: estimoteCloudCredentials, onError: { error in
@@ -71,11 +73,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.showNotification(title: "Leaving Desk", body: "GoodBye, Don't forget to put your things away")
         }
 
-        self.proximityObserver.startObserving([bathroom,desk])
-        
+        proximityObserver.startObserving([bathroom,desk])
+        */
 
 
         return true
+    }
+    
+    
+    func startMonitor(){
+        let estimoteCloudCredentials = CloudCredentials(appID: "caregiver-2-0-cr9", appToken: "aabc089761b372d32f2cfffbadda68c9")
+
+         self.proximityObserver = ProximityObserver(credentials: estimoteCloudCredentials, onError: { error in
+             print("ProximityObserver error: \(error)")
+         })
+        
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.delegate = self
+        notificationCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
+            print("notifications permission granted = \(granted), error = \(error?.localizedDescription ?? "(none)")")
+        }
+        
+        let bedroom = ProximityZone(tag: "bedroom", range: ProximityRange.far)
+        bedroom.onEnter = { context in
+            self.showNotification(title: "Hello, You've Entered the Bedroom", body: "Welcome")
+        }
+        bedroom.onExit = { context in
+            self.showNotification(title: "Leaving Bedroom", body: "GoodBye")
+        }
+        bedroom.onContextChange = { context in
+            self.showNotification(title: "Moving", body: "Looks like you're moving around")
+        }
+        let bathroom = ProximityZone(tag: "bathroom", range: ProximityRange.near)
+        bathroom.onEnter = { context in
+            self.showNotification(title: " Hello, You've Entered the Bathroom", body: "Please don't forget to wash your hands")
+        }
+        bathroom.onExit = { context in
+            self.showNotification(title: "Leaving Bathroom", body: "Flush the Toilet")
+        }
+        
+        let desk = ProximityZone(tag: "bedroom", range: ProximityRange.near)
+        desk.onEnter = { context in
+            self.showNotification(title: "Hello, You've Entered the Desk Space", body: "Welcome")
+        }
+        desk.onExit = { context in
+            self.showNotification(title: "Leaving Desk", body: "GoodBye, Don't forget to put your things away")
+        }
+
+        proximityObserver.startObserving([bedroom,bathroom,desk])
+    }
+    
+    func stopMonitor(){
+        proximityObserver.stopObservingZones()
     }
     
     /*func monitor(customTag:String,tagName: String, rangeInput :ProximityRange, onEnterTitle: String, onEnterMessage: String, onExitTitle: String, onExitMessage: String){
@@ -99,6 +148,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
+        print("Title: ", title)
+        print("Body: ", body)
         content.sound = UNNotificationSound.default
         let request = UNNotificationRequest(identifier: "exit", content: content, trigger: nil)
         notificationCenter.add(request, withCompletionHandler: nil)

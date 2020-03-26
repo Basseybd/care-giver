@@ -25,13 +25,13 @@
 	<key>NSInternalInconsistencyException</key>
 	<string>allow internal inconistency exception</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>bluetooth always</string>
+	<string>Requesting Permission to Access Bluetooth At all Times and Always</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Always in the backgroud usage</string>
+	<string>Requesting Permission to Access Bluetooth At all Times and When In Use</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Just always usage</string>
+	<string>Requesting Permission to Notify User At all Times and Always</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>when in use</string>
+	<string>Requesting Permission to Notify User When Application in Use</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -7,6 +7,7 @@
 //
 
 import AWSAppSync
+//import AWSDynamoDB
 
 class AWSAppSyncHelper{
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -170,5 +171,9 @@ class AWSAppSyncHelper{
                 print("Success Delete Data")
             }
         }
+    }
+    
+    func query(){
+        //let queryExpression = AWSDynamoDBObjectMapper
     }
 }

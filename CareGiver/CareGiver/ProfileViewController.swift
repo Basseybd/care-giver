@@ -12,5 +12,14 @@ import CoreLocation
 import EstimoteProximitySDK
 
 class ProfileViewController: UIViewController {
-
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    @IBAction func estimote(_ sender: Any) {
+        appDelegate.startMonitor()
+    }
+    
+    @IBAction func stopMonitoring(_ sender: Any) {
+        appDelegate.stopMonitor()
+    }
+    
 }
