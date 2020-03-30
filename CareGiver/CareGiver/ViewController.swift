@@ -17,7 +17,7 @@ enum SelectedQuery{
 }
 
 class ViewController: UIViewController {
-    let aws = AWSAppSyncHelper()
+    let aws = AWSAppSyncCall()
     let estimote = EstimoteSDKHelper()
     @IBOutlet weak var addDataView: UIView! {
         didSet {
@@ -166,31 +166,57 @@ class ViewController: UIViewController {
         //aws.insertEvents(eventTextString: "random Event", eventCaregiveeIDString: uuid, eventCareGiveeString: "random caregivee" , eventTimeStampString: "some time")
         //estimote.monitor(tagName: "bathroom", rangeInput: ProximityRange.near, onEnterTitle: "You've entered the bathroom!", onEnterMessage: "Please dont forget to wash your hands", onExitTitle: "You've Exited the bathrrom", onExitMessage: "Please confirm you wahed your hands")
         //estimote.load()
+        //queryData()
+        //aws.deleteBeacon(idString: "CBD6A98B-7E8A-4CC0-89CB-79655FFC3B35")
+        //aws.queryBeaconTable(id : "706B185F-64EF-438B-BDCB-61EB230C5FEC")
+        //aws.queryCareGivers(id:"D13EB553-36D8-4740-9465-8CA6D42114EA")
+        //aws.queryCareGivees(id: "C3A5C9A1-8BF5-4D73-896E-2F571F49B983")
+        //aws.queryTasks(id: "572C014F-CFF7-49B9-B184-CDD92E50614D")
+        //aws.queryEvents(id: "E00CB1F1-E0A2-4B5D-9D06-01524606C89D")
+        
     }
     
     
     func selectData(){
-        let selectQuery = ListTodosQuery()
+        let selectQuery = ListBeaconsAwsQuery()
 //        var filter = ModelTodoFilterInput()
 //        var nameString = ModelStringFilterInput()
 //        nameString.eq = "Name2"
 //        filter.name = nameString
 //        selectQuery.filter = filter
-        appSyncClient?.fetch(query: selectQuery, cachePolicy: .returnCacheDataAndFetch) {(result, error) in
+        appSyncClient?.fetch(query: selectQuery, cachePolicy: .fetchIgnoringCacheData) {(result, error) in
             if error != nil {
                 print(error?.localizedDescription ?? "")
                 return
             }
-            result?.data?.listTodos?.items!.forEach {
+            result?.data?.listBeaconsAws?.items!.forEach {
                 
-                print(($0?.name)! + " " + ($0?.description)!)
-                self.nameArray.add(($0?.name)!)
-                self.descriptionArray.add(($0?.description)!)
+                print(($0?.beaconName)! + " " + ($0?.beaconTasks)!)
+                self.nameArray.add(($0?.beaconName)!)
+                self.descriptionArray.add(($0?.beaconTasks)!)
                 self.selectedTable.reloadData()
             }
         }
     }
     
+    func queryData(){
+        let selectQuery = ListBeaconsAwsQuery()
+        appSyncClient?.fetch(query: selectQuery, cachePolicy: .returnCacheDataAndFetch) {(result, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            result?.data?.listBeaconsAws?.items!.forEach {
+                
+                print(($0?.beaconId)! + " " + ($0?.beaconName)!)
+                //self.nameArray.add(($0?.name)!)
+                //self.descriptionArray.add(($0?.description)!)
+                //self.selectedTable.reloadData()
+            }
+        }
+    }
+    
+
     func updateData() {
         var updateQuery = UpdateTodoInput(id: idTextField.text!)
         updateQuery.name = nameTextField.text!

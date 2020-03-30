@@ -18,16 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var locationManager: CLLocationManager = CLLocationManager()
     var fetchResult: UIBackgroundFetchResult!
     var appSyncClient: AWSAppSyncClient?
-
-
+    var zones: [ProximityZone] = []
+    let estimote = EstimoteSDKHelper()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         locationManager.requestAlwaysAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
-        locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.pausesLocationUpdatesAutomatically = false
+
         
         //MARK: AppSync Config
         do{
@@ -82,6 +79,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func startMonitor(){
+        locationManager.showsBackgroundLocationIndicator = false
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.pausesLocationUpdatesAutomatically = false
+        
         let estimoteCloudCredentials = CloudCredentials(appID: "caregiver-2-0-cr9", appToken: "aabc089761b372d32f2cfffbadda68c9")
 
          self.proximityObserver = ProximityObserver(credentials: estimoteCloudCredentials, onError: { error in
@@ -111,32 +114,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         bathroom.onExit = { context in
             self.showNotification(title: "Leaving Bathroom", body: "Flush the Toilet")
         }
-        
-        let desk = ProximityZone(tag: "bedroom", range: ProximityRange.near)
+        let desk = ProximityZone(tag: "bedroom", range: ProximityRange(desiredMeanTriggerDistance: 0.6)!)
         desk.onEnter = { context in
             self.showNotification(title: "Hello, You've Entered the Desk Space", body: "Welcome")
         }
         desk.onExit = { context in
             self.showNotification(title: "Leaving Desk", body: "GoodBye, Don't forget to put your things away")
         }
+        self.zones.append(desk)
+        estimote.isMonitoring = true
+        proximityObserver.startObserving(zones)
+    }
+    
+    func dynamicMonitor(appIDString: String, apptokenString: String){
+        locationManager.showsBackgroundLocationIndicator = false
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.pausesLocationUpdatesAutomatically = false
+        let estimoteCloudCredentials = CloudCredentials(appID: appIDString, appToken: apptokenString)
 
-        proximityObserver.startObserving([bedroom,bathroom,desk])
+         self.proximityObserver = ProximityObserver(credentials: estimoteCloudCredentials, onError: { error in
+             print("ProximityObserver error: \(error)")
+         })
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.delegate = self
+        notificationCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
+            print("notifications permission granted = \(granted), error = \(error?.localizedDescription ?? "(none)")")
+        }
+        
+        proximityObserver.startObserving(zones)
+    }
+    
+    func monitor(zoneName:String,tagName: String, rangeInput :ProximityRange, onEnterTitle: String, onEnterMessage: String, onExitTitle: String, onExitMessage: String){
+        let zoneName = ProximityZone(tag: tagName, range: rangeInput)
+        zoneName.onEnter = { context in
+            self.showNotification(title: onEnterTitle, body: onEnterMessage)
+        }
+        zoneName.onExit = { context in
+            self.showNotification(title: onExitTitle, body: onExitMessage)
+        }
+        self.zones.append(zoneName)
     }
     
     func stopMonitor(){
-        proximityObserver.stopObservingZones()
+        if (estimote.isMonitoring){
+            locationManager.pausesLocationUpdatesAutomatically = true
+            locationManager.stopUpdatingLocation()
+            locationManager.allowsBackgroundLocationUpdates = false
+            self.proximityObserver.stopObservingZones()
+            self.zones.removeAll()
+            print("Stopped Observing Proximity Zones")
+            estimote.isMonitoring = false
+        }
+        else {
+            self.showNotification(title: "Error", body:"You Are Not Currently monitoring Any Zones")
+        }
     }
     
-    /*func monitor(customTag:String,tagName: String, rangeInput :ProximityRange, onEnterTitle: String, onEnterMessage: String, onExitTitle: String, onExitMessage: String){
-        let customTag = ProximityZone(tag: tagName, range: rangeInput)
-        customTag.onEnter = { context in
-            self.showNotification(title: onEnterTitle, body: onEnterMessage)
-        }
-        customTag.onExit = { context in
-            self.showNotification(title: onExitTitle, body: onExitMessage)
-        }
-        proximityObserver!.startObserving([customTag])
-    }*/
     
     func showNotification(title: String, body: String){
         let notificationCenter = UNUserNotificationCenter.current()

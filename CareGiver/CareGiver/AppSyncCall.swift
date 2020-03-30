@@ -9,7 +9,7 @@
 import AWSAppSync
 //import AWSDynamoDB
 
-class AWSAppSyncHelper{
+class AWSAppSyncCall{
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     lazy var appSyncClient = appDelegate.appSyncClient
     
@@ -149,13 +149,7 @@ class AWSAppSyncHelper{
             }
         }
     }
-    
-    func showAlert(messageString: String) {
-        let alertController = UIAlertController(title: "Alert Message", message: messageString, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
-        alertController.addAction(okAction)
-        //present(alertController, animated: true, completion: nil)
-    }
+
     
     //MARK: Delete Functions
     func deleteBeacon(idString: String){
@@ -167,13 +161,118 @@ class AWSAppSyncHelper{
                 print ("error saving the item on server: \(resultError)")
                 return
             } else{
+                /*
+                Query Table for id to check if deleted
+                //self.queryBeaconTable(id: idString)
+                 */
                 self.showAlert(messageString: "Successfully Deleted data! \n Check data in server")
                 print("Success Delete Data")
             }
         }
     }
     
-    func query(){
-        //let queryExpression = AWSDynamoDBObjectMapper
+    //MARK: Beacon Queries
+    //Queries Return all data per ID until figure out how to return and assign from closure
+    func queryBeaconTable(id : String){
+        let selectQuery = GetBeaconsAwsQuery(beaconID: id)
+        appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataElseFetch*/){(result, error) in
+            if error != nil {
+                print("Error occurred: \(error!.localizedDescription )")
+            }else if let resultError = result?.errors {
+                print("Error retrieving data from the server: \(resultError)")
+                return
+            }else {
+                print("Beacon Name: ",((result?.data?.getBeaconsAws!.beaconName)! as String))
+                print("Beacon Range: ",((result?.data?.getBeaconsAws?.beaconRange)! as String))
+                print("Beacon Tasks: ",((result?.data?.getBeaconsAws?.beaconTasks)! as String))
+                }
+        }
+    }
+    
+    //MARK: CareGiver Queries
+    func queryCareGivers(id : String){
+        let selectQuery = GetCareGiversAwsQuery(careGiverId: id)
+        appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataElseFetch*/){(result, error) in
+            if error != nil {
+                print("Error occurred: \(error!.localizedDescription )")
+            }else if let resultError = result?.errors {
+                print("Error retrieving data from the server: \(resultError)")
+                return
+            }else {
+                print("CareGiver AvatarID: ",((result?.data?.getCareGiversAws!.avatarId)! as String))
+                print("Caregiver First Name: ",((result?.data?.getCareGiversAws!.firstName)! as String))
+                print("Caregiver Last Name: ",((result?.data?.getCareGiversAws!.lastName)! as String))
+                print("Caregiver Email: ",((result?.data?.getCareGiversAws!.careGiverEmail)! as String))
+                print("Caregiver Password: ",((result?.data?.getCareGiversAws!.password)! as String))
+                print("Caregiver Beacons: ",((result?.data?.getCareGiversAws!.caregiverBeacons)! as String))
+                print("Caregiver Tasks: ",((result?.data?.getCareGiversAws!.caregiverTasks)! as String))
+                print("Caregiver Description: ",((result?.data?.getCareGiversAws!.description)! as String))
+                }
+        }
+    }
+    
+    //MARK: CareGivees Queries
+    func queryCareGivees(id : String){
+        let selectQuery = GetCareGiveesAwsQuery(careGiveeId: id)
+        appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataElseFetch*/){(result, error) in
+            if error != nil {
+                print("Error occurred: \(error!.localizedDescription )")
+            }else if let resultError = result?.errors {
+                print("Error retrieving data from the server: \(resultError)")
+                return
+            }else {
+                print("CareGivees AvatarID: ",((result?.data?.getCareGiveesAws!.avatarId)! as String))
+                print("Caregivees First Name: ",((result?.data?.getCareGiveesAws!.firstName)! as String))
+                print("Caregivees Last Name: ",((result?.data?.getCareGiveesAws!.lastName)! as String))
+                print("CareGivees Email: ",((result?.data?.getCareGiveesAws!.careGiveeEmail)! as String ))
+                print("CareGivees Password: ",((result?.data?.getCareGiveesAws!.password)! as String ))
+                print("Caregiver Events: ",((result?.data?.getCareGiveesAws!.caregiveeEvents)! as String))
+                print("Caregiver Tasks: ",((result?.data?.getCareGiveesAws!.caregiveeTasks)! as String))
+                print("Caregiver Description: ",((result?.data?.getCareGiveesAws!.description)! as String))
+            }
+        }
+    }
+    
+    //MARK: Events Queries
+    func queryEvents(id:String){
+         let selectQuery = GetEventsAwsQuery(eventId: id)
+        appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataElseFetch*/){(result, error) in
+            if error != nil {
+                print("Error occurred: \(error!.localizedDescription )")
+            }else if let resultError = result?.errors {
+                print("Error retrieving data from the server: \(resultError)")
+                return
+            }else{
+                print("Event CareGivee: ",((result?.data?.getEventsAws!.eventCaregivee)! as String))
+                print("Event CareGiveeID: ",((result?.data?.getEventsAws!.eventCaregiveeId)! as String))
+                print("Event Text: ",((result?.data?.getEventsAws!.eventText)! as String))
+                print("Event TimeStamp: ",((result?.data?.getEventsAws!.eventTimestamp)! as String))
+            }
+        }
+    }
+    
+    //MARK: Tasks Queries
+    func queryTasks(id: String){
+        let selectQuery = GetTasksAwsQuery(taskId: id)
+        appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataElseFetch*/){(result, error) in
+            if error != nil {
+                print("Error occurred: \(error!.localizedDescription )")
+            }else if let resultError = result?.errors {
+                print("Error retrieving data from the server: \(resultError)")
+                return
+            }else{
+                print("Task BeaconID: ",((result?.data?.getTasksAws!.beaconId)! as String))
+                print("Events CareGivee: ",((result?.data?.getTasksAws!.eventCaregivee)! as String))
+                print("Task Name: ",((result?.data?.getTasksAws!.taskName)! as String))
+                print("Task Description: ",((result?.data?.getTasksAws!.taskDesc)! as String))
+            }
+        }
+    }
+    
+    func showAlert(messageString: String) {
+        let alertController = UIAlertController(title: "Alert Message", message: messageString, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
+        alertController.addAction(okAction)
+        //present(alertController, animated: true, completion: nil)
     }
 }
