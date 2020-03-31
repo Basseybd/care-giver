@@ -14,12 +14,13 @@ import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
     var proximityObserver: ProximityObserver!
     var locationManager: CLLocationManager = CLLocationManager()
     var fetchResult: UIBackgroundFetchResult!
     var appSyncClient: AWSAppSyncClient?
     var zones: [ProximityZone] = []
-    let estimote = EstimoteSDKHelper()
+    let estimote = EstimoteSDKCall()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         

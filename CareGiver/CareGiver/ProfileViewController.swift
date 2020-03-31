@@ -13,9 +13,25 @@ import EstimoteProximitySDK
 
 class ProfileViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let estimote = EstimoteSDKHelper()
+    let estimote = EstimoteSDKCall()
 
-    
+    override func viewDidLoad() {
+        /*
+        let vc = ProfileViewController()
+        vc.isModalInPresentation = true
+        present(vc, animated: true)*/
+        let profileViewController = ProfileViewController()
+        profileViewController.isModalInPresentation = false
+        overrideUserInterfaceStyle = .light
+    }
+    /*
+    override func viewDidAppear(_ animated: Bool) {
+        let vc = ProfileViewController()
+        vc.isModalInPresentation = true
+        present(vc, animated: true)
+        //overrideUserInterfaceStyle = .light
+     }
+    */
     @IBAction func estimote(_ sender: Any) {
         appDelegate.startMonitor()
     }

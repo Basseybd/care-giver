@@ -18,7 +18,7 @@ enum SelectedQuery{
 
 class ViewController: UIViewController {
     let aws = AWSAppSyncCall()
-    let estimote = EstimoteSDKHelper()
+    let estimote = EstimoteSDKCall()
     @IBOutlet weak var addDataView: UIView! {
         didSet {
             addDataView.isHidden = true
