@@ -1,0 +1,3 @@
+[submodule "CareGiver/tools"]
+	path = CareGiver/tools
+	url = https://github.com/trojanfoe/xcodedevtools

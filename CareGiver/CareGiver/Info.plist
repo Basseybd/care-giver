@@ -2,16 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We&apos;ll show you cool things near you in the app.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We&apos;ll show you cool things near you in the app, and alert you via
-    notifications if you don&apos;t have the app open.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We&apos;ll show you cool things near you in the app. With the &quot;always&quot; option,
-    we can also alert you via notifications if you don&apos;t have the app open.</string>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>beacon Services</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -30,6 +20,18 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSException</key>
+	<string>value</string>
+	<key>NSInternalInconsistencyException</key>
+	<string>allow internal inconistency exception</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Requesting Permission to Access Bluetooth At all Times and Always</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Requesting Permission to Access Bluetooth At all Times and When In Use</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Requesting Permission to Notify User At all Times and Always</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Requesting Permission to Notify User When Application in Use</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -49,6 +51,15 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
+		<string>external-accessory</string>
+		<string>fetch</string>
+		<string>location</string>
+		<string>processing</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -57,16 +68,6 @@
 	<array>
 		<string>armv7</string>
 	</array>
-	<key>UIStatusBarTintParameters</key>
-	<dict>
-		<key>UINavigationBar</key>
-		<dict>
-			<key>Style</key>
-			<string>UIBarStyleDefault</string>
-			<key>Translucent</key>
-			<false/>
-		</dict>
-	</dict>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

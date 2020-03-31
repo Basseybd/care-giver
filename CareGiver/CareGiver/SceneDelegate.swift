@@ -2,8 +2,8 @@
 //  SceneDelegate.swift
 //  CareGiver
 //
-//  Created by David William Nartey on 12/2/19.
-//  Copyright © 2019 CareGiver. All rights reserved.
+//  Created by CareGiver Development Team.
+//  Copyright © 2020 CareGiver. All rights reserved.
 //
 
 import UIKit

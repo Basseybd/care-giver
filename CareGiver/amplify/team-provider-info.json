@@ -1,0 +1,15 @@
+{
+    "environ": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-caregiverv3-environ-180333-authRole",
+            "UnauthRoleArn": "arn:aws:iam::297883459455:role/amplify-caregiverv3-environ-180333-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::297883459455:role/amplify-caregiverv3-environ-180333-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-caregiverv3-environ-180333-deployment",
+            "UnauthRoleName": "amplify-caregiverv3-environ-180333-unauthRole",
+            "StackName": "amplify-caregiverv3-environ-180333",
+            "StackId": "arn:aws:cloudformation:us-east-1:297883459455:stack/amplify-caregiverv3-environ-180333/b48e1b80-6188-11ea-ae1d-1221171ce649",
+            "AmplifyAppId": "d2y6a9z9tgrojq"
+        }
+    }
+}

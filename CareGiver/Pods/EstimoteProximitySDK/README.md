@@ -19,7 +19,7 @@ Other Proximity SDK highlights include:
     - [Setting up tags](#setting-up-tags)
     - [Inside your app](#inside-your-app)
 - [(Optional) Adding attachments to your beacons](#optional-adding-attachments-to-your-beacons)
-- [Location permissions and Background support](#location-permissions-and-background-support)
+- [Location and Bluetooth permissions, Background support](#location-and-bluetooth-permissions-background-support)
 - [Additional features](#additional-features)
 - [Example apps](#example-apps)
 - [Documentation](#documentation)
@@ -116,13 +116,11 @@ let credentials = CloudCredentials(appID: "your-app-id", appToken: "your-app-tok
 Then, configure proximity discovery with `ProximityObserver`. For more info on tags, see [this section](#tag-based-identification) or [documentation](#documentation).
 ```swift
 // Create observer instance
-self.proximityObserver = EPXProximityObserver(credentials: credentials, onError: { error in
-print("Oops! \(error)")
+self.proximityObserver = ProximityObserver(credentials: credentials, onError: { error in
+    print("Oops! \(error)")
 })
-
 // Define zones
-let blueberryZone = ProximityZone(range: ProximityRange.near,
-                                    tag: "blueberry")
+let blueberryZone = ProximityZone(tag: "blueberry", range: ProximityRange.near)
 blueberryZone.onEnter = { zoneContext in
     print("Entered near range of tag 'blueberry'. Attachments payload: \(zoneContext.attachments)")
 }
@@ -137,7 +135,7 @@ blueberryZone.onContextChange = { contexts in
 // ... etc. You can define as many zones as you need.
 
 // Start proximity observation
-self.observer.startObserving([blueberryZone])
+self.proximityObserver.startObserving([blueberryZone])
 ```
 
 
@@ -161,11 +159,15 @@ To configure the attachments:
 <i>Assigning beacon attachments</i>
 </p>
 
-## Location permissions and Background support 
+## Location and Bluetooth permissions, Background support
 
 Proximity SDK requires Location Services to work in the background, which means you need to ask users to allow the app to access their location. To do that, **set up the Location Services usage description**:
 
 - Add a value for _Privacy - Location Always Usage Description_ key in your app's Info.plist file. This message will be shown to the user when the app calls `ProximityObserver.startObserving(...)`. It's ***required*** for Core Location to work.
+
+Proximity SDK uses Bluetooth, which means you need to ask users to allow the app to access bluetooth. To do that, **set up Bluetooth usage description**:
+
+- Add a value for _Privacy - Bluetooth Always Usage Description_ key in your app's Info.plist file.
 
 To allow our app to run in the background when in range of beacons, **enable the Bluetooth Background Mode**:
 
@@ -173,7 +175,7 @@ To allow our app to run in the background when in range of beacons, **enable the
 ## Additional features
 
 ### Caching data for projects with limited internet connectivity.
-Starting with version [0.13.0](https://github.com/Estimote/iOS-Proximity-SDK/releases/tag/v0.13.0), ProximityObserver can store the data necessary for triggering events locally. This allows for performing the typical proximity observation when there is no internet access later on. To enable this, you only need is to call `ProximityObserver.startObserving([zone1,...])` instance at least once when the internet connection is available - it will then fetch all the necessary data from the Estimote Cloud.
+Starting with version [0.13.0](https://github.com/Estimote/iOS-Proximity-SDK/releases/tag/v0.13.0), ProximityObserver can store the data necessary for triggering events locally. This allows for performing the typical proximity observation when there is no internet access later on. To enable this, you only need to call `ProximityObserver.startObserving([zone1,...])` instance at least once when the internet connection is available - it will then fetch all the necessary data from the Estimote Cloud.
 
 ### Scanning for Estimote Telemetry
 
