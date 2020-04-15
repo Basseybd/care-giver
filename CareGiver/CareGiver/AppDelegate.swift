@@ -14,18 +14,19 @@ import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
     var proximityObserver: ProximityObserver!
     var locationManager: CLLocationManager = CLLocationManager()
     var fetchResult: UIBackgroundFetchResult!
     var appSyncClient: AWSAppSyncClient?
     var zones: [ProximityZone] = []
-    let estimote = EstimoteSDKHelper()
+    let estimote = EstimoteSDKCall()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         locationManager.requestAlwaysAuthorization()
 
-        
         //MARK: AppSync Config
         do{
             let cacheConfiguration = try AWSAppSyncCacheConfiguration()
@@ -39,6 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }   catch{
             print("\(error)")
         }
+        
+        let vc = ProfileViewController()
+        vc.isModalInPresentation = true
         
         //MARK: Estimote Config
         // TODO : ENABLE OBSERVING FROM EXTERNAL SWIFT

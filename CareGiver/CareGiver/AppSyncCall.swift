@@ -7,9 +7,21 @@
 //
 
 import AWSAppSync
+import EstimoteProximitySDK
+//var descriptionArray:NSMutableArray = NSMutableArray()
 //import AWSDynamoDB
 
 class AWSAppSyncCall{
+    struct beaconsXD {
+        
+        var beaconName:String
+        var beaconRange:String
+        var beaconTask:String
+
+    }
+    
+    var beaconsArray:NSMutableArray = NSMutableArray()
+    var beaconsAr: [String] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     lazy var appSyncClient = appDelegate.appSyncClient
     
@@ -189,6 +201,21 @@ class AWSAppSyncCall{
         }
     }
     
+    func queryBeaconTableTest(id : String){
+        let selectQuery = GetBeaconsAwsQuery(beaconID: id)
+        appSyncClient?.fetch(query: selectQuery, cachePolicy: .fetchIgnoringCacheData){(result, error) in
+            if error != nil {
+                print("Error occurred: \(error!.localizedDescription )")
+            }else if let resultError = result?.errors {
+                print("Error retrieving data from the server: \(resultError)")
+                return
+            }else {
+                let beaconGroup1 = [(result?.data?.getBeaconsAws!.beaconName)! as String, (result?.data?.getBeaconsAws?.beaconRange)! as String,(result?.data?.getBeaconsAws?.beaconTasks)! as String]
+                self.beaconsAr.append(contentsOf: beaconGroup1)
+                self.beaconsArray.add(beaconGroup1)
+                }
+        }
+    }
     //MARK: CareGiver Queries
     func queryCareGivers(id : String){
         let selectQuery = GetCareGiversAwsQuery(careGiverId: id)
