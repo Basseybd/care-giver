@@ -19,11 +19,6 @@ enum SelectedQuery{
 class ViewController: UIViewController {
     let aws = AWSAppSyncCall()
     let estimote = EstimoteSDKCall()
-    @IBOutlet weak var addDataView: UIView! {
-        didSet {
-            addDataView.isHidden = true
-        }
-    }
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
@@ -34,23 +29,31 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var createBeacon: UIButton!
     @IBOutlet weak var choiceButton: UILabel!
+    
+    var selectedQuery: SelectedQuery!
+    var nameArray:NSMutableArray = NSMutableArray()
+    var descriptionArray:NSMutableArray = NSMutableArray()
+    var appSyncClient: AWSAppSyncClient?
+
     @IBOutlet weak var selectedTable: UITableView! {
         didSet {
             selectedTable.isHidden = true
         }
     }
-    var selectedQuery: SelectedQuery!
-    var nameArray:NSMutableArray = NSMutableArray()
-    var descriptionArray:NSMutableArray = NSMutableArray()
+    @IBOutlet weak var addDataView: UIView! {
+        didSet {
+            addDataView.isHidden = true
+        }
+    }
     
-    var appSyncClient: AWSAppSyncClient?
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appSyncClient = appDelegate.appSyncClient
-        //insertBeacons()
+        aws.queryBeaconTableTest(id : "706B185F-64EF-438B-BDCB-61EB230C5FEC")
+        aws.queryBeaconTableTest(id: "7A00FDA4-D5A5-4FD9-9C96-26A8F6597147")
     }
     
     // MARK: StoryBoard Actions
@@ -173,7 +176,26 @@ class ViewController: UIViewController {
         //aws.queryCareGivees(id: "C3A5C9A1-8BF5-4D73-896E-2F571F49B983")
         //aws.queryTasks(id: "572C014F-CFF7-49B9-B184-CDD92E50614D")
         //aws.queryEvents(id: "E00CB1F1-E0A2-4B5D-9D06-01524606C89D")
+        /*
+        //print(aws.beaconsArray.count)
+        //print(aws.beaconsArray)
+        //aws.beaconsArray.firstObject as! String
+        //let x = aws.beaconsArray.firstObject
+       // var y = x as! String
+        //let partition = y.
+        //let parts = y.components(separatedBy: ",")
+        //print(y)
+         */
         
+        //var swiftArray = aws.beaconsArray as NSArray
+        //let x = swiftArray.componentsJoined(by: " ")
+        //print(aws.beaconsAr)
+        //var x = aws.beaconsAr[0] as! String
+        //print(x)
+        var x : String
+        x = aws.beaconsAr[0]
+        print(x)
+        //print(x)
     }
     
     

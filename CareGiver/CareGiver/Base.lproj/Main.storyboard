@@ -27,7 +27,7 @@
                                 </state>
                                 <connections>
                                     <action selector="doItNow" destination="BYZ-38-t0r" eventType="touchUpInside" id="TTD-tO-Yjg"/>
-                                    <segue destination="ifc-hq-Ogc" kind="show" id="h20-rj-M8T"/>
+                                    <segue destination="ifc-hq-Ogc" kind="modal" id="ySu-BN-puI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgc-pS-RkB">
@@ -137,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dey-gg-wwA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-218.40000000000001" y="431.33433283358323"/>
+            <point key="canvasLocation" x="-90" y="420"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -403,7 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852" y="431"/>
+            <point key="canvasLocation" x="769" y="420"/>
         </scene>
     </scenes>
     <resources>

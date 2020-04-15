@@ -16,12 +16,17 @@ class ProfileViewController: UIViewController {
     let estimote = EstimoteSDKCall()
 
     override func viewDidLoad() {
+        super.viewDidLoad()
         /*
         let vc = ProfileViewController()
         vc.isModalInPresentation = true
         present(vc, animated: true)*/
-        let profileViewController = ProfileViewController()
-        profileViewController.isModalInPresentation = false
+        //let profileViewController = ProfileViewController()
+        //profileViewController.isModalInPresentation = true
+        //present(profileViewController, animated: true)
+        
+        //profileViewController.modalPresentationStyle = .fullScreen
+        //present(profileViewController, animated: true, completion: nil)
         overrideUserInterfaceStyle = .light
     }
     /*

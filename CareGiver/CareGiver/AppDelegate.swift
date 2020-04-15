@@ -21,12 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var appSyncClient: AWSAppSyncClient?
     var zones: [ProximityZone] = []
     let estimote = EstimoteSDKCall()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         locationManager.requestAlwaysAuthorization()
 
-        
         //MARK: AppSync Config
         do{
             let cacheConfiguration = try AWSAppSyncCacheConfiguration()
@@ -40,6 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }   catch{
             print("\(error)")
         }
+        
+        let vc = ProfileViewController()
+        vc.isModalInPresentation = true
         
         //MARK: Estimote Config
         // TODO : ENABLE OBSERVING FROM EXTERNAL SWIFT
