@@ -13,9 +13,30 @@ import EstimoteProximitySDK
 
 class ProfileViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let estimote = EstimoteSDKHelper()
+    let estimote = EstimoteSDKCall()
 
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        /*
+        let vc = ProfileViewController()
+        vc.isModalInPresentation = true
+        present(vc, animated: true)*/
+        //let profileViewController = ProfileViewController()
+        //profileViewController.isModalInPresentation = true
+        //present(profileViewController, animated: true)
+        
+        //profileViewController.modalPresentationStyle = .fullScreen
+        //present(profileViewController, animated: true, completion: nil)
+        overrideUserInterfaceStyle = .light
+    }
+    /*
+    override func viewDidAppear(_ animated: Bool) {
+        let vc = ProfileViewController()
+        vc.isModalInPresentation = true
+        present(vc, animated: true)
+        //overrideUserInterfaceStyle = .light
+     }
+    */
     @IBAction func estimote(_ sender: Any) {
         appDelegate.startMonitor()
     }
@@ -34,5 +55,13 @@ class ProfileViewController: UIViewController {
     func test(){
         appDelegate.dynamicMonitor(appIDString: "caregiver-2-0-cr9", apptokenString: "aabc089761b372d32f2cfffbadda68c9")
         let units: [[Int]] = [[100, 200, 300], [400, 500], [600]]
+    }
+    
+    func beaconsAlert(){
+    let alertController = UIAlertController(title: "Beacon Monitoring", message:
+        "Began Monitoring Beacons", preferredStyle: .alert)
+    alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+    self.present(alertController, animated: true, completion: nil)
     }
 }

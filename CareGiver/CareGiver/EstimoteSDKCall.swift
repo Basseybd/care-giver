@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import EstimoteProximitySDK
 
-class EstimoteSDKHelper{
+class EstimoteSDKCall{
     var isMonitoring:Bool = false
     
     struct zonesToMonitor {
