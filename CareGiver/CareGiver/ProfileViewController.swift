@@ -56,4 +56,12 @@ class ProfileViewController: UIViewController {
         appDelegate.dynamicMonitor(appIDString: "caregiver-2-0-cr9", apptokenString: "aabc089761b372d32f2cfffbadda68c9")
         let units: [[Int]] = [[100, 200, 300], [400, 500], [600]]
     }
+    
+    func beaconsAlert(){
+    let alertController = UIAlertController(title: "Beacon Monitoring", message:
+        "Began Monitoring Beacons", preferredStyle: .alert)
+    alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+    self.present(alertController, animated: true, completion: nil)
+    }
 }
