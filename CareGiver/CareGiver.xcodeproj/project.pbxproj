@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		151BBD44244F79B50040FD70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151BBD43244F79B50040FD70 /* HomeViewController.swift */; };
+		151BBD46244F87BD0040FD70 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151BBD45244F87BD0040FD70 /* UsersViewController.swift */; };
+		151BBD49244F8B070040FD70 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151BBD48244F8B070040FD70 /* NotificationsViewController.swift */; };
+		151BBD4B244F8B740040FD70 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151BBD4A244F8B740040FD70 /* ProfileViewController.swift */; };
 		1555DC522415A202004D4B44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555DC512415A202004D4B44 /* AppDelegate.swift */; };
 		1555DC542415A202004D4B44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555DC532415A202004D4B44 /* SceneDelegate.swift */; };
 		1555DC562415A202004D4B44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555DC552415A202004D4B44 /* ViewController.swift */; };
@@ -19,9 +22,9 @@
 		1555DC6B2415A7E9004D4B44 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 1555DC6A2415A7E9004D4B44 /* awsconfiguration.json */; };
 		1555DC81241864A3004D4B44 /* Pods_CareGiver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C359D44F16BC80C2A35DBD3 /* Pods_CareGiver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1555DC8C241BEE76004D4B44 /* AppSyncCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555DC8B241BEE75004D4B44 /* AppSyncCall.swift */; };
-		159A922B242C320400F82B9F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A922A242C320400F82B9F /* ProfileViewController.swift */; };
+		159A922B242C320400F82B9F /* BeaconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A922A242C320400F82B9F /* BeaconSettingsViewController.swift */; };
 		159A922D242C3F9C00F82B9F /* EstimoteSDKCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A922C242C3F9C00F82B9F /* EstimoteSDKCall.swift */; };
-		159A92302432B38300F82B9F /* XViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A922F2432B38300F82B9F /* XViewController.swift */; };
+		159A92302432B38300F82B9F /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A922F2432B38300F82B9F /* TasksViewController.swift */; };
 		159A92322432BCCF00F82B9F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A92312432BCCF00F82B9F /* LoginViewController.swift */; };
 		159A92342433B8A400F82B9F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A92332433B8A300F82B9F /* Constant.swift */; };
 		97A43D9B2E49CFC95A38DC43 /* Pods_CareGiver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA72E64163E03D68A398696 /* Pods_CareGiver.framework */; };
@@ -43,6 +46,9 @@
 
 /* Begin PBXFileReference section */
 		151BBD43244F79B50040FD70 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		151BBD45244F87BD0040FD70 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		151BBD48244F8B070040FD70 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		151BBD4A244F8B740040FD70 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1555DC4E2415A202004D4B44 /* CareGiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareGiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1555DC512415A202004D4B44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1555DC532415A202004D4B44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,9 +67,9 @@
 		1555DC7024186238004D4B44 /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1555DC7124186238004D4B44 /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1555DC8B241BEE75004D4B44 /* AppSyncCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSyncCall.swift; sourceTree = "<group>"; };
-		159A922A242C320400F82B9F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		159A922A242C320400F82B9F /* BeaconSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconSettingsViewController.swift; sourceTree = "<group>"; };
 		159A922C242C3F9C00F82B9F /* EstimoteSDKCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimoteSDKCall.swift; sourceTree = "<group>"; };
-		159A922F2432B38300F82B9F /* XViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XViewController.swift; sourceTree = "<group>"; };
+		159A922F2432B38300F82B9F /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		159A92312432BCCF00F82B9F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		159A92332433B8A300F82B9F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		41C093DBBBF59A63CCFDDC40 /* Pods-CareGiver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareGiver.debug.xcconfig"; path = "Target Support Files/Pods-CareGiver/Pods-CareGiver.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +99,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		151BBD47244F87D40040FD70 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1555DC552415A202004D4B44 /* ViewController.swift */,
+				159A922A242C320400F82B9F /* BeaconSettingsViewController.swift */,
+				159A922F2432B38300F82B9F /* TasksViewController.swift */,
+				159A92312432BCCF00F82B9F /* LoginViewController.swift */,
+				151BBD43244F79B50040FD70 /* HomeViewController.swift */,
+				151BBD45244F87BD0040FD70 /* UsersViewController.swift */,
+				151BBD48244F8B070040FD70 /* NotificationsViewController.swift */,
+				151BBD4A244F8B740040FD70 /* ProfileViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		1555DC452415A202004D4B44 = {
 			isa = PBXGroup;
 			children = (
@@ -116,22 +137,18 @@
 		1555DC502415A202004D4B44 /* CareGiver */ = {
 			isa = PBXGroup;
 			children = (
+				151BBD47244F87D40040FD70 /* ViewControllers */,
 				1555DC682415A7CA004D4B44 /* API.swift */,
 				1555DC512415A202004D4B44 /* AppDelegate.swift */,
 				1555DC532415A202004D4B44 /* SceneDelegate.swift */,
-				1555DC552415A202004D4B44 /* ViewController.swift */,
 				1555DC572415A202004D4B44 /* Main.storyboard */,
 				1555DC5D2415A204004D4B44 /* Assets.xcassets */,
 				1555DC5F2415A204004D4B44 /* LaunchScreen.storyboard */,
 				1555DC622415A204004D4B44 /* Info.plist */,
 				1555DC5A2415A202004D4B44 /* CareGiver.xcdatamodeld */,
 				1555DC8B241BEE75004D4B44 /* AppSyncCall.swift */,
-				159A922A242C320400F82B9F /* ProfileViewController.swift */,
 				159A922C242C3F9C00F82B9F /* EstimoteSDKCall.swift */,
-				159A922F2432B38300F82B9F /* XViewController.swift */,
-				159A92312432BCCF00F82B9F /* LoginViewController.swift */,
 				159A92332433B8A300F82B9F /* Constant.swift */,
-				151BBD43244F79B50040FD70 /* HomeViewController.swift */,
 			);
 			path = CareGiver;
 			sourceTree = "<group>";
@@ -276,15 +293,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				1555DC8C241BEE76004D4B44 /* AppSyncCall.swift in Sources */,
-				159A92302432B38300F82B9F /* XViewController.swift in Sources */,
+				159A92302432B38300F82B9F /* TasksViewController.swift in Sources */,
+				151BBD46244F87BD0040FD70 /* UsersViewController.swift in Sources */,
 				1555DC562415A202004D4B44 /* ViewController.swift in Sources */,
 				1555DC522415A202004D4B44 /* AppDelegate.swift in Sources */,
+				151BBD49244F8B070040FD70 /* NotificationsViewController.swift in Sources */,
 				1555DC5C2415A202004D4B44 /* CareGiver.xcdatamodeld in Sources */,
-				159A922B242C320400F82B9F /* ProfileViewController.swift in Sources */,
+				159A922B242C320400F82B9F /* BeaconSettingsViewController.swift in Sources */,
 				1555DC542415A202004D4B44 /* SceneDelegate.swift in Sources */,
 				159A922D242C3F9C00F82B9F /* EstimoteSDKCall.swift in Sources */,
 				159A92322432BCCF00F82B9F /* LoginViewController.swift in Sources */,
 				159A92342433B8A400F82B9F /* Constant.swift in Sources */,
+				151BBD4B244F8B740040FD70 /* ProfileViewController.swift in Sources */,
 				1555DC692415A7CA004D4B44 /* API.swift in Sources */,
 				151BBD44244F79B50040FD70 /* HomeViewController.swift in Sources */,
 			);

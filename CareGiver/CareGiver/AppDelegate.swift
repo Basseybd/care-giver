@@ -41,8 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("\(error)")
         }
         
-        let vc = ProfileViewController()
-        vc.isModalInPresentation = true
+        let vc  = BeaconSettingsViewController()
+        
         
         //MARK: Estimote Config
         // TODO : ENABLE OBSERVING FROM EXTERNAL SWIFT

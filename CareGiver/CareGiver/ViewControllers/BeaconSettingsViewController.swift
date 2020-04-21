@@ -11,7 +11,7 @@ import AWSAppSync
 import CoreLocation
 import EstimoteProximitySDK
 
-class ProfileViewController: UIViewController {
+class BeaconSettingsViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let estimote = EstimoteSDKCall()
 
