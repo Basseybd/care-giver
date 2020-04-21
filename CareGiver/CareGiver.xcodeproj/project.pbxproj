@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		151BBD44244F79B50040FD70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151BBD43244F79B50040FD70 /* HomeViewController.swift */; };
 		1555DC522415A202004D4B44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555DC512415A202004D4B44 /* AppDelegate.swift */; };
 		1555DC542415A202004D4B44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555DC532415A202004D4B44 /* SceneDelegate.swift */; };
 		1555DC562415A202004D4B44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555DC552415A202004D4B44 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		151BBD43244F79B50040FD70 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1555DC4E2415A202004D4B44 /* CareGiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareGiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1555DC512415A202004D4B44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1555DC532415A202004D4B44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				159A922F2432B38300F82B9F /* XViewController.swift */,
 				159A92312432BCCF00F82B9F /* LoginViewController.swift */,
 				159A92332433B8A300F82B9F /* Constant.swift */,
+				151BBD43244F79B50040FD70 /* HomeViewController.swift */,
 			);
 			path = CareGiver;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				159A92322432BCCF00F82B9F /* LoginViewController.swift in Sources */,
 				159A92342433B8A400F82B9F /* Constant.swift in Sources */,
 				1555DC692415A7CA004D4B44 /* API.swift in Sources */,
+				151BBD44244F79B50040FD70 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

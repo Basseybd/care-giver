@@ -9,5 +9,7 @@
 
 class Constant{
     static var currentUser = ""
-    static var currentUserID = ""
+    static var currentUserID = ""//"C3A5C9A1-8BF5-4D73-896E-2F571F49B983"
+    static var isCareGiver = false
+    static var isCareGivee = false
 }

@@ -296,6 +296,78 @@ class AWSAppSyncCall{
         }
     }
     
+    //MARK: List Tables
+    
+    func listBeacons(){
+        let selectQuery = ListBeaconsAwsQuery()
+        appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataAndFetch*/) {(result, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            result?.data?.listBeaconsAws?.items!.forEach {
+                
+                print(($0?.beaconId)! + " " + ($0?.beaconName)! + " " + ($0?.beaconRange)! + " " + ($0?.beaconTasks)!)
+            }
+        }
+    }
+    
+    func listEvents(){
+        let selectQuery = ListEventsAwsQuery()
+        appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataAndFetch*/) {(result, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            result?.data?.listEventsAws?.items!.forEach {
+                print(($0?.eventId)! + " " + ($0?.eventCaregiveeId)! + " " + ($0?.eventCaregivee)! + " " + ($0?.eventText)! + " " + ($0?.eventTimestamp)!)
+            }
+        }
+    }
+    
+    func listTasks(){
+        let selectQuery = ListTasksAwsQuery()
+        appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataAndFetch*/) {(result, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            result?.data?.listTasksAws?.items!.forEach {
+                print(($0?.taskId)! + " " + ($0?.beaconId)! + " " + ($0?.eventCaregivee)! + " " + ($0?.taskName)! + " " + ($0?.taskDesc)!)
+            }
+        }
+    }
+    
+    func listCareGivees(){
+        let selectQuery = ListCareGiveesAwsQuery()
+        appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataAndFetch*/) {(result, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            result?.data?.listCareGiveesAws?.items!.forEach{
+                print(($0?.snapshot)!)
+            } /*{
+                print(($0?.careGiveeId)! + " " + ($0?.avatarId)! + " " + ($0?.careGiveeEmail)! + " " + ($0?.careGiveeEvents)! + " " + ($0?.careGiveeTasks)! + " " + ($0?.description)! + " " + ($0?.firstName)! + " " ($0?.lastName)!/* + " " + ($0?.password)!*/)
+            }*/
+        }
+    }
+    
+    func listCareGivers(){
+        let selectQuery = ListCareGiversAwsQuery()
+        appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataAndFetch*/) {(result, error) in
+             if error != nil {
+                 print(error?.localizedDescription ?? "")
+                 return
+             }
+            result?.data?.listCareGiversAws?.items!.forEach {
+                print(($0?.snapshot)!)
+            }
+    }
+    }
+    
+
+    
     func showAlert(messageString: String) {
         let alertController = UIAlertController(title: "Alert Message", message: messageString, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
