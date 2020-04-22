@@ -25,9 +25,14 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="doItNow" destination="BYZ-38-t0r" eventType="touchUpInside" id="TTD-tO-Yjg"/>
-                                    <segue destination="Sij-Qm-dMX" kind="show" id="miG-0T-hxK"/>
+                                    <segue destination="Sij-Qm-dMX" kind="presentation" modalPresentationStyle="fullScreen" id="miG-0T-hxK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgc-pS-RkB">
@@ -61,6 +66,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2WJ-Cc-7B8"/>
                     </view>
+                    <navigationItem key="navigationItem" id="7db-JN-Vp3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fdG-hI-uSd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -84,6 +90,11 @@
                                 <state key="normal" title="Start Monitoring">
                                     <color key="titleColor" red="0.97208222170000003" green="1" blue="0.97467163649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="estimote:" destination="ifc-hq-Ogc" eventType="touchUpInside" id="bhX-wM-wiT"/>
                                     <action selector="insertAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xmf-Xo-cyc"/>
@@ -99,6 +110,11 @@
                                 <state key="normal" title="Stop Monitoring">
                                     <color key="titleColor" red="0.93698833049999997" green="0.95215339470000004" blue="0.91281796110000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="selectAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="cN3-a9-Hf3"/>
                                     <action selector="stopMonitoring:" destination="ifc-hq-Ogc" eventType="touchUpInside" id="gGh-PC-pak"/>
@@ -114,6 +130,11 @@
                                 <state key="normal" title="Next Page">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="doItNow" destination="BYZ-38-t0r" eventType="touchUpInside" id="hWV-y5-Q5V"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="ThM-ph-hPF"/>
@@ -173,14 +194,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TU-2O-9KA">
-                                <rect key="frame" x="164" y="562" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="testInstert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GDl-ba-sSb"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zRp-jQ-8se">
                                 <rect key="frame" x="0.0" y="20" width="375" height="120"/>
                                 <subviews>
@@ -392,6 +405,23 @@
                                     <action selector="doItNow" destination="BYZ-38-t0r" eventType="touchUpInside" id="Irx-i2-8ys"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TU-2O-9KA">
+                                <rect key="frame" x="107" y="562" width="161" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.92810994390000001" green="0.017849018800000001" blue="0.24414530400000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <state key="normal" title="Test">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="testInstert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GDl-ba-sSb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -429,7 +459,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="399" y="518"/>
+            <point key="canvasLocation" x="397.60000000000002" y="517.98029556650249"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="u7h-fJ-GWY">
@@ -560,7 +590,7 @@
             <objects>
                 <viewController id="Sij-Qm-dMX" customClass="HomeViewController" customModule="CareGiver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eOB-6K-IFt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbV-hO-vWY">
@@ -598,14 +628,6 @@
                                     <segue destination="ifc-hq-Ogc" kind="show" id="HZ0-kY-A1M"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWS-Ae-f7K">
-                                <rect key="frame" x="307" y="20" width="52" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
-                                </accessibility>
-                                <state key="normal" title="Logout" image="log-out"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxH-he-OcP">
                                 <rect key="frame" x="122" y="84" width="130" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -613,7 +635,7 @@
                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                 </accessibility>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Profile" image="icon"/>
+                                <state key="normal" title="Profile" image="greyIcon"/>
                                 <connections>
                                     <segue destination="dRk-MW-sha" kind="show" id="uno-UU-uzq"/>
                                 </connections>
@@ -683,6 +705,17 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWS-Ae-f7K">
+                                <rect key="frame" x="307" y="44" width="52" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                </accessibility>
+                                <state key="normal" title="Logout" image="log-out"/>
+                                <connections>
+                                    <segue destination="7N3-kG-oCw" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="yMX-N5-APl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ZQX-Rj-pN3"/>
@@ -790,7 +823,7 @@
     <resources>
         <image name="1024" width="1024" height="1024"/>
         <image name="Notification icon" width="200" height="200"/>
-        <image name="icon" width="980" height="980"/>
+        <image name="greyIcon" width="1067" height="1201"/>
         <image name="log-out" width="200" height="200"/>
         <image name="setting" width="200" height="200"/>
         <image name="task" width="200" height="200"/>

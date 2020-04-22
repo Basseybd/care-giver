@@ -11,9 +11,11 @@ import UIKit
 class HomeViewController: UIViewController{
     //let con = Constant()
     let aws = AWSAppSyncCall()
+    
     override func viewDidLoad(){
+        super.viewDidLoad()
         initUser()
-        overrideUserInterfaceStyle = .light
+        //overrideUserInterfaceStyle = .light
     }
     
     func initUser(){

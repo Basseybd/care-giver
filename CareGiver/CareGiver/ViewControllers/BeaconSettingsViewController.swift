@@ -17,26 +17,9 @@ class BeaconSettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        let vc = ProfileViewController()
-        vc.isModalInPresentation = true
-        present(vc, animated: true)*/
-        //let profileViewController = ProfileViewController()
-        //profileViewController.isModalInPresentation = true
-        //present(profileViewController, animated: true)
-        
-        //profileViewController.modalPresentationStyle = .fullScreen
-        //present(profileViewController, animated: true, completion: nil)
         overrideUserInterfaceStyle = .light
     }
-    /*
-    override func viewDidAppear(_ animated: Bool) {
-        let vc = ProfileViewController()
-        vc.isModalInPresentation = true
-        present(vc, animated: true)
-        //overrideUserInterfaceStyle = .light
-     }
-    */
+
     @IBAction func estimote(_ sender: Any) {
         appDelegate.startMonitor()
     }
@@ -46,10 +29,6 @@ class BeaconSettingsViewController: UIViewController {
         estimote.addBeacon()
        // var beacon1 = EstimoteSDKHelper.zonesToMonitor(zoneName: "desk", tagName: "bedroom", rangeInput: ProximityRange.near, onEnterTitle: "Entered Desk Space", onEnterMessage: "Watch your tools", onExitTitle: "Leaving Desk Space", onExitMessage: "DId you put your tools away?")
         
-        /*let units: [[Any]] = [[100, 200, 300], [400, 500, 600], [700,800,900]]
-        print(units[0][0])
-        print(units[0][1])
-        print(units[0][2])*/
     }
     
     func test(){
@@ -64,4 +43,5 @@ class BeaconSettingsViewController: UIViewController {
 
     self.present(alertController, animated: true, completion: nil)
     }
+    
 }

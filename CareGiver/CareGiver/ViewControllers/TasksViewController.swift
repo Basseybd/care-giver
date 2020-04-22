@@ -9,15 +9,10 @@
 import UIKit
 
 class TasksViewController: UIViewController {
-    /*
-    @IBOutlet weak var subView:  UIView! {
-           didSet {
-            subView.backgroundColor = .black
-            ubView.isHidden = false
-           }
-       }*/
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         overrideUserInterfaceStyle = .dark
     }
+    
 }

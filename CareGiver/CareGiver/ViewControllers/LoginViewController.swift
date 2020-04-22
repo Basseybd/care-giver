@@ -10,19 +10,9 @@ import UIKit
 
 class LoginViewController: UIViewController{
     
-    
     override func viewDidLoad() {
+        super.viewDidLoad()
         overrideUserInterfaceStyle = .light
     }
-    
-/*
-    @IBAction func presentSecondViewController(){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let secondvc = storyboard.instantiateViewController(withIdentifier: "Profile View Controller")
-        secondvc.modalPresentationStyle = .fullScreen
-        secondvc.modalTransitionStyle = .crossDissolve
-        present(secondvc, animated: true, completion: nil)
-    }
- */
 
 }

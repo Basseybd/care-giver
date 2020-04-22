@@ -24,14 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        locationManager.requestAlwaysAuthorization()
 
         //MARK: AppSync Config
         do{
             let cacheConfiguration = try AWSAppSyncCacheConfiguration()
             
-
             let appSyncServiceConfig = try AWSAppSyncServiceConfig()
             let appSyncConfig = try AWSAppSyncClientConfiguration(appSyncServiceConfig: appSyncServiceConfig,cacheConfiguration: cacheConfiguration)
             appSyncClient = try AWSAppSyncClient(appSyncConfig: appSyncConfig)
@@ -40,9 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }   catch{
             print("\(error)")
         }
-        
-        let vc  = BeaconSettingsViewController()
-        
+                
         
         //MARK: Estimote Config
         // TODO : ENABLE OBSERVING FROM EXTERNAL SWIFT
@@ -83,6 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func startMonitor(){
+        locationManager.requestAlwaysAuthorization()
         locationManager.showsBackgroundLocationIndicator = false
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
@@ -125,12 +121,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         desk.onExit = { context in
             self.showNotification(title: "Leaving Desk", body: "GoodBye, Don't forget to put your things away")
         }
+        self.zones.append(bedroom)
+        self.zones.append(bathroom)
         self.zones.append(desk)
         estimote.isMonitoring = true
         proximityObserver.startObserving(zones)
     }
     
     func dynamicMonitor(appIDString: String, apptokenString: String){
+        locationManager.requestAlwaysAuthorization()
         locationManager.showsBackgroundLocationIndicator = false
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
