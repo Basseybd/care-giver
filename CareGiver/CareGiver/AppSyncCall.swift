@@ -216,6 +216,7 @@ class AWSAppSyncCall{
                 }
         }
     }
+    
     //MARK: CareGiver Queries
     func queryCareGivers(id : String){
         let selectQuery = GetCareGiversAwsQuery(careGiverId: id)
