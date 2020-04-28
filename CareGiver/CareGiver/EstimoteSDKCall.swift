@@ -51,7 +51,134 @@ class EstimoteSDKCall{
         return zonesToMonitor.instances
     }
     
-    
+    struct Caregiver {
+        var careGiverId = ""
+        var careGiverEmail = ""
+        var firstName = ""
+        var lastName = ""
+        var password = ""
+        var avatarId = ""
+        var beacons = ""
+        var description = ""
+        var caregiverBeacons = ""
+        var caregiverTasks = ""
+      }
+    func getCaregiver(filter:String, list:[Caregiver] ) ->Caregiver{
+        var result = Caregiver();
+        for c in list{
+          //print(c.firstName )
+          if c.firstName =="Bassey"{
+            result = c;
+          }
+        }
+        return result;
+      }
+    var cgs:[Caregiver] = []
+        var cg = Caregiver();
+        cg.firstName ="Vincent";
+        cg.lastName="Werkle";
+        var cg2 = Caregiver();
+        cg2.firstName ="Bassey";
+        cg2.lastName="Duke";
+        cgs.append(cg);
+        cgs.append(cg2);
+        var test = Caregiver();
+        test=getCg(filter:"Bassey",list:cgs);
+        //print(cgs)
+        print(test);
+    struct Caregivee {
+        var careGiveeId = ""
+        var careGiveeEmail = ""
+        var firstName = ""
+        var lastName = ""
+        var password = ""
+        var avatarId = ""
+        var description = ""
+        var caregiveeTasks = ""
+        var caregiveeEvents = ""
+      }
+    heres the function that returns the caregiver based on a given first name:
+    func getCg(filter:String, list:[Caregivee] ) ->Caregivee{
+        var result = Caregivee();
+        for c in list{
+          //print(c.firstName )
+          if c.firstName =="Bassey"{
+            result = c;
+          }
+        }
+        return result;
+      }
+    var cgs:[Caregivee] = []
+        var cg = Caregivee();
+        cg.firstName ="Vincent";
+        cg.lastName="Werkle";
+        var cg2 = Caregivee();
+        cg2.firstName ="Bassey";
+        cg2.lastName="Duke";
+        cgs.append(cg);
+        cgs.append(cg2);
+        var test = Caregivee();
+        test=getCg(filter:"Bassey",list:cgs);
+        //print(cgs)
+        print(test);
+    struct Beacon {
+        var beaconId = ""
+        var beaconName = ""
+        var beaconRange = ""
+        var beaconTasks = ""
+      }
+    func getBeacons(filter:String, list:[Beacon] ) ->Beacon{
+        var result = Beacon();
+        for c in list{
+          if c.beaconName=="VincentBeacon"{
+            result = c;
+          }
+        }
+        return result;
+      }
+    var beacons:[Beacon] = []
+        var Beacon = Beacon();
+        Beacon.beaconName="VincentBeacon;
+        Beacon.beaconRange=5;
+        var Beacon2 = Beacon();
+        Beacon.beaconName="BasseyBeacon";
+        Beacon2.beaconRange=3;
+        Beacons.append(Beacon);
+        Beacons.append(Beacon2);
+        var test = Beacon();
+        test=getBeacon(filter:"BasseyBeacon",list:Beacons);
+        print(test);
+    struct Task {
+        var taskId = ""
+        var taskName = ""
+        var taskDesc = ""
+        var eventCaregivee = ""
+        var beaconId = ""
+      }
+    heres the function that returns the caregiver based on a given first name:
+    func getCg(filter:String, list:[Caregiver] ) ->Caregiver{
+        var result = Caregiver();
+        for c in list{
+          //print(c.fname)
+          if c.fname=="Bassey"{
+            result = c;
+          }
+        }
+        return result;
+      }
+    var cgs:[Caregiver] = []
+        var cg = Caregiver();
+        cg.fname="Vincent";
+        cg.lname="Werkle";
+        var cg2 = Caregiver();
+        cg2.fname="Bassey";
+        cg2.lname="Duke";
+        cgs.append(cg);
+        cgs.append(cg2);
+        var test = Caregiver();
+        test=getCg(filter:"Bassey",list:cgs);
+        //print(cgs)
+        print(test);
     
     /*var locationManager: CLLocationManager = CLLocationManager()
     var fetchResult: UIBackgroundFetchResult!
