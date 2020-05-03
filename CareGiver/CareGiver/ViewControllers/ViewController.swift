@@ -192,10 +192,12 @@ class ViewController: UIViewController {
         //print(aws.beaconsAr)
         //var x = aws.beaconsAr[0] as! String
         //print(x)
+        /*
         var x : String
         x = aws.beaconsAr[0]
-        print(x)
+        print(x)*/
         //print(x)
+        print(aws.xax!)
     }
     
     

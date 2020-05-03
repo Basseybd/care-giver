@@ -19,7 +19,7 @@ class AWSAppSyncCall{
         var beaconTask:String
 
     }
-    
+    var xax : Optional<Dictionary<String, Optional<Any>>> = nil
     var beaconsArray:NSMutableArray = NSMutableArray()
     var beaconsAr: [String] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -361,9 +361,15 @@ class AWSAppSyncCall{
                  print(error?.localizedDescription ?? "")
                  return
              }
+            let x  = result?.data?.listCareGiversAws?.snapshot
+            //let y = self.xax?.count + 1
+            self.xax?.updateValue(x, forKey: "5")
+            
+            /*
             result?.data?.listCareGiversAws?.items!.forEach {
                 print(($0?.snapshot)!)
             }
+ */
     }
     }
     

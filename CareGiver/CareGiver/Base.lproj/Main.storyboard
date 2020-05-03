@@ -46,7 +46,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1024" translatesAutoresizingMaskIntoConstraints="NO" id="vQg-IU-HIs">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconWBorders" translatesAutoresizingMaskIntoConstraints="NO" id="vQg-IU-HIs">
                                 <rect key="frame" x="68" y="112" width="239" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="cD4-oO-W7F"/>
@@ -1398,6 +1398,7 @@
         <image name="Notification icon" width="200" height="200"/>
         <image name="add" width="200" height="200"/>
         <image name="greyIcon" width="1067" height="1201"/>
+        <image name="iconWBorders" width="1024" height="1024"/>
         <image name="log-out" width="200" height="200"/>
         <image name="setting" width="200" height="200"/>
         <image name="task" width="200" height="200"/>
