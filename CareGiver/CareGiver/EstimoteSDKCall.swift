@@ -51,8 +51,6 @@ class EstimoteSDKCall{
         return zonesToMonitor.instances
     }
     
-    
-    
     /*var locationManager: CLLocationManager = CLLocationManager()
     var fetchResult: UIBackgroundFetchResult!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
