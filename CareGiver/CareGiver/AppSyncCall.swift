@@ -19,18 +19,16 @@ class AWSAppSyncCall{
         var beaconTask:String
 
     }
-    var xax : Optional<Dictionary<String, Optional<Any>>> = nil
+
     var beaconsArray:NSMutableArray = NSMutableArray()
     var beaconsAr: [String] = []
-<<<<<<< Updated upstream
-=======
     var cgs: [CareGiver] = []
     var cges: [Caregivee] = []
     var bs: [Beacon] = []
     var es: [Event] = []
     var ts: [Task] = []
->>>>>>> Stashed changes
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let estimote = EstimoteSDKCall()
     lazy var appSyncClient = appDelegate.appSyncClient
     
     // MARK: Insert Functions
@@ -308,25 +306,16 @@ class AWSAppSyncCall{
     
     //MARK: List Tables
     
-    func listBeacons(){
+    func listBeacons()->[Beacon]{
         let selectQuery = ListBeaconsAwsQuery()
-<<<<<<< Updated upstream
-=======
         self.bs = []
         var current = Beacon()
->>>>>>> Stashed changes
         appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataAndFetch*/) {(result, error) in
             if error != nil {
                 print(error?.localizedDescription ?? "")
                 return
             }
             result?.data?.listBeaconsAws?.items!.forEach {
-<<<<<<< Updated upstream
-                
-                print(($0?.beaconId)! + " " + ($0?.beaconName)! + " " + ($0?.beaconRange)! + " " + ($0?.beaconTasks)!)
-            }
-        }
-=======
                 current = Beacon()
                 current.beaconId = ($0?.beaconId)!
                 current.beaconName = ($0?.beaconName)!
@@ -337,27 +326,18 @@ class AWSAppSyncCall{
             }
         }
         return self.bs
->>>>>>> Stashed changes
     }
     
-    func listEvents(){
+    func listEvents()->[Event]{
         let selectQuery = ListEventsAwsQuery()
-<<<<<<< Updated upstream
-=======
         self.es = []
         var current = Event()
->>>>>>> Stashed changes
         appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataAndFetch*/) {(result, error) in
             if error != nil {
                 print(error?.localizedDescription ?? "")
                 return
             }
             result?.data?.listEventsAws?.items!.forEach {
-<<<<<<< Updated upstream
-                print(($0?.eventId)! + " " + ($0?.eventCaregiveeId)! + " " + ($0?.eventCaregivee)! + " " + ($0?.eventText)! + " " + ($0?.eventTimestamp)!)
-            }
-        }
-=======
                 current = Event()
                 current.eventId = ($0?.eventId)!
                 current.eventCaregivee_Id = ($0?.eventCaregiveeId)!
@@ -369,27 +349,18 @@ class AWSAppSyncCall{
             }
         }
         return self.es
->>>>>>> Stashed changes
     }
     
-    func listTasks(){
+    func listTasks()->[Task]{
         let selectQuery = ListTasksAwsQuery()
-<<<<<<< Updated upstream
-=======
         self.ts = []
         var current = Task()
->>>>>>> Stashed changes
         appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataAndFetch*/) {(result, error) in
             if error != nil {
                 print(error?.localizedDescription ?? "")
                 return
             }
             result?.data?.listTasksAws?.items!.forEach {
-<<<<<<< Updated upstream
-                print(($0?.taskId)! + " " + ($0?.beaconId)! + " " + ($0?.eventCaregivee)! + " " + ($0?.taskName)! + " " + ($0?.taskDesc)!)
-            }
-        }
-=======
                 current = Task()
                 current.taskCaregivee = ($0?.eventCaregivee)!
                 current.taskId = ($0?.taskId)!
@@ -400,26 +371,18 @@ class AWSAppSyncCall{
             }
         }
         return self.ts
->>>>>>> Stashed changes
     }
     
-    func listCareGivees(){
+    func listCareGivees()->[Caregivee]{
         let selectQuery = ListCareGiveesAwsQuery()
-<<<<<<< Updated upstream
-        appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataAndFetch*/) {(result, error) in
-=======
         self.cges = []
         var current = Caregivee()
         appSyncClient?.fetch(query: selectQuery, cachePolicy: .fetchIgnoringCacheData) {(result, error) in
->>>>>>> Stashed changes
             if error != nil {
                 print(error?.localizedDescription ?? "")
                 return
             }
             result?.data?.listCareGiveesAws?.items!.forEach{
-<<<<<<< Updated upstream
-                print(($0?.snapshot)!)
-=======
                 current = Caregivee()
                 current.careGiveeId = ($0?.careGiveeId)!
                 current.firstName = ($0?.firstName)!
@@ -430,42 +393,23 @@ class AWSAppSyncCall{
                 current.caregiveeEvents = ($0?.caregiveeEvents)!
                 self.cges.append(current)
                 //print(($0?.snapshot)!)
->>>>>>> Stashed changes
             } /*{
                 print(($0?.careGiveeId)! + " " + ($0?.avatarId)! + " " + ($0?.careGiveeEmail)! + " " + ($0?.careGiveeEvents)! + " " + ($0?.careGiveeTasks)! + " " + ($0?.description)! + " " + ($0?.firstName)! + " " ($0?.lastName)!/* + " " + ($0?.password)!*/)
             }*/
         }
-<<<<<<< Updated upstream
-=======
         return self.cges
->>>>>>> Stashed changes
     }
     
-    func listCareGivers(){
+    func listCareGivers()-> [CareGiver]{
         let selectQuery = ListCareGiversAwsQuery()
-<<<<<<< Updated upstream
-        appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataAndFetch*/) {(result, error) in
-=======
         self.cgs = []
         var current = CareGiver()
         appSyncClient?.fetch(query: selectQuery, cachePolicy: .fetchIgnoringCacheData) {(result, error) in
->>>>>>> Stashed changes
              if error != nil {
                  print(error?.localizedDescription ?? "")
                  return
              }
-            let x  = result?.data?.listCareGiversAws?.snapshot
-            //let y = self.xax?.count + 1
-            self.xax?.updateValue(x, forKey: "5")
-            
-            /*
             result?.data?.listCareGiversAws?.items!.forEach {
-<<<<<<< Updated upstream
-                print(($0?.snapshot)!)
-            }
- */
-    }
-=======
                 current = CareGiver()
                  current.careGiverId = ($0?.careGiverId)!
                  current.firstName = ($0?.firstName)!
@@ -478,7 +422,6 @@ class AWSAppSyncCall{
             }
         }
         return self.cgs
->>>>>>> Stashed changes
     }
     
 

@@ -19,6 +19,7 @@ enum SelectedQuery{
 class ViewController: UIViewController {
     let aws = AWSAppSyncCall()
     let estimote = EstimoteSDKCall()
+    let queries = Queries()
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
@@ -165,9 +166,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func testInstert(_ sender: Any) {
-<<<<<<< Updated upstream
-        let uuid = UUID().uuidString
-=======
         print(aws.ts)
         /*
         let uuid = UUID().uuidString
@@ -183,7 +181,6 @@ class ViewController: UIViewController {
         //print("x:", x)
         //aws.queryBeaconTableTest(id: uuid)
         //print(test)
->>>>>>> Stashed changes
         //aws.insertBeacons()
         //aws.insertCareGivees(emailString: "test@gmail.com", firstNameString: "First", lastNameString: "Last", passwordString: "shouldbeEncrypted", avatarIDString: "unknown", descriptionString: "test insert of CareGivee",  careGiveeEventsString: "CareGiveeEvents", careGiveeTasksString: "CareGivee Tasks")
         //aws.insertCareGiver(emailString: "test@gmail.com", firstNameString: "First", lastNameString: "Last", passwordString: "shouldbeEncrypted", avatarIDString: "unknown", descriptionString: "test insert of caregiver", caregiverBeaconsString: "beacon ids", careGiverTasksString: "some task")
@@ -214,12 +211,10 @@ class ViewController: UIViewController {
         //print(aws.beaconsAr)
         //var x = aws.beaconsAr[0] as! String
         //print(x)
-        /*
-        var x : String
-        x = aws.beaconsAr[0]
-        print(x)*/
+        //var x : String
+        //x = aws.beaconsAr[0]
         //print(x)
-        print(aws.xax!)
+        //print(x)
     }
     
     

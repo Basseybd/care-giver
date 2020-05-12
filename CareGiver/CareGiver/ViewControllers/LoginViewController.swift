@@ -9,10 +9,9 @@
 import UIKit
 
 class LoginViewController: UIViewController{
-    
+    let aws = AWSAppSyncCall()
     override func viewDidLoad() {
         super.viewDidLoad()
-        //overrideUserInterfaceStyle = .light
+        overrideUserInterfaceStyle = .light
     }
-
 }
