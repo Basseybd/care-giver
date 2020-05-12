@@ -30,6 +30,12 @@
 		15A79F392458C81200C75910 /* TaskSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A79F382458C81200C75910 /* TaskSettingsViewController.swift */; };
 		15A79F3B2458CBC700C75910 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A79F3A2458CBC700C75910 /* TasksViewController.swift */; };
 		15A79F3D245A01F900C75910 /* AddBeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A79F3C245A01F900C75910 /* AddBeaconViewController.swift */; };
+		15CDA91A246B25BF00533814 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CDA915246B25BE00533814 /* Task.swift */; };
+		15CDA91B246B25BF00533814 /* CareGiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CDA916246B25BE00533814 /* CareGiver.swift */; };
+		15CDA91C246B25BF00533814 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CDA917246B25BF00533814 /* Event.swift */; };
+		15CDA91D246B25BF00533814 /* CareGivee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CDA918246B25BF00533814 /* CareGivee.swift */; };
+		15CDA91E246B25BF00533814 /* Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CDA919246B25BF00533814 /* Queries.swift */; };
+		15CDA920246B25E900533814 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CDA91F246B25E900533814 /* Beacon.swift */; };
 		97A43D9B2E49CFC95A38DC43 /* Pods_CareGiver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA72E64163E03D68A398696 /* Pods_CareGiver.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +84,12 @@
 		15A79F382458C81200C75910 /* TaskSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSettingsViewController.swift; sourceTree = "<group>"; };
 		15A79F3A2458CBC700C75910 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		15A79F3C245A01F900C75910 /* AddBeaconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeaconViewController.swift; sourceTree = "<group>"; };
+		15CDA915246B25BE00533814 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		15CDA916246B25BE00533814 /* CareGiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CareGiver.swift; sourceTree = "<group>"; };
+		15CDA917246B25BF00533814 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		15CDA918246B25BF00533814 /* CareGivee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CareGivee.swift; sourceTree = "<group>"; };
+		15CDA919246B25BF00533814 /* Queries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queries.swift; sourceTree = "<group>"; };
+		15CDA91F246B25E900533814 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		41C093DBBBF59A63CCFDDC40 /* Pods-CareGiver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareGiver.debug.xcconfig"; path = "Target Support Files/Pods-CareGiver/Pods-CareGiver.debug.xcconfig"; sourceTree = "<group>"; };
 		8C359D44F16BC80C2A35DBD3 /* Pods_CareGiver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareGiver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DA5FA953652EE41D7C6E3D /* Pods-CareGiver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareGiver.release.xcconfig"; path = "Target Support Files/Pods-CareGiver/Pods-CareGiver.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +161,7 @@
 				151BBD47244F87D40040FD70 /* ViewControllers */,
 				1555DC682415A7CA004D4B44 /* API.swift */,
 				1555DC512415A202004D4B44 /* AppDelegate.swift */,
+				15CDA91F246B25E900533814 /* Beacon.swift */,
 				1555DC532415A202004D4B44 /* SceneDelegate.swift */,
 				1555DC572415A202004D4B44 /* Main.storyboard */,
 				1555DC5D2415A204004D4B44 /* Assets.xcassets */,
@@ -157,6 +170,11 @@
 				1555DC5A2415A202004D4B44 /* CareGiver.xcdatamodeld */,
 				1555DC8B241BEE75004D4B44 /* AppSyncCall.swift */,
 				159A922C242C3F9C00F82B9F /* EstimoteSDKCall.swift */,
+				15CDA918246B25BF00533814 /* CareGivee.swift */,
+				15CDA916246B25BE00533814 /* CareGiver.swift */,
+				15CDA917246B25BF00533814 /* Event.swift */,
+				15CDA919246B25BF00533814 /* Queries.swift */,
+				15CDA915246B25BE00533814 /* Task.swift */,
 				159A92332433B8A300F82B9F /* Constant.swift */,
 			);
 			path = CareGiver;
@@ -304,21 +322,27 @@
 				1555DC8C241BEE76004D4B44 /* AppSyncCall.swift in Sources */,
 				159A92302432B38300F82B9F /* BeaconsTasksViewController.swift in Sources */,
 				151BBD46244F87BD0040FD70 /* UsersViewController.swift in Sources */,
+				15CDA91D246B25BF00533814 /* CareGivee.swift in Sources */,
 				1555DC562415A202004D4B44 /* ViewController.swift in Sources */,
 				1555DC522415A202004D4B44 /* AppDelegate.swift in Sources */,
 				151BBD49244F8B070040FD70 /* NotificationsViewController.swift in Sources */,
 				1555DC5C2415A202004D4B44 /* CareGiver.xcdatamodeld in Sources */,
+				15CDA91A246B25BF00533814 /* Task.swift in Sources */,
 				159A922B242C320400F82B9F /* BeaconSettingsViewController.swift in Sources */,
 				15A79F3D245A01F900C75910 /* AddBeaconViewController.swift in Sources */,
+				15CDA91B246B25BF00533814 /* CareGiver.swift in Sources */,
 				1555DC542415A202004D4B44 /* SceneDelegate.swift in Sources */,
 				159A922D242C3F9C00F82B9F /* EstimoteSDKCall.swift in Sources */,
+				15CDA91E246B25BF00533814 /* Queries.swift in Sources */,
 				159A92322432BCCF00F82B9F /* LoginViewController.swift in Sources */,
 				159A92342433B8A400F82B9F /* Constant.swift in Sources */,
 				15A79F3B2458CBC700C75910 /* TasksViewController.swift in Sources */,
 				15A79F392458C81200C75910 /* TaskSettingsViewController.swift in Sources */,
 				151BBD4B244F8B740040FD70 /* ProfileViewController.swift in Sources */,
 				1555DC692415A7CA004D4B44 /* API.swift in Sources */,
+				15CDA91C246B25BF00533814 /* Event.swift in Sources */,
 				151BBD44244F79B50040FD70 /* HomeViewController.swift in Sources */,
+				15CDA920246B25E900533814 /* Beacon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
