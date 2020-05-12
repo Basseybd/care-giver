@@ -19,10 +19,16 @@ class AWSAppSyncCall{
         var beaconTask:String
 
     }
-    var xax : Optional<Dictionary<String, Optional<Any>>> = nil
+
     var beaconsArray:NSMutableArray = NSMutableArray()
     var beaconsAr: [String] = []
+    var cgs: [CareGiver] = []
+    var cges: [Caregivee] = []
+    var bs: [Beacon] = []
+    var es: [Event] = []
+    var ts: [Task] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let estimote = EstimoteSDKCall()
     lazy var appSyncClient = appDelegate.appSyncClient
     
     // MARK: Insert Functions
@@ -215,6 +221,7 @@ class AWSAppSyncCall{
                 self.beaconsArray.add(beaconGroup1)
                 }
         }
+        print(self.beaconsAr)
     }
     
     //MARK: CareGiver Queries
@@ -299,78 +306,122 @@ class AWSAppSyncCall{
     
     //MARK: List Tables
     
-    func listBeacons(){
+    func listBeacons()->[Beacon]{
         let selectQuery = ListBeaconsAwsQuery()
+        self.bs = []
+        var current = Beacon()
         appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataAndFetch*/) {(result, error) in
             if error != nil {
                 print(error?.localizedDescription ?? "")
                 return
             }
             result?.data?.listBeaconsAws?.items!.forEach {
-                
-                print(($0?.beaconId)! + " " + ($0?.beaconName)! + " " + ($0?.beaconRange)! + " " + ($0?.beaconTasks)!)
+                current = Beacon()
+                current.beaconId = ($0?.beaconId)!
+                current.beaconName = ($0?.beaconName)!
+                current.beaconRange = ($0?.beaconRange)!
+                current.beaconTasks = ($0?.beaconTasks)!
+                self.bs.append(current)
+                //print(($0?.beaconId)! + " " + ($0?.beaconName)! + " " + ($0?.beaconRange)! + " " + ($0?.beaconTasks)!)
             }
         }
+        return self.bs
     }
     
-    func listEvents(){
+    func listEvents()->[Event]{
         let selectQuery = ListEventsAwsQuery()
+        self.es = []
+        var current = Event()
         appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataAndFetch*/) {(result, error) in
             if error != nil {
                 print(error?.localizedDescription ?? "")
                 return
             }
             result?.data?.listEventsAws?.items!.forEach {
-                print(($0?.eventId)! + " " + ($0?.eventCaregiveeId)! + " " + ($0?.eventCaregivee)! + " " + ($0?.eventText)! + " " + ($0?.eventTimestamp)!)
+                current = Event()
+                current.eventId = ($0?.eventId)!
+                current.eventCaregivee_Id = ($0?.eventCaregiveeId)!
+                current.eventCaregivee = ($0?.eventCaregivee)!
+                current.eventText = ($0?.eventText)!
+                current.eventTimestamp = ($0?.eventTimestamp)!
+                self.es.append(current)
+                //print(($0?.eventId)! + " " + ($0?.eventCaregiveeId)! + " " + ($0?.eventCaregivee)! + " " + ($0?.eventText)! + " " + ($0?.eventTimestamp)!)
             }
         }
+        return self.es
     }
     
-    func listTasks(){
+    func listTasks()->[Task]{
         let selectQuery = ListTasksAwsQuery()
+        self.ts = []
+        var current = Task()
         appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataAndFetch*/) {(result, error) in
             if error != nil {
                 print(error?.localizedDescription ?? "")
                 return
             }
             result?.data?.listTasksAws?.items!.forEach {
-                print(($0?.taskId)! + " " + ($0?.beaconId)! + " " + ($0?.eventCaregivee)! + " " + ($0?.taskName)! + " " + ($0?.taskDesc)!)
+                current = Task()
+                current.taskCaregivee = ($0?.eventCaregivee)!
+                current.taskId = ($0?.taskId)!
+                current.taskName = ($0?.taskName)!
+                current.taskDesc = ($0?.taskDesc)!
+                self.ts.append(current)
+                //print(($0?.taskId)! + " " + ($0?.beaconId)!  + " " + ($0?.taskName)! + " " + ($0?.taskDesc)!)
             }
         }
+        return self.ts
     }
     
-    func listCareGivees(){
+    func listCareGivees()->[Caregivee]{
         let selectQuery = ListCareGiveesAwsQuery()
-        appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataAndFetch*/) {(result, error) in
+        self.cges = []
+        var current = Caregivee()
+        appSyncClient?.fetch(query: selectQuery, cachePolicy: .fetchIgnoringCacheData) {(result, error) in
             if error != nil {
                 print(error?.localizedDescription ?? "")
                 return
             }
             result?.data?.listCareGiveesAws?.items!.forEach{
-                print(($0?.snapshot)!)
+                current = Caregivee()
+                current.careGiveeId = ($0?.careGiveeId)!
+                current.firstName = ($0?.firstName)!
+                current.lastName = ($0?.lastName)!
+                current.avatarId = ($0?.avatarId)!
+                current.description = ($0?.description)!
+                current.caregiveeTasks = ($0?.caregiveeTasks)!
+                current.caregiveeEvents = ($0?.caregiveeEvents)!
+                self.cges.append(current)
+                //print(($0?.snapshot)!)
             } /*{
                 print(($0?.careGiveeId)! + " " + ($0?.avatarId)! + " " + ($0?.careGiveeEmail)! + " " + ($0?.careGiveeEvents)! + " " + ($0?.careGiveeTasks)! + " " + ($0?.description)! + " " + ($0?.firstName)! + " " ($0?.lastName)!/* + " " + ($0?.password)!*/)
             }*/
         }
+        return self.cges
     }
     
-    func listCareGivers(){
+    func listCareGivers()-> [CareGiver]{
         let selectQuery = ListCareGiversAwsQuery()
-        appSyncClient?.fetch(query: selectQuery/*, cachePolicy: .returnCacheDataAndFetch*/) {(result, error) in
+        self.cgs = []
+        var current = CareGiver()
+        appSyncClient?.fetch(query: selectQuery, cachePolicy: .fetchIgnoringCacheData) {(result, error) in
              if error != nil {
                  print(error?.localizedDescription ?? "")
                  return
              }
-            let x  = result?.data?.listCareGiversAws?.snapshot
-            //let y = self.xax?.count + 1
-            self.xax?.updateValue(x, forKey: "5")
-            
-            /*
             result?.data?.listCareGiversAws?.items!.forEach {
-                print(($0?.snapshot)!)
+                current = CareGiver()
+                 current.careGiverId = ($0?.careGiverId)!
+                 current.firstName = ($0?.firstName)!
+                 current.lastName = ($0?.lastName)!
+                 current.avatarId = ($0?.avatarId)!
+                 current.caregiverBeacons = ($0?.caregiverBeacons)!
+                 current.description = ($0?.description)!
+                 current.caregiverTasks = ($0?.caregiverTasks)!
+                self.cgs.append( current)
             }
- */
-    }
+        }
+        return self.cgs
     }
     
 
