@@ -27,6 +27,11 @@ class AWSAppSyncCall{
     var bs: [Beacon] = []
     var es: [Event] = []
     var ts: [Task] = []
+    var ucgs: [CareGiver] = []
+    var ucges: [Caregivee] = []
+    var ubs: [Beacon] = []
+    var ues: [Event] = []
+    var uts: [Task] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let estimote = EstimoteSDKCall()
     lazy var appSyncClient = appDelegate.appSyncClient

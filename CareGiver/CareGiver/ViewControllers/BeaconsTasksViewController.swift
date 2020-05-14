@@ -8,27 +8,28 @@
 
 import UIKit
 
-class BeaconsTasksViewController: UIViewController /*,UITableViewDelegate, UITableViewDataSource*/{
+class BeaconsTasksViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var beaconsTable: UITableView!
     //var beaconsArray
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //beaconsTable.dataSource
         //overrideUserInterfaceStyle = .dark
     }
     
-   /*
+   
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = beaconsArray[indexPath.row]
+        //cell.textLabel?.text = beaconsArray[indexPath.row]
         return cell
     }
-    */
+    
     
 }
 
