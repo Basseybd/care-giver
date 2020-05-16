@@ -7,14 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		151BBD44244F79B50040FD70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151BBD43244F79B50040FD70 /* HomeViewController.swift */; };
-		151BBD46244F87BD0040FD70 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151BBD45244F87BD0040FD70 /* UsersViewController.swift */; };
-		151BBD49244F8B070040FD70 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151BBD48244F8B070040FD70 /* NotificationsViewController.swift */; };
-		151BBD4B244F8B740040FD70 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151BBD4A244F8B740040FD70 /* ProfileViewController.swift */; };
 		1555DC522415A202004D4B44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555DC512415A202004D4B44 /* AppDelegate.swift */; };
 		1555DC542415A202004D4B44 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555DC532415A202004D4B44 /* SceneDelegate.swift */; };
-		1555DC562415A202004D4B44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555DC552415A202004D4B44 /* ViewController.swift */; };
-		1555DC592415A202004D4B44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1555DC572415A202004D4B44 /* Main.storyboard */; };
 		1555DC5C2415A202004D4B44 /* CareGiver.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1555DC5A2415A202004D4B44 /* CareGiver.xcdatamodeld */; };
 		1555DC5E2415A204004D4B44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1555DC5D2415A204004D4B44 /* Assets.xcassets */; };
 		1555DC612415A204004D4B44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1555DC5F2415A204004D4B44 /* LaunchScreen.storyboard */; };
@@ -22,20 +16,15 @@
 		1555DC6B2415A7E9004D4B44 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 1555DC6A2415A7E9004D4B44 /* awsconfiguration.json */; };
 		1555DC81241864A3004D4B44 /* Pods_CareGiver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C359D44F16BC80C2A35DBD3 /* Pods_CareGiver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1555DC8C241BEE76004D4B44 /* AppSyncCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555DC8B241BEE75004D4B44 /* AppSyncCall.swift */; };
-		159A922B242C320400F82B9F /* BeaconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A922A242C320400F82B9F /* BeaconSettingsViewController.swift */; };
 		159A922D242C3F9C00F82B9F /* EstimoteSDKCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A922C242C3F9C00F82B9F /* EstimoteSDKCall.swift */; };
-		159A92302432B38300F82B9F /* BeaconsTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A922F2432B38300F82B9F /* BeaconsTasksViewController.swift */; };
-		159A92322432BCCF00F82B9F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A92312432BCCF00F82B9F /* LoginViewController.swift */; };
 		159A92342433B8A400F82B9F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A92332433B8A300F82B9F /* Constant.swift */; };
-		15A79F392458C81200C75910 /* TaskSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A79F382458C81200C75910 /* TaskSettingsViewController.swift */; };
-		15A79F3B2458CBC700C75910 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A79F3A2458CBC700C75910 /* TasksViewController.swift */; };
-		15A79F3D245A01F900C75910 /* AddBeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A79F3C245A01F900C75910 /* AddBeaconViewController.swift */; };
 		15CDA91A246B25BF00533814 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CDA915246B25BE00533814 /* Task.swift */; };
 		15CDA91B246B25BF00533814 /* CareGiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CDA916246B25BE00533814 /* CareGiver.swift */; };
 		15CDA91C246B25BF00533814 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CDA917246B25BF00533814 /* Event.swift */; };
 		15CDA91D246B25BF00533814 /* CareGivee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CDA918246B25BF00533814 /* CareGivee.swift */; };
 		15CDA91E246B25BF00533814 /* Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CDA919246B25BF00533814 /* Queries.swift */; };
 		15CDA920246B25E900533814 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CDA91F246B25E900533814 /* Beacon.swift */; };
+		305124E9246F5A1500E829D4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305124E8246F5A1500E829D4 /* SignInViewController.swift */; };
 		97A43D9B2E49CFC95A38DC43 /* Pods_CareGiver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA72E64163E03D68A398696 /* Pods_CareGiver.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,15 +43,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		151BBD43244F79B50040FD70 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		151BBD45244F87BD0040FD70 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
-		151BBD48244F8B070040FD70 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
-		151BBD4A244F8B740040FD70 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1555DC4E2415A202004D4B44 /* CareGiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareGiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1555DC512415A202004D4B44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1555DC532415A202004D4B44 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1555DC552415A202004D4B44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1555DC582415A202004D4B44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1555DC5B2415A202004D4B44 /* CareGiver.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CareGiver.xcdatamodel; sourceTree = "<group>"; };
 		1555DC5D2415A204004D4B44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1555DC602415A204004D4B44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,20 +59,15 @@
 		1555DC7024186238004D4B44 /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1555DC7124186238004D4B44 /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1555DC8B241BEE75004D4B44 /* AppSyncCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSyncCall.swift; sourceTree = "<group>"; };
-		159A922A242C320400F82B9F /* BeaconSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconSettingsViewController.swift; sourceTree = "<group>"; };
 		159A922C242C3F9C00F82B9F /* EstimoteSDKCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimoteSDKCall.swift; sourceTree = "<group>"; };
-		159A922F2432B38300F82B9F /* BeaconsTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconsTasksViewController.swift; sourceTree = "<group>"; };
-		159A92312432BCCF00F82B9F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		159A92332433B8A300F82B9F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		15A79F382458C81200C75910 /* TaskSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSettingsViewController.swift; sourceTree = "<group>"; };
-		15A79F3A2458CBC700C75910 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
-		15A79F3C245A01F900C75910 /* AddBeaconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeaconViewController.swift; sourceTree = "<group>"; };
 		15CDA915246B25BE00533814 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		15CDA916246B25BE00533814 /* CareGiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CareGiver.swift; sourceTree = "<group>"; };
 		15CDA917246B25BF00533814 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		15CDA918246B25BF00533814 /* CareGivee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CareGivee.swift; sourceTree = "<group>"; };
 		15CDA919246B25BF00533814 /* Queries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queries.swift; sourceTree = "<group>"; };
 		15CDA91F246B25E900533814 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
+		305124E8246F5A1500E829D4 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		41C093DBBBF59A63CCFDDC40 /* Pods-CareGiver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareGiver.debug.xcconfig"; path = "Target Support Files/Pods-CareGiver/Pods-CareGiver.debug.xcconfig"; sourceTree = "<group>"; };
 		8C359D44F16BC80C2A35DBD3 /* Pods_CareGiver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareGiver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DA5FA953652EE41D7C6E3D /* Pods-CareGiver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareGiver.release.xcconfig"; path = "Target Support Files/Pods-CareGiver/Pods-CareGiver.release.xcconfig"; sourceTree = "<group>"; };
@@ -120,17 +98,7 @@
 		151BBD47244F87D40040FD70 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				1555DC552415A202004D4B44 /* ViewController.swift */,
-				159A922A242C320400F82B9F /* BeaconSettingsViewController.swift */,
-				159A922F2432B38300F82B9F /* BeaconsTasksViewController.swift */,
-				159A92312432BCCF00F82B9F /* LoginViewController.swift */,
-				151BBD43244F79B50040FD70 /* HomeViewController.swift */,
-				151BBD45244F87BD0040FD70 /* UsersViewController.swift */,
-				151BBD48244F8B070040FD70 /* NotificationsViewController.swift */,
-				151BBD4A244F8B740040FD70 /* ProfileViewController.swift */,
-				15A79F382458C81200C75910 /* TaskSettingsViewController.swift */,
-				15A79F3A2458CBC700C75910 /* TasksViewController.swift */,
-				15A79F3C245A01F900C75910 /* AddBeaconViewController.swift */,
+				305124E8246F5A1500E829D4 /* SignInViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -163,7 +131,6 @@
 				1555DC512415A202004D4B44 /* AppDelegate.swift */,
 				15CDA91F246B25E900533814 /* Beacon.swift */,
 				1555DC532415A202004D4B44 /* SceneDelegate.swift */,
-				1555DC572415A202004D4B44 /* Main.storyboard */,
 				1555DC5D2415A204004D4B44 /* Assets.xcassets */,
 				1555DC5F2415A204004D4B44 /* LaunchScreen.storyboard */,
 				1555DC622415A204004D4B44 /* Info.plist */,
@@ -266,7 +233,6 @@
 				1555DC6B2415A7E9004D4B44 /* awsconfiguration.json in Resources */,
 				1555DC612415A204004D4B44 /* LaunchScreen.storyboard in Resources */,
 				1555DC5E2415A204004D4B44 /* Assets.xcassets in Resources */,
-				1555DC592415A202004D4B44 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,28 +286,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				1555DC8C241BEE76004D4B44 /* AppSyncCall.swift in Sources */,
-				159A92302432B38300F82B9F /* BeaconsTasksViewController.swift in Sources */,
-				151BBD46244F87BD0040FD70 /* UsersViewController.swift in Sources */,
 				15CDA91D246B25BF00533814 /* CareGivee.swift in Sources */,
-				1555DC562415A202004D4B44 /* ViewController.swift in Sources */,
 				1555DC522415A202004D4B44 /* AppDelegate.swift in Sources */,
-				151BBD49244F8B070040FD70 /* NotificationsViewController.swift in Sources */,
 				1555DC5C2415A202004D4B44 /* CareGiver.xcdatamodeld in Sources */,
 				15CDA91A246B25BF00533814 /* Task.swift in Sources */,
-				159A922B242C320400F82B9F /* BeaconSettingsViewController.swift in Sources */,
-				15A79F3D245A01F900C75910 /* AddBeaconViewController.swift in Sources */,
 				15CDA91B246B25BF00533814 /* CareGiver.swift in Sources */,
 				1555DC542415A202004D4B44 /* SceneDelegate.swift in Sources */,
 				159A922D242C3F9C00F82B9F /* EstimoteSDKCall.swift in Sources */,
 				15CDA91E246B25BF00533814 /* Queries.swift in Sources */,
-				159A92322432BCCF00F82B9F /* LoginViewController.swift in Sources */,
 				159A92342433B8A400F82B9F /* Constant.swift in Sources */,
-				15A79F3B2458CBC700C75910 /* TasksViewController.swift in Sources */,
-				15A79F392458C81200C75910 /* TaskSettingsViewController.swift in Sources */,
-				151BBD4B244F8B740040FD70 /* ProfileViewController.swift in Sources */,
 				1555DC692415A7CA004D4B44 /* API.swift in Sources */,
+				305124E9246F5A1500E829D4 /* SignInViewController.swift in Sources */,
 				15CDA91C246B25BF00533814 /* Event.swift in Sources */,
-				151BBD44244F79B50040FD70 /* HomeViewController.swift in Sources */,
 				15CDA920246B25E900533814 /* Beacon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,14 +305,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1555DC572415A202004D4B44 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1555DC582415A202004D4B44 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1555DC5F2415A204004D4B44 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

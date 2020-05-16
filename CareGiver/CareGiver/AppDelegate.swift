@@ -14,21 +14,21 @@ import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+
     var proximityObserver: ProximityObserver!
     var locationManager: CLLocationManager = CLLocationManager()
     var fetchResult: UIBackgroundFetchResult!
     var appSyncClient: AWSAppSyncClient?
     var zones: [ProximityZone] = []
     let estimote = EstimoteSDKCall()
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
         //MARK: AppSync Config
         do{
             let cacheConfiguration = try AWSAppSyncCacheConfiguration()
-            
+
             let appSyncServiceConfig = try AWSAppSyncServiceConfig()
             let appSyncConfig = try AWSAppSyncClientConfiguration(appSyncServiceConfig: appSyncServiceConfig,cacheConfiguration: cacheConfiguration)
             appSyncClient = try AWSAppSyncClient(appSyncConfig: appSyncConfig)
@@ -37,8 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }   catch{
             print("\(error)")
         }
-                
-        
+
+
         //MARK: Estimote Config
         // TODO : ENABLE OBSERVING FROM EXTERNAL SWIFT
         /*
@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          self.proximityObserver = ProximityObserver(credentials: estimoteCloudCredentials, onError: { error in
              print("ProximityObserver error: \(error)")
          })
-        
+
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.delegate = self
         notificationCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         bathroom.onExit = { context in
             self.showNotification(title: "Leaving Bathroom", body: "Flush the Toilet")
         }
-        
+
         let desk = ProximityZone(tag: "bedroom", range: ProximityRange.near)
         desk.onEnter = { context in
             self.showNotification(title: "Hello, You've Entered the Desk Space", body: "Welcome")
@@ -75,8 +75,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
-    
-    
+
+
     func startMonitor(){
         locationManager.requestAlwaysAuthorization()
         locationManager.showsBackgroundLocationIndicator = false
@@ -84,19 +84,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locationManager.startUpdatingLocation()
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.pausesLocationUpdatesAutomatically = false
-        
+
         let estimoteCloudCredentials = CloudCredentials(appID: "caregiver-2-0-cr9", appToken: "aabc089761b372d32f2cfffbadda68c9")
 
          self.proximityObserver = ProximityObserver(credentials: estimoteCloudCredentials, onError: { error in
              print("ProximityObserver error: \(error)")
          })
-        
+
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.delegate = self
         notificationCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
             print("notifications permission granted = \(granted), error = \(error?.localizedDescription ?? "(none)")")
         }
-        
+
         let bedroom = ProximityZone(tag: "bedroom", range: ProximityRange.far)
         bedroom.onEnter = { context in
             self.showNotification(title: "Hello, You've Entered the Bedroom", body: "Welcome")
@@ -127,7 +127,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         estimote.isMonitoring = true
         proximityObserver.startObserving(zones)
     }
-    
+
     func dynamicMonitor(appIDString: String, apptokenString: String){
         locationManager.requestAlwaysAuthorization()
         locationManager.showsBackgroundLocationIndicator = false
@@ -145,10 +145,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notificationCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
             print("notifications permission granted = \(granted), error = \(error?.localizedDescription ?? "(none)")")
         }
-        
+
         proximityObserver.startObserving(zones)
     }
-    
+
     func monitor(zoneName:String,tagName: String, rangeInput :ProximityRange, onEnterTitle: String, onEnterMessage: String, onExitTitle: String, onExitMessage: String){
         let zoneName = ProximityZone(tag: tagName, range: rangeInput)
         zoneName.onEnter = { context in
@@ -159,7 +159,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         self.zones.append(zoneName)
     }
-    
+
     func stopMonitor(){
         if (estimote.isMonitoring){
             locationManager.pausesLocationUpdatesAutomatically = true
@@ -174,15 +174,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.showNotification(title: "Error", body:"You Are Not Currently monitoring Any Zones")
         }
     }
-    
-    
+
+
     func showNotification(title: String, body: String){
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.delegate = self
         notificationCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
             print("notifications permission granted = \(granted), error = \(error?.localizedDescription ?? "(none)")")
         }
-        
+
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
@@ -221,7 +221,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
+
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
