@@ -12,6 +12,7 @@ class SignInViewController: UIViewController {
     
     let logInButton = UIButton()
     let signUpButton = UIButton()
+    let footer =  "footerId"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +30,31 @@ class SignInViewController: UIViewController {
         signUpButton.setTitleColor(.black, for: .normal)
         signUpButton.setTitle("Sign Up", for: .normal)
         
+        
+        
+        
+        logInButton.addTarget(self, action: #selector(logInButtonTapped), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        
         view.addSubview(logInButton)
         view.addSubview(signUpButton)
         setButtonConstraints()
     }
+    
+    //TODO Change the target of the log in button to the LogIn View Controller
+    @objc func logInButtonTapped(){
+        let logInView = HomeViewController()
+        logInView.title = "Home"
+        navigationController?.pushViewController(logInView, animated: true)
+    }
+    
+    //TODO Change the target of the sign up button to the SignUp View Controller
+    @objc func signUpButtonTapped(){
+        let createAccountView = HomeViewController()
+        createAccountView.title = "Home"
+        navigationController?.pushViewController(createAccountView, animated: true)
+    }
+    
     
     func setButtonConstraints(){
         

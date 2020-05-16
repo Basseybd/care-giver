@@ -25,6 +25,18 @@
 		15CDA91E246B25BF00533814 /* Queries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CDA919246B25BF00533814 /* Queries.swift */; };
 		15CDA920246B25E900533814 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CDA91F246B25E900533814 /* Beacon.swift */; };
 		305124E9246F5A1500E829D4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305124E8246F5A1500E829D4 /* SignInViewController.swift */; };
+		305124ED246F86EF00E829D4 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305124EC246F86EF00E829D4 /* LogInViewController.swift */; };
+		305124EF246F870800E829D4 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305124EE246F870800E829D4 /* CreateAccountViewController.swift */; };
+		305124F1246F872500E829D4 /* BeaconsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305124F0246F872500E829D4 /* BeaconsSettingsViewController.swift */; };
+		305124F3246F874100E829D4 /* CareGiveeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305124F2246F874100E829D4 /* CareGiveeViewController.swift */; };
+		305124F5246F875900E829D4 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305124F4246F875900E829D4 /* NotificationsViewController.swift */; };
+		305124F7246F876700E829D4 /* BeaconTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305124F6246F876700E829D4 /* BeaconTasksViewController.swift */; };
+		305124F9246F877400E829D4 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305124F8246F877400E829D4 /* UsersListViewController.swift */; };
+		305124FB246F878500E829D4 /* TasksSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305124FA246F878500E829D4 /* TasksSettingsViewController.swift */; };
+		305124FD246F879800E829D4 /* IndividualUserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305124FC246F879800E829D4 /* IndividualUserSettingsViewController.swift */; };
+		305124FF246F89DA00E829D4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305124FE246F89DA00E829D4 /* HomeViewController.swift */; };
+		30512504246F8BC800E829D4 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30512503246F8BC800E829D4 /* Button.swift */; };
+		30512506246F8CE500E829D4 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30512505246F8CE500E829D4 /* TextField.swift */; };
 		97A43D9B2E49CFC95A38DC43 /* Pods_CareGiver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA72E64163E03D68A398696 /* Pods_CareGiver.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +80,18 @@
 		15CDA919246B25BF00533814 /* Queries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queries.swift; sourceTree = "<group>"; };
 		15CDA91F246B25E900533814 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		305124E8246F5A1500E829D4 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		305124EC246F86EF00E829D4 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		305124EE246F870800E829D4 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		305124F0246F872500E829D4 /* BeaconsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconsSettingsViewController.swift; sourceTree = "<group>"; };
+		305124F2246F874100E829D4 /* CareGiveeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareGiveeViewController.swift; sourceTree = "<group>"; };
+		305124F4246F875900E829D4 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		305124F6246F876700E829D4 /* BeaconTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconTasksViewController.swift; sourceTree = "<group>"; };
+		305124F8246F877400E829D4 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
+		305124FA246F878500E829D4 /* TasksSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksSettingsViewController.swift; sourceTree = "<group>"; };
+		305124FC246F879800E829D4 /* IndividualUserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualUserSettingsViewController.swift; sourceTree = "<group>"; };
+		305124FE246F89DA00E829D4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		30512503246F8BC800E829D4 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		30512505246F8CE500E829D4 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		41C093DBBBF59A63CCFDDC40 /* Pods-CareGiver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareGiver.debug.xcconfig"; path = "Target Support Files/Pods-CareGiver/Pods-CareGiver.debug.xcconfig"; sourceTree = "<group>"; };
 		8C359D44F16BC80C2A35DBD3 /* Pods_CareGiver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareGiver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DA5FA953652EE41D7C6E3D /* Pods-CareGiver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareGiver.release.xcconfig"; path = "Target Support Files/Pods-CareGiver/Pods-CareGiver.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +123,16 @@
 			isa = PBXGroup;
 			children = (
 				305124E8246F5A1500E829D4 /* SignInViewController.swift */,
+				305124EC246F86EF00E829D4 /* LogInViewController.swift */,
+				305124EE246F870800E829D4 /* CreateAccountViewController.swift */,
+				305124FE246F89DA00E829D4 /* HomeViewController.swift */,
+				305124F0246F872500E829D4 /* BeaconsSettingsViewController.swift */,
+				305124F2246F874100E829D4 /* CareGiveeViewController.swift */,
+				305124F4246F875900E829D4 /* NotificationsViewController.swift */,
+				305124F6246F876700E829D4 /* BeaconTasksViewController.swift */,
+				305124F8246F877400E829D4 /* UsersListViewController.swift */,
+				305124FA246F878500E829D4 /* TasksSettingsViewController.swift */,
+				305124FC246F879800E829D4 /* IndividualUserSettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -126,6 +160,7 @@
 		1555DC502415A202004D4B44 /* CareGiver */ = {
 			isa = PBXGroup;
 			children = (
+				30512500246F8B2500E829D4 /* CustomViews */,
 				151BBD47244F87D40040FD70 /* ViewControllers */,
 				1555DC682415A7CA004D4B44 /* API.swift */,
 				1555DC512415A202004D4B44 /* AppDelegate.swift */,
@@ -153,6 +188,15 @@
 				8C359D44F16BC80C2A35DBD3 /* Pods_CareGiver.framework */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		30512500246F8B2500E829D4 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				30512503246F8BC800E829D4 /* Button.swift */,
+				30512505246F8CE500E829D4 /* TextField.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		4BDE3AFC5544EB4B26E1E6DE /* Frameworks */ = {
@@ -285,17 +329,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				305124FB246F878500E829D4 /* TasksSettingsViewController.swift in Sources */,
+				305124F5246F875900E829D4 /* NotificationsViewController.swift in Sources */,
 				1555DC8C241BEE76004D4B44 /* AppSyncCall.swift in Sources */,
 				15CDA91D246B25BF00533814 /* CareGivee.swift in Sources */,
+				305124F1246F872500E829D4 /* BeaconsSettingsViewController.swift in Sources */,
+				30512506246F8CE500E829D4 /* TextField.swift in Sources */,
 				1555DC522415A202004D4B44 /* AppDelegate.swift in Sources */,
 				1555DC5C2415A202004D4B44 /* CareGiver.xcdatamodeld in Sources */,
+				305124EF246F870800E829D4 /* CreateAccountViewController.swift in Sources */,
+				305124F3246F874100E829D4 /* CareGiveeViewController.swift in Sources */,
 				15CDA91A246B25BF00533814 /* Task.swift in Sources */,
 				15CDA91B246B25BF00533814 /* CareGiver.swift in Sources */,
+				305124FF246F89DA00E829D4 /* HomeViewController.swift in Sources */,
 				1555DC542415A202004D4B44 /* SceneDelegate.swift in Sources */,
+				305124F7246F876700E829D4 /* BeaconTasksViewController.swift in Sources */,
 				159A922D242C3F9C00F82B9F /* EstimoteSDKCall.swift in Sources */,
+				30512504246F8BC800E829D4 /* Button.swift in Sources */,
 				15CDA91E246B25BF00533814 /* Queries.swift in Sources */,
 				159A92342433B8A400F82B9F /* Constant.swift in Sources */,
+				305124FD246F879800E829D4 /* IndividualUserSettingsViewController.swift in Sources */,
 				1555DC692415A7CA004D4B44 /* API.swift in Sources */,
+				305124ED246F86EF00E829D4 /* LogInViewController.swift in Sources */,
+				305124F9246F877400E829D4 /* UsersListViewController.swift in Sources */,
 				305124E9246F5A1500E829D4 /* SignInViewController.swift in Sources */,
 				15CDA91C246B25BF00533814 /* Event.swift in Sources */,
 				15CDA920246B25E900533814 /* Beacon.swift in Sources */,
