@@ -1,0 +1,49 @@
+type FinalBeaconsAWS 
+@model
+@auth(rules: [ {allow: private, provider: userPools, operations: [ read ] } ]) 
+{
+	beaconID: ID!
+	beaconName: String!
+	beaconRange: String
+	beaconTasks: String
+}
+
+type FinalCareGiversAWS{
+        careGiverId: ID!
+        careGiverEmail: String
+        firstName: String
+        lastName: String
+        password: String
+        avatarId: String
+        description: String
+        caregiverBeacons: String
+        caregiverTasks: String
+}
+
+type FinalCareGiveesAWS {
+        careGiveeId: ID!
+        careGiveeEmail: String
+        firstName: String
+        lastName: String
+        password: String
+        avatarId: String
+        description: String
+        caregiveeTasks: String
+        caregiveeEvents: String
+}
+
+type FinalTasksAWS {
+        taskId: ID!
+        taskName: String
+        taskDesc: String
+        eventCaregivee: String
+        beaconId: String
+}
+
+type FinalEventsAWS {
+        eventId: ID!
+        eventText: String
+        eventCaregivee_id: String
+        eventCaregivee: String
+        eventTimestamp: String
+}

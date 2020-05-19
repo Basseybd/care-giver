@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "finalCareGiverv5",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcaregiverdeb7aeb8",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

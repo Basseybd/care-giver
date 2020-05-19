@@ -1,0 +1,166 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateFinalBeaconsAws(
+  $input: CreateFinalBeaconsAWSInput!
+  $condition: ModelFinalBeaconsAWSConditionInput
+) {
+  createFinalBeaconsAWS(input: $input, condition: $condition) {
+    beaconID
+    beaconName
+    beaconRange
+    beaconTasks
+  }
+}
+mutation UpdateFinalBeaconsAws(
+  $input: UpdateFinalBeaconsAWSInput!
+  $condition: ModelFinalBeaconsAWSConditionInput
+) {
+  updateFinalBeaconsAWS(input: $input, condition: $condition) {
+    beaconID
+    beaconName
+    beaconRange
+    beaconTasks
+  }
+}
+mutation DeleteFinalBeaconsAws(
+  $input: DeleteFinalBeaconsAWSInput!
+  $condition: ModelFinalBeaconsAWSConditionInput
+) {
+  deleteFinalBeaconsAWS(input: $input, condition: $condition) {
+    beaconID
+    beaconName
+    beaconRange
+    beaconTasks
+  }
+}
+mutation CreateFinalCareGiveesAws($input: CreateFinalCareGiveesAWSInput!) {
+  createFinalCareGiveesAWS(input: $input) {
+    careGiveeId
+    careGiveeEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiveeTasks
+    caregiveeEvents
+  }
+}
+mutation UpdateFinalCareGiveesAws($input: UpdateFinalCareGiveesAWSInput!) {
+  updateFinalCareGiveesAWS(input: $input) {
+    careGiveeId
+    careGiveeEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiveeTasks
+    caregiveeEvents
+  }
+}
+mutation DeleteFinalCareGiveesAws($input: DeleteFinalCareGiveesAWSInput!) {
+  deleteFinalCareGiveesAWS(input: $input) {
+    careGiveeId
+    careGiveeEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiveeTasks
+    caregiveeEvents
+  }
+}
+mutation CreateFinalEventsAws($input: CreateFinalEventsAWSInput!) {
+  createFinalEventsAWS(input: $input) {
+    eventId
+    eventText
+    eventCaregivee_id
+    eventCaregivee
+    eventTimestamp
+  }
+}
+mutation UpdateFinalEventsAws($input: UpdateFinalEventsAWSInput!) {
+  updateFinalEventsAWS(input: $input) {
+    eventId
+    eventText
+    eventCaregivee_id
+    eventCaregivee
+    eventTimestamp
+  }
+}
+mutation DeleteFinalEventsAws($input: DeleteFinalEventsAWSInput!) {
+  deleteFinalEventsAWS(input: $input) {
+    eventId
+    eventText
+    eventCaregivee_id
+    eventCaregivee
+    eventTimestamp
+  }
+}
+mutation CreateFinalTasksAws($input: CreateFinalTasksAWSInput!) {
+  createFinalTasksAWS(input: $input) {
+    taskId
+    taskName
+    taskDesc
+    eventCaregivee
+    beaconId
+  }
+}
+mutation UpdateFinalTasksAws($input: UpdateFinalTasksAWSInput!) {
+  updateFinalTasksAWS(input: $input) {
+    taskId
+    taskName
+    taskDesc
+    eventCaregivee
+    beaconId
+  }
+}
+mutation DeleteFinalTasksAws($input: DeleteFinalTasksAWSInput!) {
+  deleteFinalTasksAWS(input: $input) {
+    taskId
+    taskName
+    taskDesc
+    eventCaregivee
+    beaconId
+  }
+}
+mutation CreateFinalCareGiversAws($input: CreateFinalCareGiversAWSInput!) {
+  createFinalCareGiversAWS(input: $input) {
+    careGiverId
+    careGiverEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiverBeacons
+    caregiverTasks
+  }
+}
+mutation UpdateFinalCareGiversAws($input: UpdateFinalCareGiversAWSInput!) {
+  updateFinalCareGiversAWS(input: $input) {
+    careGiverId
+    careGiverEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiverBeacons
+    caregiverTasks
+  }
+}
+mutation DeleteFinalCareGiversAws($input: DeleteFinalCareGiversAWSInput!) {
+  deleteFinalCareGiversAWS(input: $input) {
+    careGiverId
+    careGiverEmail
+    firstName
+    lastName
+    password
+    avatarId
+    description
+    caregiverBeacons
+    caregiverTasks
+  }
+}
