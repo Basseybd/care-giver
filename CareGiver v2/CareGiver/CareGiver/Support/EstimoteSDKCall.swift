@@ -38,10 +38,10 @@ class EstimoteSDKCall{
     }
     
     func addBeacon(){
-        var beacon = zonesToMonitor(zoneName: "desk", tagName: "bedroom", rangeInput: ProximityRange.near, onEnterTitle: "Entered Desk Space", onEnterMessage: "Watch your tools", onExitTitle: "Leaving Desk Space", onExitMessage: "DId you put your tools away?")
-        var beacon2 = zonesToMonitor(zoneName: "desk", tagName: "bedroom", rangeInput: ProximityRange.near, onEnterTitle: "Entered Desk Space", onEnterMessage: "Watch your tools", onExitTitle: "Leaving Desk Space", onExitMessage: "DId you put your tools away?")
-        var exNames = [zonesToMonitor]()
-        exNames.append(beacon)
+        //var beacon = zonesToMonitor(zoneName: "desk", tagName: "bedroom", rangeInput: ProximityRange.near, onEnterTitle: "Entered Desk Space", onEnterMessage: "Watch your tools", onExitTitle: "Leaving Desk Space", onExitMessage: "DId you put your tools away?")
+        //var beacon2 = zonesToMonitor(zoneName: "desk", tagName: "bedroom", rangeInput: ProximityRange.near, onEnterTitle: "Entered Desk Space", onEnterMessage: "Watch your tools", onExitTitle: "Leaving Desk Space", onExitMessage: "DId you put your tools away?")
+        //var exNames = [zonesToMonitor]()
+        //exNames.append(beacon)
         //print(exNames.endIndex)
         //print(zonesToMonitor.instances)
         //print(EstimoteSDKHelper.zonesToMonitor.self)

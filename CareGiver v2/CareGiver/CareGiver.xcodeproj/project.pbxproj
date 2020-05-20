@@ -18,7 +18,7 @@
 		15B7163F246F3F3500DC12A4 /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B71626246F3F3500DC12A4 /* Landmark.swift */; };
 		15B71640246F3F3500DC12A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15B71628246F3F3500DC12A4 /* Preview Assets.xcassets */; };
 		15B71641246F3F3500DC12A4 /* LandmarkDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B71629246F3F3500DC12A4 /* LandmarkDetail.swift */; };
-		15B71642246F3F3500DC12A4 /* LandmarkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7162A246F3F3500DC12A4 /* LandmarkList.swift */; };
+		15B71642246F3F3500DC12A4 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B7162A246F3F3500DC12A4 /* HomeScreen.swift */; };
 		15B71643246F3F3500DC12A4 /* charleyrivers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15B7162C246F3F3500DC12A4 /* charleyrivers.jpg */; };
 		15B71644246F3F3500DC12A4 /* turtlerock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15B7162D246F3F3500DC12A4 /* turtlerock.jpg */; };
 		15B71645246F3F3500DC12A4 /* silversalmoncreek.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 15B7162E246F3F3500DC12A4 /* silversalmoncreek.jpg */; };
@@ -70,7 +70,7 @@
 		15B71626246F3F3500DC12A4 /* Landmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 		15B71628246F3F3500DC12A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		15B71629246F3F3500DC12A4 /* LandmarkDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandmarkDetail.swift; sourceTree = "<group>"; };
-		15B7162A246F3F3500DC12A4 /* LandmarkList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandmarkList.swift; sourceTree = "<group>"; };
+		15B7162A246F3F3500DC12A4 /* HomeScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		15B7162C246F3F3500DC12A4 /* charleyrivers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = charleyrivers.jpg; sourceTree = "<group>"; };
 		15B7162D246F3F3500DC12A4 /* turtlerock.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = turtlerock.jpg; sourceTree = "<group>"; };
 		15B7162E246F3F3500DC12A4 /* silversalmoncreek.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = silversalmoncreek.jpg; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 				15B71655246F427800DC12A4 /* LoginViewController.swift */,
 				15B71656246F427800DC12A4 /* UserBadge.swift */,
 				15B71629246F3F3500DC12A4 /* LandmarkDetail.swift */,
-				15B7162A246F3F3500DC12A4 /* LandmarkList.swift */,
+				15B7162A246F3F3500DC12A4 /* HomeScreen.swift */,
 				15B71623246F3F3500DC12A4 /* Models */,
 				15B71627246F3F3500DC12A4 /* Preview Content */,
 				15B7162B246F3F3500DC12A4 /* Resources */,
@@ -386,7 +386,7 @@
 				15B71610246F3ED300DC12A4 /* AppDelegate.swift in Sources */,
 				15B71672247316A000DC12A4 /* Task.swift in Sources */,
 				15B71612246F3ED300DC12A4 /* SceneDelegate.swift in Sources */,
-				15B71642246F3F3500DC12A4 /* LandmarkList.swift in Sources */,
+				15B71642246F3F3500DC12A4 /* HomeScreen.swift in Sources */,
 				15B7165C246F427900DC12A4 /* LandingView.swift in Sources */,
 				15B71675247323CC00DC12A4 /* EstimoteSDKCall.swift in Sources */,
 				15B7163E246F3F3500DC12A4 /* UserData.swift in Sources */,
