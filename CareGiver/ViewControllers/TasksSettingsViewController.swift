@@ -10,70 +10,52 @@ import UIKit
 
 class TasksSettingsViewController: UIViewController {
 
-        let logInButton = UIButton()
-        let signUpButton = UIButton()
-        let footer =  "footerId"
+    let taskLabel = UILabel()
+    let taskAddButton = UIButton()
+    //TODO add table view
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setup()
         
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            setupButtons()
-            setupImageAndTest()
-            
-            view.backgroundColor = .white
-            // Do any additional setup after loading the view.
-        }
+        view.backgroundColor = .white
+        // Do any additional setup after loading the view.
+    }
+    
+    func setup(){
         
-        func setupImageAndTest(){
-            
-        }
+        taskLabel.backgroundColor = .white
+        taskLabel.textColor = .black
+        taskLabel.text = "Tasks"
+        taskLabel.font = UIFont(name: "HelveticaNeue",size: 40.0)
+        view.addSubview(taskLabel)
         
-        func setupButtons(){
-            logInButton.backgroundColor = .red
-            logInButton.setTitleColor(.black, for: .normal)
-            logInButton.setTitle("Log In", for: .normal)
-            
-            signUpButton.backgroundColor = .red
-            signUpButton.setTitleColor(.black, for: .normal)
-            signUpButton.setTitle("Sign Up", for: .normal)
-            
-            logInButton.addTarget(self, action: #selector(logInButtonTapped), for: .touchUpInside)
-            signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
-            
-            view.addSubview(logInButton)
-            view.addSubview(signUpButton)
-            setButtonConstraints()
-        }
+        taskAddButton.backgroundColor = UIColor(red: 228/255, green: 31/255, blue: 77/255, alpha: 1)
+        taskAddButton.setTitleColor(.black, for: .normal)
+        taskAddButton.setTitle("Add", for: .normal)
+        taskAddButton.titleLabel?.font = UIFont(name: "HelveticaNeue",size: 20)
+        view.addSubview(taskAddButton)
+        taskAddButton.addTarget(self, action: #selector(taskAddButtonTapped), for: .touchUpInside)
         
-        //TODO Change the target of the log in button to the LogIn View Controller
-        @objc func logInButtonTapped(){
-            let logInView = HomeViewController()
-            logInView.title = "Home"
-            navigationController?.pushViewController(logInView, animated: true)
-        }
+        setConstraints()
+    }
+    
+    @objc func taskAddButtonTapped(){
+         let AddTaskView = AddTaskViewController()
+         AddTaskView.title = "Add Task"
+         navigationController?.pushViewController(AddTaskView, animated: true)
+     }
+    
+    func setConstraints(){
+        taskLabel.translatesAutoresizingMaskIntoConstraints = false
+        taskLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 75).isActive = true
         
-        //TODO Change the target of the sign up button to the SignUp View Controller
-        @objc func signUpButtonTapped(){
-            let createAccountView = HomeViewController()
-            createAccountView.title = "Home"
-            navigationController?.pushViewController(createAccountView, animated: true)
-        }
-        
-        
-        func setButtonConstraints(){
-            
-            logInButton.translatesAutoresizingMaskIntoConstraints = false
-            logInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-            logInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-            logInButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-            logInButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            logInButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -80).isActive = true
-            
-            signUpButton.translatesAutoresizingMaskIntoConstraints = false
-            signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-            signUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-            signUpButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-            signUpButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-            signUpButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -20).isActive = true
-        }
+        taskAddButton.translatesAutoresizingMaskIntoConstraints = false
+        taskAddButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 75).isActive = true
+        taskAddButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        taskAddButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        taskAddButton.topAnchor.constraint(equalTo: taskLabel.bottomAnchor, constant: 20).isActive = true
         
     }
+    
+}

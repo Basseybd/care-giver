@@ -29,7 +29,7 @@ class HomeViewController: UIViewController {
         setupButtons()
         setupLabels()
         
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(red: 228/255, green: 31/255, blue: 77/255, alpha: 1)
         // Do any additional setup after loading the view.
     }
     
@@ -62,31 +62,31 @@ class HomeViewController: UIViewController {
     }
     
     func setupLabels(){
-        profilelabel.backgroundColor = .white
+        profilelabel.backgroundColor = UIColor(red: 228/255, green: 31/255, blue: 77/255, alpha: 1)
         profilelabel.textColor = .black
         profilelabel.text = "Profile"
         profilelabel.font = UIFont(name: "HelveticaNeue",size: 20.0)
         view.addSubview(profilelabel)
         
-        tasklabel.backgroundColor = .white
+        tasklabel.backgroundColor = UIColor(red: 228/255, green: 31/255, blue: 77/255, alpha: 1)
         tasklabel.textColor = .black
         tasklabel.text = "Tasks"
         tasklabel.font = UIFont(name: "HelveticaNeue",size: 20.0)
         view.addSubview(tasklabel)
         
-        userslabel.backgroundColor = .white
+        userslabel.backgroundColor = UIColor(red: 228/255, green: 31/255, blue: 77/255, alpha: 1)
         userslabel.textColor = .black
         userslabel.text = "Users"
         userslabel.font = UIFont(name: "HelveticaNeue",size: 20.0)
         view.addSubview(userslabel)
         
-        notificationslabel.backgroundColor = .white
+        notificationslabel.backgroundColor = UIColor(red: 228/255, green: 31/255, blue: 77/255, alpha: 1)
         notificationslabel.textColor = .black
         notificationslabel.text = "Notifications"
         notificationslabel.font = UIFont(name: "HelveticaNeue",size: 20.0)
         view.addSubview(notificationslabel)
         
-        settingslabel.backgroundColor = .white
+        settingslabel.backgroundColor = UIColor(red: 228/255, green: 31/255, blue: 77/255, alpha: 1)
         settingslabel.textColor = .black
         settingslabel.text = "Beacon Settings"
         settingslabel.font = UIFont(name: "HelveticaNeue",size: 20.0)
@@ -99,37 +99,37 @@ class HomeViewController: UIViewController {
     
     //TODO Change to the correct thing
     @objc func profileButtonTapped(){
-        let logInView = HomeViewController()
-        logInView.title = "Home"
-        navigationController?.pushViewController(logInView, animated: true)
+        let ProfileView = ProfileViewController()
+        ProfileView.title = "Profile"
+        navigationController?.pushViewController(ProfileView, animated: true)
     }
     
     //TODO Change to the correct thing
     @objc func taskButtonTapped(){
-        let createAccountView = HomeViewController()
-        createAccountView.title = "Home"
-        navigationController?.pushViewController(createAccountView, animated: true)
+        let TasksSettingsView = TasksSettingsViewController()
+        TasksSettingsView.title = "Tasks"
+        navigationController?.pushViewController(TasksSettingsView, animated: true)
     }
     
     //TODO Change to the correct thing
     @objc func usersButtonTapped(){
-        let createAccountView = HomeViewController()
-        createAccountView.title = "Home"
-        navigationController?.pushViewController(createAccountView, animated: true)
+        let UsersListView = UsersListViewController()
+        UsersListView.title = "Users"
+        navigationController?.pushViewController(UsersListView, animated: true)
     }
     
     //TODO Change to the correct thing
     @objc func notificationsButtonTapped(){
-        let createAccountView = HomeViewController()
-        createAccountView.title = "Home"
-        navigationController?.pushViewController(createAccountView, animated: true)
+        let NotificationsView = NotificationsViewController()
+        NotificationsView.title = "Notifications"
+        navigationController?.pushViewController(NotificationsView, animated: true)
     }
     
     //TODO Change to the correct thing
     @objc func settingsButtonTapped(){
-        let createAccountView = HomeViewController()
-        createAccountView.title = "Home"
-        navigationController?.pushViewController(createAccountView, animated: true)
+        let BeaconsSettingsView = BeaconsSettingsViewController()
+        BeaconsSettingsView.title = "Beacons Settings"
+        navigationController?.pushViewController(BeaconsSettingsView, animated: true)
     }
     
     func setButtonConstraints(){

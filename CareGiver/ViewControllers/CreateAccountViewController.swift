@@ -17,7 +17,6 @@ class CreateAccountViewController: UIViewController {
     let password = UITextField()
     let confirmPassword = UITextField()
     let SignUp = UIButton()
-    let footer =  "footerId"
 
       
       override func viewDidLoad() {

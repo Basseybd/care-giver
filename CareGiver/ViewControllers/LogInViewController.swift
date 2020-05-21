@@ -14,7 +14,6 @@ class LogInViewController: UIViewController {
         let forgotPassword = UIButton()
         let email = UITextField()
         let password = UITextField()
-        let footer =  "footerId"
         let imageView = UIImageView()
         let label = UILabel()
         

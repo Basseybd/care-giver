@@ -14,8 +14,7 @@ class SignInViewController: UIViewController {
     let signUpButton = UIButton()
     let imageView = UIImageView()
     let label = UILabel()
-    let footer =  "footerId"
-//    let AppIcon = #imageLiteral(resourceName: "iconTransperent")
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
