@@ -15,6 +15,7 @@ class AddBeaconsViewController: UIViewController {
     let zoneRangeTextField = UITextField()
     let zoneTaskTextField = UITextField()
     let beaconsAddAndEdit = UIButton()
+    let beaconsSettings = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class AddBeaconsViewController: UIViewController {
     func setup(){
         beaconsLabel.backgroundColor = .white
         beaconsLabel.textColor = .black
-        beaconsLabel.text = "  Task Settings"
+        beaconsLabel.text = "  Beacon"
         beaconsLabel.font = UIFont(name: "HelveticaNeue",size: 40.0)
         view.addSubview(beaconsLabel)
         
@@ -65,8 +66,14 @@ class AddBeaconsViewController: UIViewController {
         beaconsAddAndEdit.titleLabel?.font = UIFont(name: "HelveticaNeue",size: 20)
         beaconsAddAndEdit.addTarget(self, action: #selector(beaconsAddAndEditTapped), for: .touchUpInside)
         view.addSubview(beaconsAddAndEdit)
+        
+        beaconsSettings.backgroundColor = UIColor(red: 228/255, green: 31/255, blue: 77/255, alpha: 1)
+        beaconsSettings.setTitleColor(.black, for: .normal)
+        beaconsSettings.setTitle("Beacons Settings", for: .normal)
+        beaconsSettings.titleLabel?.font = UIFont(name: "HelveticaNeue",size: 20)
+        beaconsSettings.addTarget(self, action: #selector(beaconsSettingsTapped), for: .touchUpInside)
+        view.addSubview(beaconsSettings)
 
-    
         setConstraints()
     }
     
@@ -76,11 +83,24 @@ class AddBeaconsViewController: UIViewController {
           BeaconsView.title = "Beacons"
           navigationController?.pushViewController(BeaconsView, animated: true)
       }
+    
+    @objc func beaconsSettingsTapped(){
+          let BeaconsSettingsView = BeaconsSettingsViewController()
+          BeaconsSettingsView.title = "Beacons Settings"
+          navigationController?.pushViewController(BeaconsSettingsView, animated: true)
+      }
       
     
     func setConstraints(){
         beaconsLabel.translatesAutoresizingMaskIntoConstraints = false
         beaconsLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 75).isActive = true
+        
+        beaconsSettings.translatesAutoresizingMaskIntoConstraints = false
+        beaconsSettings.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        beaconsSettings.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        beaconsSettings.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        beaconsSettings.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        beaconsSettings.bottomAnchor.constraint(equalTo: zoneNameTextField.topAnchor, constant: -10).isActive = true
         
         zoneNameTextField.translatesAutoresizingMaskIntoConstraints = false
         zoneNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
@@ -109,6 +129,7 @@ class AddBeaconsViewController: UIViewController {
         beaconsAddAndEdit.heightAnchor.constraint(equalToConstant: 50).isActive = true
         beaconsAddAndEdit.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         beaconsAddAndEdit.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -40).isActive = true
+        
     }
 }
 

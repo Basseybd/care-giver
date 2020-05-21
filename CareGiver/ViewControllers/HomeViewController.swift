@@ -14,14 +14,14 @@ class HomeViewController: UIViewController {
     let taskButton = UIButton()
     let usersButton = UIButton()
     let notificationsButton = UIButton()
-    let settingsButton = UIButton()
+    let beaconsButton = UIButton()
     let logInButton = UIButton()
     
     let profilelabel = UILabel()
     let tasklabel = UILabel()
     let userslabel = UILabel()
     let notificationslabel = UILabel()
-    let settingslabel = UILabel()
+    let beaconslabel = UILabel()
 
     
     override func viewDidLoad() {
@@ -39,25 +39,25 @@ class HomeViewController: UIViewController {
         taskButton.setImage(#imageLiteral(resourceName: "task-completed"), for: .normal)
         usersButton.setImage(#imageLiteral(resourceName: "user-group-man-man"), for: .normal)
         notificationsButton.setImage(#imageLiteral(resourceName: "appointment-reminders"), for: .normal)
-        settingsButton.setImage(#imageLiteral(resourceName: "settings"), for: .normal)
+        beaconsButton.setImage(#imageLiteral(resourceName: "settings"), for: .normal)
         
         profileButton.imageView?.contentMode = .scaleAspectFit
         taskButton.imageView?.contentMode = .scaleAspectFit
         usersButton.imageView?.contentMode = .scaleAspectFit
         notificationsButton.imageView?.contentMode = .scaleAspectFit
-        settingsButton.imageView?.contentMode = .scaleAspectFit
+        beaconsButton.imageView?.contentMode = .scaleAspectFit
     
         profileButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
         taskButton.addTarget(self, action: #selector(taskButtonTapped), for: .touchUpInside)
         usersButton.addTarget(self, action: #selector(usersButtonTapped), for: .touchUpInside)
         notificationsButton.addTarget(self, action: #selector(notificationsButtonTapped), for: .touchUpInside)
-        settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
+        beaconsButton.addTarget(self, action: #selector(beaconsButtonTapped), for: .touchUpInside)
        
         view.addSubview(profileButton)
         view.addSubview(taskButton)
         view.addSubview(usersButton)
         view.addSubview(notificationsButton)
-        view.addSubview(settingsButton)
+        view.addSubview(beaconsButton)
         setButtonConstraints()
     }
     
@@ -86,11 +86,11 @@ class HomeViewController: UIViewController {
         notificationslabel.font = UIFont(name: "HelveticaNeue",size: 20.0)
         view.addSubview(notificationslabel)
         
-        settingslabel.backgroundColor = UIColor(red: 228/255, green: 31/255, blue: 77/255, alpha: 1)
-        settingslabel.textColor = .black
-        settingslabel.text = "Beacon Settings"
-        settingslabel.font = UIFont(name: "HelveticaNeue",size: 20.0)
-        view.addSubview(settingslabel)
+        beaconslabel.backgroundColor = UIColor(red: 228/255, green: 31/255, blue: 77/255, alpha: 1)
+        beaconslabel.textColor = .black
+        beaconslabel.text = "Beacon"
+        beaconslabel.font = UIFont(name: "HelveticaNeue",size: 20.0)
+        view.addSubview(beaconslabel)
         
         setLabelConstraints()
     }
@@ -126,10 +126,10 @@ class HomeViewController: UIViewController {
     }
     
     //TODO Change to the correct thing
-    @objc func settingsButtonTapped(){
-        let BeaconsSettingsView = BeaconsSettingsViewController()
-        BeaconsSettingsView.title = "Beacons Settings"
-        navigationController?.pushViewController(BeaconsSettingsView, animated: true)
+    @objc func beaconsButtonTapped(){
+        let BeaconsView = BeaconsViewController()
+        BeaconsView.title = "Beacons"
+        navigationController?.pushViewController(BeaconsView, animated: true)
     }
     
     func setButtonConstraints(){
@@ -158,11 +158,11 @@ class HomeViewController: UIViewController {
         notificationsButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
         notificationsButton.topAnchor.constraint(equalTo: usersButton.bottomAnchor, constant: 50).isActive = true
 
-        settingsButton.translatesAutoresizingMaskIntoConstraints = false
-        settingsButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 75).isActive = true
-        settingsButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        settingsButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        settingsButton.topAnchor.constraint(equalTo: usersButton.bottomAnchor, constant: 50).isActive = true
+        beaconsButton.translatesAutoresizingMaskIntoConstraints = false
+        beaconsButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 75).isActive = true
+        beaconsButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        beaconsButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        beaconsButton.topAnchor.constraint(equalTo: usersButton.bottomAnchor, constant: 50).isActive = true
 
     }
     
@@ -183,9 +183,9 @@ class HomeViewController: UIViewController {
         notificationslabel.topAnchor.constraint(equalTo: notificationsButton.bottomAnchor, constant: 10).isActive = true
         notificationslabel.centerXAnchor.constraint(equalTo: notificationsButton.centerXAnchor).isActive = true
         
-        settingslabel.translatesAutoresizingMaskIntoConstraints = false
-        settingslabel.topAnchor.constraint(equalTo: settingsButton.bottomAnchor, constant: 10).isActive = true
-        settingslabel.centerXAnchor.constraint(equalTo: settingsButton.centerXAnchor).isActive = true
+        beaconslabel.translatesAutoresizingMaskIntoConstraints = false
+        beaconslabel.topAnchor.constraint(equalTo: beaconsButton.bottomAnchor, constant: 10).isActive = true
+        beaconslabel.centerXAnchor.constraint(equalTo: beaconsButton.centerXAnchor).isActive = true
         
     }
     
